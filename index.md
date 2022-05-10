@@ -2,13 +2,18 @@
 title: Instructions hébergées en ligne
 permalink: index.html
 layout: home
+ms.openlocfilehash: b85af520a10e63a2f9a5696db03bfd946aff968f
+ms.sourcegitcommit: 1ef64e3008a439d0d0bb3d93a27d3df68d3d64a9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 03/17/2022
+ms.locfileid: "140688690"
 ---
+# <a name="azure-ai-fundamentals-exercises"></a>Exercices sur les notions fondamentales de l’IA d'Azure
 
-# Exercices de la formation Azure AI - Notions fondamentales
+Utilisez les liens ci-dessous pour faire les exercices pratiques de labo du cours Microsoft [AI-900 *Concepts de base de Microsoft Azure AI*](https://docs.microsoft.com/learn/certifications/courses/ai-900t00).
 
-Ce référentiel contient les exercices pratiques de laboratoire du cours Microsoft [AI-900 *Microsoft Azure iAI*](https://docs.microsoft.com/fr-fr/learn/certifications/courses/ai-900t00) et les modules autodidactes équivalents sur Microsoft Learn : [Premiers pas avec l’intelligence artificielle sur Azure](https://docs.microsoft.com/learn/paths/get-started-with-artificial-intelligence-on-azure/), [Créer des modèles de prédiction avec Azure Machine Learning](https://docs.microsoft.com/fr-fr/learn/paths/create-no-code-predictive-models-azure-machine-learning/),  [Découvrir la vision par ordinateur dans Microsoft Azure](https://docs.microsoft.com/learn/paths/explore-computer-vision-microsoft-azure/), [Découvrir le traitement du langage naturel](https://docs.microsoft.com/learn/paths/explore-natural-language-processing/) et [Découvrir l’IA conversationnelle](https://docs.microsoft.com/learn/paths/explore-conversational-ai/). Les exercices sont conçus pour accompagner les supports de cours d’apprentissage et vous permettre de vous exercer à utiliser les technologies qu’ils décrivent. 
-
-Pour effectuer ces exercices, vous devez disposer d’un abonnement Microsoft Azure. Si votre instructeur ne vous en a pas fourni un, vous pouvez vous inscrire pour un essai gratuit à l’adresse [https://azure.microsoft.com](https://azure.microsoft.com).
+Pour effectuer ces exercices, vous devez disposer d’un abonnement Microsoft Azure. Si votre instructeur ne vous en a pas fourni un, vous pouvez vous inscrire pour un essai gratuit sur [https://azure.microsoft.com](https://azure.microsoft.com).
 
 {% assign labs = site.pages | where_exp:"page", "page.url contains '/instructions'" %}
 | Exercices |
