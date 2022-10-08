@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 69f8fd8920fccc0aecc4fb5d5a40e506935f8340
-ms.sourcegitcommit: 276908bd75615fb4d4712b912426129587e9c307
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2022
-ms.locfileid: "140788219"
----
 # <a name="ai-900-trainer-lab-mapping"></a>Correspondance du laboratoire de formation AI-900
 
 Ce cours, AI-900 : Notions fondamentales sur l’IA, a des labos conçus pour la formation dispensée par un instructeur qui sont adaptés pour correspondre à un cours d’une journée.
