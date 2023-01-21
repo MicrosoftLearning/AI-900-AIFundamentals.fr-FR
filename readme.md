@@ -8,7 +8,7 @@ Ce dépôt contient les exercices pratiques de labo du cours Microsoft [AI-900 *
 
 - Pour assurer le support de cette formation, nous devrons effectuer des mises à jour fréquentes du contenu de la formation pour maintenir à jour les services Azure qui y sont utilisés.  Nous publions les instructions de labo sur GitHub pour permettre des contributions ouvertes entre les auteurs du cours et les MCT afin de maintenir le contenu à jour avec les modifications de la plateforme Azure.
 
-- Nous espérons que cela optimisera votre expérience de collaboration aux labos. Si vous êtes le premier à découvrir une modification apportée dans Azure lors d’une prestation en ligne, vous pourrez directement y apporter une amélioration dans la source du labo.  Aidez vos collègues MCT.
+- Nous espérons que cela vous apportera un sentiment de collaboration aux labos sans précédent. Si Azure change et que vous le découvrez le premier lors d’une livraison en direct, apportez une amélioration directement dans la source du labo.  Aidez vos collègues MCT.
 
 ## <a name="how-should-i-use-these-files-relative-to-the-released-moc-files"></a>Comment dois-je utiliser ces fichiers par rapport aux fichiers MOC publiés ?
 
