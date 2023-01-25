@@ -126,9 +126,11 @@ Pour pouvoir entraîner un modèle, vous devez généralement appliquer au préa
 
     ![Capture d’écran de la bibliothèque de ressources du concepteur, de la barre de recherche et de l’icône Composants.](media/create-classification-model/designer-asset-library-components.png)
 
-1. Recherchez le module **Normaliser les données** et placez-le sur le canevas, sous le jeu de données **diabetes-data**. Connectez ensuite la sortie en bas du jeu de données **diabetes-data** à l’entrée en haut du module **Normalize Data**, comme suit :
+1. Recherchez le module **Sélectionner les colonnes dans le jeu de données** et placez-le sur le canevas, sous le jeu de données **diabetes-data**. Connectez ensuite la sortie en bas du jeu de données **diabetes-data** à l’entrée en haut du module **Sélectionner les colonnes dans le jeu de données**.
 
-    ![Capture d’écran d’un pipeline avec le jeu de données connecté à un module Normaliser les données.](media/create-classification-model/dataset-normalize.png)
+1. Recherchez le module **Normaliser les données** et placez-le sur le canevas, sous le module **Sélectionner les colonnes dans le jeu de données**. Connectez ensuite la sortie en bas du module **Sélectionner les colonnes dans le jeu de données** à l’entrée en haut du module **Normaliser les données**, comme suit :
+
+    ![Capture d’écran d’un pipeline avec le jeu de données connecté au module Sélectionner les colonnes et Normaliser les données.](media/create-classification-model/dataset-normalize.png)
 
 1. Double-cliquez sur le module **Normalize Data** pour observer ses paramètres ; vous pouvez voir que vous devez spécifier la méthode de transformation et les colonnes à transformer. 
 
@@ -277,6 +279,7 @@ La performance de ce modèle n’est pas excellente, notamment parce que nous n�
     
     - Ajoutez un composant **Entrée du service web** pour permettre l’envoi des nouvelles données.
     - Remplacez le jeu de données **diabetes-data** par un module **Entrer des données manuellement** qui n’inclut pas la colonne d’étiquette (**Diabetic**).
+    - Modifiez les colonnes sélectionnées dans le module **Sélectionner les colonnes dans le jeu de données**.
     - Supprimez le module **Evaluate Model**.
     - Insérez un module **Execute Python Script** avant la sortie du service web pour retourner uniquement l’ID patient, la valeur d’étiquette prédite et la probabilité.
 
@@ -293,6 +296,8 @@ La performance de ce modèle n’est pas excellente, notamment parce que nous n�
 
 1. Connectez le nouveau module **Enter Data Manually** à la même entrée **Dataset** du module **Apply Transformation** que le module **Web Service Input**.
 
+1. Modifiez le module **Sélectionner les colonnes dans le jeu de données**. Supprimez **Diabetic** des *Colonnes sélectionnées*. 
+
 1. Le pipeline d’inférence comprend le module **Évaluer le modèle**, qui n’est pas utile pour la prédiction à partir de nouvelles données : supprimez donc ce module.
 
 1. La sortie du module **Score Model** comprend toutes les caractéristiques d’entrée ainsi que l’étiquette prédite et le score de probabilité. Pour limiter la sortie à la prédiction et à la probabilité uniquement :
@@ -304,7 +309,7 @@ import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
 
-    scored_results = dataframe1[['PatientID', 'Scored Labels', 'Scored Probabilities']]
+    scored_results = dataframe1[['Scored Labels', 'Scored Probabilities']]
     scored_results.rename(columns={'Scored Labels':'DiabetesPrediction',
                                 'Scored Probabilities':'Probability'},
                         inplace=True)
