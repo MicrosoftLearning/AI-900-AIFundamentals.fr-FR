@@ -10,8 +10,10 @@ Ces exercices pratiques sont conçus pour accompagner le contenu des formations 
 
 Pour effectuer ces exercices, vous devez disposer d’un abonnement Microsoft Azure. Vous pouvez vous inscrire à un essai gratuit sur [https://azure.microsoft.com](https://azure.microsoft.com).
 
-{% assign labs = site.pages | where_exp:"page", "page.url contains '/instructions'" %}
-| Exercices |
-| ------- | 
-{% for activity in labs  %}| [{{ activity.lab.title }}]({{ site.github.url }}{{ activity.url }}) |
+## <a name="labs"></a>Laboratoires
+
+{% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions'" %}
+| Module | Laboratoire |
+| --- | --- | 
+{% for activity in labs  %}| {{ activity.lab.module }} | [{{ activity.lab.title }}{% if activity.lab.type %} - {{ activity.lab.type }}{% endif %}]({{ site.github.url }}{{ activity.url }}) |
 {% endfor %}

@@ -1,6 +1,7 @@
 ---
 lab:
   title: Explorer la classification avec le concepteur Azure Machine Learning
+  module: Module 2 - Machine Learning
 ---
 
 # <a name="explore-classification-with-azure-machine-learning-designer"></a>Explorer la classification avec le concepteur Azure Machine Learning

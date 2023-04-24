@@ -1,6 +1,7 @@
 ---
 lab:
   title: Explorer Vision par ordinateur
+  module: Module 3 - Computer Vision
 ---
 
 # <a name="explore-computer-vision"></a>Explorer Vision par ordinateur
