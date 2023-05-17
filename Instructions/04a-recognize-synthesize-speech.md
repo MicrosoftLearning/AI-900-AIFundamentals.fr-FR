@@ -1,7 +1,6 @@
 ---
 lab:
   title: Explorer la reconnaissance vocale/synthèse vocale
-  module: Module 4 - Natural Language Processing (NLP)
 ---
 
 # <a name="explore-speech"></a>Explorer la reconnaissance vocale/synthèse vocale
