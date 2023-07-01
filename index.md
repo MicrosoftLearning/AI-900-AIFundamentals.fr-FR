@@ -4,7 +4,7 @@ permalink: index.html
 layout: home
 ---
 
-# <a name="azure-ai-fundamentals-exercises"></a>Exercices sur les notions fondamentales de l’IA d'Azure
+# Exercices sur les notions fondamentales de l’IA d'Azure
 
 Ces exercices pratiques sont conçus pour accompagner le contenu des formations sur [Microsoft Learn](https://docs.microsoft.com/training/).
 

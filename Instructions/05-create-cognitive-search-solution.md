@@ -3,7 +3,7 @@ lab:
   title: Découvrir l’exploration des connaissances
 ---
 
-# <a name="explore-knowledge-mining"></a>Découvrir l’exploration des connaissances
+# Découvrir l’exploration des connaissances
 
 > **Remarque** Pour suivre ce labo, vous avez besoin d’un [abonnement Azure](https://azure.microsoft.com/free?azure-portal=true) dans lequel vous disposez d’un accès administratif.
 
@@ -18,7 +18,7 @@ Dans ce labo, vous allez :
 - Interroger votre index de recherche
 - Consulter les résultats enregistrés dans une base de connaissances
 
-## <a name="azure-resources-needed"></a>Ressources Azure nécessaires
+## Ressources Azure nécessaires
 
 La solution que vous allez créer pour Fourth Coffee nécessite les ressources suivantes dans votre abonnement Azure :
 
@@ -29,7 +29,7 @@ La solution que vous allez créer pour Fourth Coffee nécessite les ressources s
 
 - Un **compte de stockage** avec des conteneurs de blobs, qui stockent des documents bruts et autres collections de tables, d’objets ou de fichiers.
 
-### <a name="create-an-azure-cognitive-search-resource"></a>Créer une ressource *Recherche cognitive Azure*
+### Créer une ressource *Recherche cognitive Azure*
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true).
 
@@ -45,7 +45,7 @@ La solution que vous allez créer pour Fourth Coffee nécessite les ressources s
 
 1. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**. Sur la page de présentation de Recherche cognitive Azure, vous pouvez ajouter des index, importer des données et rechercher les index créés.
 
-### <a name="create-a-cognitive-services-resource"></a>Créer une ressource Cognitive Services
+### Créer une ressource Cognitive Services
 
 Vous devez provisionner une ressource **Cognitive Services** qui se trouve dans le même emplacement que votre ressource Recherche cognitive Azure. Votre solution de recherche va utiliser cette ressource pour enrichir les données dans le magasin de données avec des insights générés par IA.
 
@@ -61,7 +61,7 @@ Vous devez provisionner une ressource **Cognitive Services** qui se trouve dans 
 
 1. Attendez la fin du déploiement, puis visualisez les détails du déploiement.
 
-### <a name="create-a-storage-account"></a>Créez un compte de stockage.
+### Créez un compte de stockage.
 
 1. Revenez à la page d’accueil du portail Azure, puis sélectionnez le bouton **+ Créer une ressource**.
 
@@ -75,7 +75,7 @@ Vous devez provisionner une ressource **Cognitive Services** qui se trouve dans 
 
 1. Cliquez sur **Vérifier**, puis sur **Créer**. Attendez la fin du déploiement, puis accédez à la ressource déployée.
 
-## <a name="upload-documents-to-azure-storage"></a>Charger des documents sur Stockage Azure
+## Charger des documents sur Stockage Azure
 
 1. Dans le compte Stockage Azure que vous avez créé, dans le volet du menu de gauche, sélectionnez **Conteneurs**.
 
@@ -102,7 +102,7 @@ Vous devez provisionner une ressource **Cognitive Services** qui se trouve dans 
 
 1. Une fois le chargement terminé, vous pouvez fermer le volet **Charger l’objet blob**. Vos documents se trouvent maintenant dans votre conteneur de stockage *coffee-reviews*.
 
-## <a name="index-the-documents"></a>Indexer les documents
+## Indexer les documents
 
 Une fois que vous avez les documents dans le stockage, vous pouvez utiliser Recherche cognitive Azure pour extraire des insights à partir des documents. Le portail Azure fournit un *assistant Importer des données*. Avec cet assistant, vous pouvez créer automatiquement un index et un indexeur pour les sources de données prises en charge. Vous allez utiliser l’assistant pour créer un index et importer vos documents de recherche à partir du stockage dans l’index de Recherche cognitive Azure.
 
@@ -190,7 +190,7 @@ Une fois que vous avez les documents dans le stockage, vous pouvez utiliser Rech
 
     ![Capture d’écran montrant l’indexeur coffee-indexer créé avec succès.](media/create-cognitive-search-solution/6a-search-indexer-success.png)
 
-## <a name="query-the-index"></a>Interrogation de l'index
+## Interrogation de l'index
 
 Utilisez l’Explorateur de recherche pour écrire et tester les requêtes. L’Explorateur de recherche est un outil intégré au portail Azure qui vous offre un moyen simple de valider la qualité de votre index de recherche. Vous pouvez utiliser l’Explorateur de recherche pour écrire des requêtes et passer en revue les résultats au format JSON.
 
@@ -214,7 +214,7 @@ Utilisez l’Explorateur de recherche pour écrire et tester les requêtes. L’
 
 1. Un des problèmes que nous pouvons souhaiter résoudre est pourquoi il peut y avoir certains avis. Jetons un coup d’œil aux expressions clés associées à l’avis négatif. Qu’est-ce qui selon vous pour être la cause de l’avis ?
 
-## <a name="review-the-knowledge-store"></a>Passer en revue la base de connaissances
+## Passer en revue la base de connaissances
 
 Voyons la puissance de la base de connaissances en action. Quand vous avez exécuté l’*Assistant Importation de données*, vous avez également créé une base de connaissances. À l’intérieur de la base de connaissances, vous allez trouver les données enrichies extraites par les compétences IA conservées sous forme de projections et de tables.
 
@@ -250,6 +250,6 @@ Voyons la puissance de la base de connaissances en action. Quand vous avez exéc
 
     Examinez les expressions que la base de connaissances a pu capturer à partir du contenu des avis. La plupart des champs sont des clés, ce qui vous permet de lier les tables comme une base de données relationnelle. Le dernier champ affiche les phrases clés qui ont été extraites par l’ensemble de compétences.
 
-## <a name="learn-more"></a>En savoir plus
+## En savoir plus
 
 Cet index de recherche simple n’est qu’une partie des fonctionnalités du service Recherche cognitive Azure. Pour en savoir plus sur ce que vous pouvez faire avec ce service, consultez la [page du service Recherche cognitive Azure](/azure/search/search-what-is-azure-search).

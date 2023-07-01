@@ -3,7 +3,7 @@ lab:
   title: Explorer la reconnaissance de formulaire
 ---
 
-# <a name="explore-form-recognition"></a>Explorer la reconnaissance de formulaire
+# Explorer la reconnaissance de formulaire
 
 > **Remarque** Pour suivre ce labo, vous avez besoin d’un [abonnement Azure](https://azure.microsoft.com/free?azure-portal=true) dans lequel vous disposez d’un accès administratif.
 
@@ -15,7 +15,7 @@ Il utilise des modèles Machine Learning formés pour extraire du texte d’imag
 
 Pour tester les fonctionnalités du service Form Recognizer, nous allons utiliser une simple application de ligne de commande s’exécutant dans le service Cloud Shell. Les mêmes principes et fonctionnalités s’appliquent aux solutions réelles, telles que des sites web ou applications téléphoniques.
 
-## <a name="create-a-cognitive-services-resource"></a>Créer une ressource *Cognitive Services*
+## Créer une ressource *Cognitive Services*
 
 Vous pouvez utiliser le service Form Recognizer en créant une ressource **Form Recognizer** ou **Cognitive Services** .
 
@@ -35,7 +35,7 @@ Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votr
 
 1. Affichez la page **Clés et point de terminaison** de votre ressource Cognitive Services. Vous aurez besoin du point de terminaison et des clés pour vous connecter à partir d’applications clientes.
 
-## <a name="run-cloud-shell"></a>Exécuter Cloud Shell
+## Exécuter Cloud Shell
 
 Pour tester les fonctionnalités du service Form Recognizer, nous allons utiliser une simple application de ligne de commande s’exécutant dans le service Cloud Shell sur Azure. 
 
@@ -57,7 +57,7 @@ Pour tester les fonctionnalités du service Form Recognizer, nous allons utilise
 
     ![Attendez que PowerShell démarre.](media/analyze-receipts/powershell-prompt.png) 
 
-## <a name="configure-and-run-a-client-application"></a>Configurer et exécuter une application cliente
+## Configurer et exécuter une application cliente
 
 À présent que vous disposez d’un modèle personnalisé, vous pouvez exécuter une simple application cliente utilisant le service Form Recognizer.
 
@@ -109,6 +109,6 @@ Pour tester les fonctionnalités du service Form Recognizer, nous allons utilise
 
 1. Examinez les résultats retournés. Vérifiez que le service Form Recognizer est capable d’interpréter les données figurant dans le formulaire, d’identifier correctement les adresse et numéro de téléphone du marchand, les date et heure de transaction, ainsi que les lignes, les sous-totaux, les taxes et les montants totaux.
 
-## <a name="learn-more"></a>En savoir plus
+## En savoir plus
 
 Cette application simple ne montre que quelques fonctionnalités de Form Recognizer du service Vision par ordinateur. Pour en savoir plus sur ce que ce service est capable de faire, consultez la [page Form Recognizer](https://docs.microsoft.com/azure/applied-ai-services/form-recognizer/overview).
