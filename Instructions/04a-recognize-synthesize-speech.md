@@ -3,7 +3,7 @@ lab:
   title: Explorer la reconnaissance vocale/synthèse vocale
 ---
 
-# <a name="explore-speech"></a>Explorer la reconnaissance vocale/synthèse vocale
+# Explorer la reconnaissance vocale/synthèse vocale
 
 > **Remarque** Pour suivre ce labo, vous avez besoin d’un [abonnement Azure](https://azure.microsoft.com/free?azure-portal=true) dans lequel vous disposez d’un accès administratif.
 
@@ -13,7 +13,7 @@ Supposons, par exemple, que vous souhaitiez créer un appareil intelligent qui p
 
 Pour tester les fonctionnalités du service Speech, nous allons utiliser une simple application de ligne de commande s’exécutant dans le service Cloud Shell. Les mêmes principes et fonctionnalités s’appliquent aux solutions réelles, telles que des sites web ou applications téléphoniques.
 
-## <a name="create-a-cognitive-services-resource"></a>Créer une ressource *Cognitive Services*
+## Créer une ressource *Cognitive Services*
 
 Vous pouvez utiliser le service Speech en créant une ressource **Speech** ou **Cognitive Services** .
 
@@ -31,13 +31,13 @@ Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votr
 
 1. Examinez et créez la ressource.
 
-### <a name="get-the-key-and-location-for-your-cognitive-services-resource"></a>Obtenir la clé et l’emplacement de votre ressource Cognitive Services
+### Obtenir la clé et l’emplacement de votre ressource Cognitive Services
 
 1. Attendez la fin du déploiement. Accédez ensuite à votre ressource Cognitive Services, puis, dans la page **Vue d’ensemble**, cliquez sur le lien pour gérer les clés du service. Vous aurez besoin du point de terminaison et des clés pour vous connecter à votre ressource Cognitive Services à partir d’applications clientes.
 
 1. Affichez la page **Clés et point de terminaison** de votre ressource. Vous aurez besoin de **l’emplacement ou la région** et de la **clé** pour vous connecter à partir d’applications clientes.
 
-## <a name="run-cloud-shell"></a>Exécuter Cloud Shell
+## Exécuter Cloud Shell
 
 Pour tester les fonctionnalités du service Speech, nous allons utiliser une simple application de ligne de commande s’exécutant dans le service Cloud Shell sur Azure.
 
@@ -59,7 +59,7 @@ Pour tester les fonctionnalités du service Speech, nous allons utiliser une sim
 
     ![Attendez que PowerShell démarre.](media/recognize-synthesize-speech/powershell-prompt.png)
 
-## <a name="configure-and-run-a-client-application"></a>Configurer et exécuter une application cliente
+## Configurer et exécuter une application cliente
 
 À présent que vous disposez d’un modèle personnalisé, vous pouvez exécuter une simple application cliente utilisant le service Speech.
 
@@ -117,6 +117,6 @@ Pour tester les fonctionnalités du service Speech, nous allons utiliser une sim
 
     <div class="embeddedvideo"><iframe src="https://www.microsoft.com/videoplayer/embed/RWMSIU" frameborder="0" allowfullscreen="true" data-linktype="external"></iframe></div>
 
-## <a name="learn-more"></a>En savoir plus
+## En savoir plus
 
 Cette application simple ne montre que quelques fonctionnalités du service Speech. Pour en savoir plus sur ce que ce service est capable de faire, consultez la [page Speech](https://azure.microsoft.com/services/cognitive-services/speech-services/).

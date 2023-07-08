@@ -3,7 +3,7 @@ lab:
   title: Explorer la reconnaissance faciale
 ---
 
-# <a name="explore-face-recognition"></a>Explorer la reconnaissance faciale
+# Explorer la reconnaissance faciale
 
 > **Remarque** Pour suivre ce labo, vous avez besoin d’un [abonnement Azure](https://azure.microsoft.com/free?azure-portal=true) dans lequel vous disposez d’un accès administratif.
 
@@ -11,7 +11,7 @@ Les solutions de Vision par ordinateur requièrent souvent une solution d’inte
 
 Pour tester les fonctionnalités du service Visage, nous allons utiliser une simple application de ligne de commande s’exécutant dans le service Cloud Shell. Les mêmes principes et fonctionnalités s’appliquent aux solutions réelles, telles que des sites web ou applications téléphoniques.
 
-## <a name="create-a-cognitive-services-resource"></a>Créer une ressource *Cognitive Services*
+## Créer une ressource *Cognitive Services*
 
 Vous pouvez utiliser le service Visage en créant une ressource **Visage** ou **Cognitive Services** .
 
@@ -31,7 +31,7 @@ Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votr
 
 1. Affichez la page **Clés et point de terminaison** de votre ressource Cognitive Services. Vous aurez besoin du point de terminaison et des clés pour vous connecter à partir d’applications clientes.
 
-## <a name="run-cloud-shell"></a>Exécuter Cloud Shell
+## Exécuter Cloud Shell
 
 Pour tester les fonctionnalités du service Visage, nous allons utiliser une simple application de ligne de commande s’exécutant dans le service Cloud Shell sur Azure. 
 
@@ -53,7 +53,7 @@ Pour tester les fonctionnalités du service Visage, nous allons utiliser une sim
 
     ![Attendez que PowerShell démarre.](media/create-face-solutions/powershell-prompt.png)
 
-## <a name="configure-and-run-a-client-application"></a>Configurer et exécuter une application cliente
+## Configurer et exécuter une application cliente
 
 À présent que vous disposez d’un modèle personnalisé, vous pouvez exécuter une simple application cliente utilisant le service Visage.
 
@@ -133,6 +133,6 @@ Pour tester les fonctionnalités du service Visage, nous allons utiliser une sim
 
 1. Examinez les résultats de l’analyse du visage pour la troisième image.
 
-## <a name="learn-more"></a>En savoir plus
+## En savoir plus
 
 Cette application simple ne montre que quelques fonctionnalités du service Visage. Pour en savoir plus sur ce que vous pouvez faire avec ce service, consultez la [page de l’API Visage](https://azure.microsoft.com/services/cognitive-services/face/).

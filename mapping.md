@@ -1,4 +1,4 @@
-# <a name="ai-900-trainer-lab-mapping"></a>Correspondance du laboratoire de formation AI-900
+# Correspondance du laboratoire de formation AI-900
 
 Ce cours, AI-900 : Notions fondamentales sur l’IA, a des labos conçus pour la formation dispensée par un instructeur qui sont adaptés pour correspondre à un cours d’une journée.
 
@@ -6,7 +6,7 @@ Les labos d’instructeur AI-900 constituent une partie des labos AI-900 que vo
 
 > Remarque : Les instructeurs peuvent choisir d’ajouter des labos supplémentaires de l’ensemble complet de labos AI-900 à leurs modules dans le cadre de leur enseignement.
 
-## <a name="ai-900-module-mapping-to-labs"></a>Correspondance entre les modules AI-900 et les laboratoires
+## Correspondance entre les modules AI-900 et les laboratoires
 
 Le sous-ensemble de laboratoires AI-900 utilisé dans ce cours est associé à chaque module comme suit : 
 
