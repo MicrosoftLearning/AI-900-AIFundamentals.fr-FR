@@ -3,13 +3,13 @@ lab:
   title: "Explorer le machine learning automatisé dans Azure\_ML"
 ---
 
-# <a name="explore-automated-machine-learning-in-azure-ml"></a>Explorer le machine learning automatisé dans Azure ML
+# Explorer le machine learning automatisé dans Azure ML
 
 > **Remarque** Pour suivre ce labo, vous avez besoin d’un [abonnement Azure](https://azure.microsoft.com/free?azure-portal=true) dans lequel vous disposez d’un accès administratif.
 
 Dans cet exercice, vous allez utiliser un jeu de données de détails historiques sur la location de vélos pour entraîner un modèle qui prédit le nombre de locations de vélos auquel vous pouvez vous attendre pour une journée donnée, en fonction des caractéristiques saisonnières et météorologiques.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Création d’un espace de travail Microsoft Azure Machine Learning  
+## Création d’un espace de travail Microsoft Azure Machine Learning  
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com?azure-portal=true) en utilisant vos informations d’identification Microsoft.
 
@@ -27,17 +27,15 @@ Dans cet exercice, vous allez utiliser un jeu de données de détails historique
 
 1. Sélectionnez **Lancer Studio** (ou ouvrez un nouvel onglet de navigateur, accédez à [https://ml.azure.com](https://ml.azure.com?azure-portal=true), puis connectez-vous à Azure Machine Learning Studio à l’aide de votre compte Microsoft).
 
-1. Si le message **Quels sont vos objectifs en matière de machine learning aujourd’hui ?** s’affiche, sélectionnez **Annuler**.
+1. Fermez tous les messages affichés.
 
-1. Si le message **Bienvenue dans le studio !** s’affiche, sélectionnez **X**.
-
-1. Dans Azure Machine Learning Studio, vous devez voir l’espace de travail qui vient d’être créé. Si ce n’est pas le cas, cliquez dans le menu de gauche sur **Microsoft**. Puis, dans le nouveau menu de gauche, sélectionnez **Espaces de travail**, où tous les espaces de travail associés à votre abonnement sont listés. Choisissez celui que vous avez créé pour cet exercice. 
+1. Dans Azure Machine Learning Studio, vous devez voir l’espace de travail qui vient d’être créé. Si ce n’est pas le cas, sélectionnez votre annuaire Azure dans le menu de gauche. Ensuite, dans le nouveau menu de gauche, sélectionnez **Espaces de travail**, où tous les espaces de travail associés à votre annuaire sont listés, puis sélectionnez celui que vous avez créé pour cet exercice.
 
 > **Remarque** Ce module fait partie de l’un des nombreux modules qui utilisent un espace de travail Azure Machine Learning, tout comme les autres modules du parcours d’apprentissage [Microsoft Azure AI - Notions fondamentales : Explorer les outils visuels pour le machine learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/). Si vous utilisez votre propre abonnement Azure, vous pouvez éventuellement créer l’espace de travail une seule fois et le réutiliser dans d’autres modules. Une petite quantité de stockage de données est facturée dans votre abonnement Azure tant que l’espace de travail Azure Machine Learning existe dans votre abonnement. Nous vous recommandons donc de supprimer cet espace de travail dès qu’il n’est plus nécessaire.
 
-## <a name="create-compute"></a>Créer une capacité de calcul
+## Créer une capacité de calcul
 
-1. Dans [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), sélectionnez les trois lignes en haut à gauche pour voir les différentes pages de l’interface (vous devrez peut-être agrandir la fenêtre affichée à l’écran). Vous pouvez utiliser ces pages du volet de gauche pour gérer les ressources dans votre espace de travail. Sélectionnez la page **Calcul** (sous **Gérer**).
+1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), sélectionnez l’icône **&#8801;** (une icône de menu qui figure un empilement de trois lignes) à gauche pour voir les différentes pages de l’interface (il peut être nécessaire d’agrandir au maximum la taille de votre écran). Vous pouvez utiliser ces pages du volet de gauche pour gérer les ressources dans votre espace de travail. Sélectionnez la page **Calcul** (sous **Gérer**).
 
 1. Dans la page **Calcul**, sélectionnez l’onglet **Clusters de calcul**, puis ajoutez un nouveau cluster de calcul avec les paramètres suivants. Vous l’utiliserez pour entraîner un modèle Machine Learning :
     - **Localisation** : *Sélectionnez la même localisation que celle de votre espace de travail. Si cette localisation n’est pas listée, choisissez celle qui est la plus proche de vous*.
@@ -51,18 +49,18 @@ Dans cet exercice, vous allez utiliser un jeu de données de détails historique
     - **Nombre minimal de nœuds** : 0
     - **Nombre maximal de nœuds** : 2
     - **Secondes d’inactivité avant le scale-down** : 120
-    - **Activer l’accès SSH** : ne pas cocher
+    - **Activer l’accès SSH** : ne pas activer
     - Sélectionnez **Créer**
 
 > **Remarque** Les clusters et les instances de calcul sont basés sur des images de machines virtuelles Azure standard. Pour ce module, l’image *Standard_DS11_v2* est recommandée pour obtenir un équilibre optimal entre coûts et performances. Si votre abonnement s’accompagne d’un quota qui ne couvre pas cette image, choisissez-en une autre. Gardez cependant à l’esprit qu’une image plus grande peut entraîner des coûts plus élevés, tandis qu’une plus petite risque de ne pas suffire pour effectuer les tâches. Vous pouvez également demander à votre administrateur Azure d’étendre votre quota.
 
 La création du cluster de calcul prend du temps. Vous pouvez passer à l’étape suivante en attendant.
 
-## <a name="create-a-dataset"></a>Créer un jeu de données
+## Créer une ressource de données
 
 1. Affichez les données séparées par des virgules sur [https://aka.ms/bike-rentals](https://aka.ms/bike-rentals?azure-portal=true) dans votre navigateur web.
 
-1. Dans [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant les trois lignes en haut à gauche de l’écran. Affichez la page **Données** (sous **Ressources**). La page Données contient des tables ou des fichiers de données spécifiques que vous prévoyez d’utiliser dans Azure Machine Learning. Vous pouvez aussi créer des jeux de données à partir de cette page.
+1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Affichez la page **Données** (sous **Ressources**). La page Données contient des tables ou des fichiers de données spécifiques que vous prévoyez d’utiliser dans Azure Machine Learning. Vous pouvez aussi créer des jeux de données à partir de cette page.
 
 1. Dans la page **Données**, sous l’onglet **Ressources de données**, sélectionnez **Créer**. Configurez ensuite une ressource de données avec les paramètres suivants :
     * **Type de données** :
@@ -90,11 +88,11 @@ La création du cluster de calcul prend du temps. Vous pouvez passer à l’éta
 
 > **Citation** : *Ces données sont dérivées de [Capital Bikeshare](https://www.capitalbikeshare.com/system-data) et sont utilisées conformément au [contrat de licence](https://www.capitalbikeshare.com/data-license-agreement) des données publiées.*
 
-## <a name="run-an-automated-machine-learning-job"></a>Exécuter un travail de machine learning automatisé
+## Exécuter un travail de machine learning automatisé
 
 Suivez les étapes ci-dessous pour exécuter un travail qui utilise le machine learning automatisé afin d’entraîner un modèle de régression pouvant prédire les locations de vélos.
 
-1. Dans [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), consultez la page **ML automatisé** (sous **Auteur**).
+1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), consultez la page **ML automatisé** (sous **Création**).
 
 1. Créez un travail de ML automatisé avec les paramètres suivants :
     - **Sélectionner une ressource de données** :
@@ -136,13 +134,12 @@ Suivez les étapes ci-dessous pour exécuter un travail qui utilise le machine l
 
 1. Attendez que le travail se termine. Cela risque de prendre un certain temps, c’est peut-être le moment de faire une pause café !
 
-## <a name="review-the-best-model"></a>Examiner le meilleur modèle
+## Examiner le meilleur modèle
 
 1. Sous l’onglet **Vue d’ensemble** du travail de machine learning automatisé, notez le meilleur récapitulatif du modèle.
     ![Capture d’écran du meilleur récapitulatif de modèle du travail de machine learning automatisé avec un encadré autour du nom de l’algorithme.](media/use-automated-machine-learning/complete-run.png)
 
-    >[!NOTE]
-    > Vous pouvez voir un message sous l’état « Avertissement : Score de sortie spécifié pour l’utilisateur atteint... ». Il s’agit d’un message attendu. Passez à l’étape suivante.  
+    > **Remarque** : Vous pouvez voir un message sous l’état « Avertissement : Score de sortie spécifié pour l’utilisateur atteint... ». Il s’agit d’un message attendu. Passez à l’étape suivante.  
 1. Sélectionnez le texte sous **Nom de l’algorithme** correspondant au meilleur modèle pour voir ses détails.
 
 1. À côté de la valeur *Erreur quadratique moyenne normalisée*, sélectionnez **Afficher toutes les autres métriques** pour voir les valeurs d’autres métriques d’évaluation possibles d’un modèle de régression.
@@ -158,7 +155,7 @@ Suivez les étapes ci-dessous pour exécuter un travail qui utilise le machine l
 
     ![Capture d’écran du graphique d’importance des caractéristiques sous l’onglet Explications.](media/use-automated-machine-learning/feature-importance.png)
 
-## <a name="deploy-a-predictive-service"></a>Déployer un service prédictif
+## Déployer un service prédictif
 
 1. Dans [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), dans la page **ML automatisé**, sélectionnez votre travail de machine learning automatisé.
 
@@ -177,7 +174,7 @@ Suivez les étapes ci-dessous pour exécuter un travail qui utilise le machine l
 1. Dans Azure Machine Learning studio, dans le menu de gauche, sélectionnez **Points de terminaison**.
     ![Capture d’écran de l’emplacement des points de terminaison dans le menu de gauche.](media/use-automated-machine-learning/find-endpoints.png)
 
-## <a name="test-the-deployed-service"></a>Tester le service déployé
+## Tester le service déployé
 
 Vous pouvez maintenant tester votre service déployé.
 
@@ -221,15 +218,14 @@ Passons en revue les opérations que vous avez effectuées. Vous avez utilisé u
 
 Vous venez de tester un service prêt à être connecté à une application cliente à l’aide des informations d’identification de l’onglet **Consommer**. Nous allons terminer le labo ici. Nous vous invitons à poursuivre votre expérimentation avec le service que vous venez de déployer.
 
-## <a name="clean-up"></a>Nettoyage
+## Nettoyage
 
-Le service web que vous avez créé est hébergé dans une *instance de conteneur Azure*. Si vous n’envisagez pas d’effectuer d’autres expériences avec celui-ci, vous devez supprimer le point de terminaison afin d’éviter une utilisation d’Azure non nécessaire. Vous devez également arrêter l’instance de calcul tant que vous n’en avez pas à nouveau besoin.
+Le service web que vous avez créé est hébergé dans une *instance de conteneur Azure*. Si vous n’envisagez pas d’effectuer d’autres expériences avec celui-ci, vous devez supprimer le point de terminaison afin d’éviter une utilisation d’Azure non nécessaire. Vous devez aussi supprimer le cluster de calcul.
 
 1. Dans [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), sous l’onglet **Points de terminaison**, sélectionnez le point de terminaison **prédiction-locations**. Sélectionnez ensuite **Supprimer**, puis confirmez la suppression du point de terminaison.
-2. Dans la page **Calcul**, sous l’onglet **Instances de calcul**, sélectionnez votre instance de calcul, puis sélectionnez **Arrêter**.
+2. Dans la page **Calcul**, sous l’onglet **Clusters de calcul**, sélectionnez votre instance de calcul, puis sélectionnez **Supprimer**.
 
->[!NOTE]
-> Ainsi, les ressources de calcul ne seront pas facturées dans votre abonnement. Une petite quantité de stockage de données vous est cependant facturée tant que l’espace de travail Azure Machine Learning existe dans votre abonnement. Si vous avez terminé l’exploration d’Azure Machine Learning, vous pouvez supprimer l’espace de travail Azure Machine Learning et les ressources associées. Toutefois, si vous envisagez de suivre d’autres labos de cette série, vous devrez le recréer.
+> **Remarque** La suppression du calcul fait que votre abonnement ne sera pas facturé pour les ressources de calcul. Une petite quantité de stockage de données vous est cependant facturée tant que l’espace de travail Azure Machine Learning existe dans votre abonnement. Si vous avez terminé l’exploration d’Azure Machine Learning, vous pouvez supprimer l’espace de travail Azure Machine Learning et les ressources associées. Toutefois, si vous envisagez de suivre d’autres labos de cette série, vous devrez le recréer.
 >
 > Pour supprimer votre espace de travail, procédez comme suit :
 > 1. Dans le [portail Azure](https://portal.azure.com?azure-portal=true), dans la page **Groupes de ressources**, ouvrez le groupe de ressources que vous avez spécifié lors de la création de votre espace de travail Azure Machine Learning.

@@ -3,11 +3,11 @@ lab:
   title: Explorer la classification avec le concepteur Azure Machine Learning
 ---
 
-# <a name="explore-classification-with-azure-machine-learning-designer"></a>Explorer la classification avec le concepteur Azure Machine Learning
+# Explorer la classification avec le concepteur Azure Machine Learning
 
 > **Remarque** Pour suivre ce labo, vous avez besoin d’un [abonnement Azure](https://azure.microsoft.com/free?azure-portal=true) dans lequel vous disposez d’un accès administratif.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Création d’un espace de travail Microsoft Azure Machine Learning  
+## Création d’un espace de travail Microsoft Azure Machine Learning  
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com?azure-portal=true) en utilisant vos informations d’identification Microsoft.
 
@@ -25,13 +25,13 @@ lab:
 
 1. Sélectionnez **Lancer Studio** (ou ouvrez un nouvel onglet de navigateur, accédez à [https://ml.azure.com](https://ml.azure.com?azure-portal=true), puis connectez-vous à Azure Machine Learning Studio à l’aide de votre compte Microsoft).
 
-1. Dans Azure Machine Learning Studio, vous devez voir l’espace de travail qui vient d’être créé. Si ce n’est pas le cas, cliquez dans le menu de gauche sur **Microsoft**. Puis, dans le nouveau menu de gauche, sélectionnez **Espaces de travail**, où tous les espaces de travail associés à votre abonnement sont listés. Choisissez celui que vous avez créé pour cet exercice. 
+1. Dans Azure Machine Learning Studio, vous devez voir l’espace de travail qui vient d’être créé. Si ce n’est pas le cas, sélectionnez votre annuaire Azure dans le menu de gauche. Ensuite, dans le nouveau menu de gauche, sélectionnez **Espaces de travail**, où tous les espaces de travail associés à votre annuaire sont listés, puis sélectionnez celui que vous avez créé pour cet exercice.
 
 > **Remarque** Ce module fait partie de l’un des nombreux modules qui utilisent un espace de travail Azure Machine Learning, tout comme les autres modules du parcours d’apprentissage [Microsoft Azure AI - Notions fondamentales : Explorer les outils visuels pour le machine learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/). Si vous utilisez votre propre abonnement Azure, vous pouvez éventuellement créer l’espace de travail une seule fois et le réutiliser dans d’autres modules. Une petite quantité de stockage de données est facturée dans votre abonnement Azure tant que l’espace de travail Azure Machine Learning existe dans votre abonnement. Nous vous recommandons donc de supprimer cet espace de travail dès qu’il n’est plus nécessaire.
 
-## <a name="create-compute"></a>Créer une capacité de calcul
+## Créer une capacité de calcul
 
-1. Dans [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), sélectionnez les trois lignes en haut à gauche pour voir les différentes pages de l’interface (vous devrez peut-être agrandir la fenêtre affichée à l’écran). Vous pouvez utiliser ces pages du volet de gauche pour gérer les ressources dans votre espace de travail. Sélectionnez la page **Calcul** (sous **Gérer**).
+1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), sélectionnez l’icône **&#8801;** (une icône de menu qui figure un empilement de trois lignes) à gauche pour voir les différentes pages de l’interface (il peut être nécessaire d’agrandir au maximum la taille de votre écran). Vous pouvez utiliser ces pages du volet de gauche pour gérer les ressources dans votre espace de travail. Sélectionnez la page **Calcul** (sous **Gérer**).
 
 1. Dans la page **Calcul**, sélectionnez l’onglet **Clusters de calcul**, puis ajoutez un nouveau cluster de calcul avec les paramètres suivants. Vous l’utiliserez pour entraîner un modèle Machine Learning :
     - **Localisation** : *Sélectionnez la même localisation que celle de votre espace de travail. Si cette localisation n’est pas listée, choisissez celle qui est la plus proche de vous*.
@@ -52,11 +52,11 @@ lab:
 
 La création du cluster de calcul prend du temps. Vous pouvez passer à l’étape suivante en attendant.
 
-## <a name="create-a-pipeline-in-designer"></a>Créer un pipeline dans le concepteur
+## Créer un pipeline dans le concepteur
 
 Pour commencer à utiliser le concepteur Azure Machine Learning, vous devez d’abord créer un pipeline et ajouter le jeu de données que vous souhaitez utiliser.
 
-1. Dans [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant les trois lignes en haut à gauche de l’écran. Affichez la page **Concepteur** (sous **Créer**), puis sélectionnez **+** pour créer un pipeline.
+1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Affichez la page **Concepteur** (sous **Créer**), puis sélectionnez **+** pour créer un pipeline.
 
 1. En haut à droite de l’écran, sélectionnez **Paramètres**. Si le volet **Paramètres** n’est pas visible, sélectionnez l’icône en forme de roue à côté du nom du pipeline situé en haut.
 
@@ -68,9 +68,9 @@ Pour commencer à utiliser le concepteur Azure Machine Learning, vous devez d’
 
     ![Capture d’écran du volet des paramètres Machine Learning Studio.](media/create-classification-model/create-pipeline-help.png)
 
-## <a name="create-a-dataset"></a>Créer un jeu de données
+## Créer un jeu de données
 
-1. Dans [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant les trois lignes en haut à gauche de l’écran. Affichez la page **Données** (sous **Ressources**). La page Données contient des tables ou des fichiers de données spécifiques que vous prévoyez d’utiliser dans Azure Machine Learning. Vous pouvez aussi créer des jeux de données à partir de cette page.
+1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Affichez la page **Données** (sous **Ressources**). La page Données contient des tables ou des fichiers de données spécifiques que vous prévoyez d’utiliser dans Azure Machine Learning. Vous pouvez aussi créer des jeux de données à partir de cette page.
 
 1. Dans la page **Données**, sous l’onglet **Ressources de données**, sélectionnez **Créer**. Configurez ensuite une ressource de données avec les paramètres suivants :
     * **Type de données** :
@@ -96,7 +96,7 @@ Pour commencer à utiliser le concepteur Azure Machine Learning, vous devez d’
 
 1. Après avoir créé le jeu de données, ouvrez-le, puis affichez la page **Explorer** pour voir un échantillon des données. Ces données représentent les détails des patients qui ont été testés pour le diabète.
 
-### <a name="load-data-to-canvas"></a>Charger les données sur le canevas
+### Charger les données sur le canevas
 
 1. Revenez à votre pipeline en sélectionnant **Concepteur** dans le menu de gauche. Dans la page **Concepteur**, sélectionnez le pipeline **Diabetes Training**.
 
@@ -118,7 +118,7 @@ Pour commencer à utiliser le concepteur Azure Machine Learning, vous devez d’
 
     ![Capture d’écran du jeu de données diabetes-data dans le canevas du concepteur.](media/create-classification-model/diabetes-data.png)
 
-## <a name="add-transformations"></a>Ajouter des transformations
+## Ajouter des transformations
 
 Pour pouvoir entraîner un modèle, vous devez généralement appliquer au préalable certaines transformations de prétraitement aux données.
 
@@ -128,27 +128,26 @@ Pour pouvoir entraîner un modèle, vous devez généralement appliquer au préa
 
 1. Recherchez le module **Sélectionner les colonnes dans le jeu de données** et placez-le sur le canevas, sous le jeu de données **diabetes-data**. Connectez ensuite la sortie en bas du jeu de données **diabetes-data** à l’entrée en haut du module **Sélectionner les colonnes dans le jeu de données**.
 
+1. Double-cliquez sur le module **Select Columns in Dataset** pour accéder à un volet de paramètres situé sur la droite. Sélectionnez **Modifier la colonne**. Ensuite, dans la fenêtre **Sélectionner des colonnes**, sélectionnez **Par nom** et **Ajouter tout** pour ajouter toutes les colonnes. Supprimez ensuite **PatientID**, puis cliquez sur **Enregistrer**. 
+
 1. Recherchez le module **Normaliser les données** et placez-le sur le canevas, sous le module **Sélectionner les colonnes dans le jeu de données**. Connectez ensuite la sortie en bas du module **Sélectionner les colonnes dans le jeu de données** à l’entrée en haut du module **Normaliser les données**, comme suit :
 
     ![Capture d’écran d’un pipeline avec le jeu de données connecté au module Sélectionner les colonnes et Normaliser les données.](media/create-classification-model/dataset-normalize.png)
 
 1. Double-cliquez sur le module **Normalize Data** pour observer ses paramètres ; vous pouvez voir que vous devez spécifier la méthode de transformation et les colonnes à transformer. 
 
-1. Affectez à la *Méthode de transformation* la valeur **MinMax**, et à *Utiliser 0 pour les colonnes constantes quand elles sont cochées* la valeur **True**. Modifiez les colonnes pour inclure les colonnes suivantes par nom, comme montré dans l’image :
-    - **Pregnancies**
-    - **PlasmaGlucose**
-    - **DiastolicBloodPressure**
-    - **TricepsThickness**
-    - **SerumInsulin**
-    - **BMI**
-    - **DiabetesPedigree**
-    - **Age**
+1. Affectez à la *Méthode de transformation* la valeur **MinMax**, et à *Utiliser 0 pour les colonnes constantes quand elles sont cochées* la valeur **True**. Modifiez les colonnes à transformer avec **Modifier les colonnes**. Sélectionnez des colonnes **avec des règles**, puis copiez et collez la liste suivante sous Inclure les noms de colonnes :  
 
-    ![Capture d’écran des colonnes sélectionnées pour la normalisation.](media/create-classification-model/normalize-data.png)
+```
+Pregnancies, PlasmaGlucose, DiastolicBloodPressure, TricepsThickness, SerumInsulin, BMI, DiabetesPedigree, Age
+```
+![Capture d’écran des colonnes sélectionnées pour la normalisation.](media/create-classification-model/normalize-data.png)
+
+Cliquez sur **Enregistrer** et fermez la zone de sélection. 
 
 La transformation des données normalise les colonnes numériques pour les mettre à la même échelle. Ainsi, les colonnes comportant des valeurs élevées ne devraient pas dominer l’entraînement du modèle. Vous devez généralement appliquer une série complète de transformations de prétraitement comme celle-ci afin de préparer vos données pour l’entraînement. Cependant, nous allons simplifier les choses pour cet exercice.
 
-## <a name="run-the-pipeline"></a>Exécuter le pipeline
+## Exécuter le pipeline
 
 Pour appliquer vos transformations de données, vous devez exécuter le pipeline en tant qu’expérience.
 
@@ -160,7 +159,7 @@ Pour appliquer vos transformations de données, vous devez exécuter le pipeline
 
     Notez que le panneau gauche se trouve maintenant sur le volet **Travaux envoyés**. Une fois le travail terminé, l’état du travail devient **Terminé**.
 
-## <a name="view-the-transformed-data"></a>Afficher les données transformées
+## Afficher les données transformées
 
 1. Une fois l’exécution terminée, le jeu de données est maintenant préparé pour l’apprentissage du modèle. Cliquez sur **Détail du travail**. Vous êtes redirigé vers un nouvel onglet.
 
@@ -172,7 +171,7 @@ Pour appliquer vos transformations de données, vous devez exécuter le pipeline
 
 Après avoir utilisé des transformations de données pour préparer les données, vous pouvez vous en servir pour entraîner un modèle Machine Learning.
 
-## <a name="add-training-modules"></a>Ajouter des modules d’entraînement
+## Ajouter des modules d’entraînement
 
 Il est courant d’entraîner le modèle avec un sous-ensemble des données, tout en gardant des données qui seront utilisées pour tester le modèle entraîné. Vous pourrez ainsi comparer les étiquettes prédites par le modèle avec les étiquettes réelles connues du jeu de données d’origine.
 
@@ -207,7 +206,7 @@ Effectuez les étapes suivantes en utilisant l’image ci-dessus pour référenc
 
 1. Dans la **Bibliothèque de ressources**, recherchez et placez un module **Affecter un score au modèle** sur le canevas, sous le module **Entraîner le modèle**. Ensuite, connectez la sortie du module **Train Model** à l’entrée **Trained model** (à gauche) du module **Score Model** et connectez la sortie **Results dataset2** (à droite) du module **Split Data** à l’entrée **Dataset** (à droite) du module **Score Model**.
 
-## <a name="run-the-training-pipeline"></a>Exécuter le pipeline d’entraînement
+## Exécuter le pipeline d’entraînement
 
 Vous êtes maintenant prêt à exécuter le pipeline d’entraînement et à entraîner le modèle.
 
@@ -227,7 +226,7 @@ Le modèle prédit les valeurs de l’étiquette **Diabetic**, mais dans quelle 
 
 Les données de validation que vous avez retenues et utilisées pour déterminer le score du modèle incluent les valeurs connues de l’étiquette. Pour valider le modèle, vous pouvez donc comparer les valeurs réelles de l’étiquette aux valeurs d’étiquette qui ont été prédites quand vous avez déterminé le score du jeu de données de validation. En fonction de cette comparaison, vous pouvez calculer différentes métriques qui décrivent la performance du modèle.
 
-## <a name="add-an-evaluate-model-module"></a>Ajouter un module Evaluate Model
+## Ajouter un module Evaluate Model
 
 1. Ouvrez le pipeline **Diabetes Training** que vous avez créé.
 
@@ -261,9 +260,9 @@ Les données de validation que vous avez retenues et utilisées pour déterminer
 
 La performance de ce modèle n’est pas excellente, notamment parce que nous n’avons effectué qu’une caractérisation et un prétraitement minimes. Vous pouvez essayer un autre algorithme de classification, par exemple l’algorithme **Two-Class Decision Forest**, et comparer les résultats. Vous pouvez connecter les sorties du module **Split Data** à plusieurs modules **Train Model** et **Score Model** et vous pouvez connecter un deuxième module **Score Model** au module **Evaluate Model** pour voir une comparaison côte à côte. L’objectif de l’exercice est simplement de vous faire découvrir la classification et l’interface du concepteur Azure Machine Learning et non d’entraîner un modèle parfait.
 
-## <a name="create-an-inference-pipeline"></a>Créer un pipeline d'inférence
+## Créer un pipeline d'inférence
 
-1. Dans Azure Machine Learning Studio, développez le volet gauche en sélectionnant les trois lignes situées en haut à gauche de l’écran. Cliquez sur **Travaux** (sous **Ressources**) pour voir tous les travaux que vous avez exécutés. Sélectionnez l’expérience **mslearn-diabetes-training**, puis sélectionnez le pipeline **Diabetes Training**.
+1. Dans Azure Machine Learning studio, développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Cliquez sur **Travaux** (sous **Ressources**) pour voir tous les travaux que vous avez exécutés. Sélectionnez l’expérience **mslearn-diabetes-training**, puis sélectionnez le pipeline **Diabetes Training**.
 
 1. Recherchez le menu au-dessus du canevas, puis cliquez sur **Créer un pipeline d’inférence**. Vous devrez peut-être passer en mode plein écran et cliquer sur l’icône d’ellipse **...** dans le coin supérieur droit de l’écran pour trouver **Créer un pipeline d’inférence** dans le menu.  
 
@@ -271,7 +270,7 @@ La performance de ce modèle n’est pas excellente, notamment parce que nous n�
 
 1. Dans la liste déroulante **Create inference pipeline**, cliquez sur **Real-time inference pipeline**. Après quelques secondes, une nouvelle version de votre pipeline nommée **Diabetes Training-real time inference** s’ouvre.
 
-1. Accédez à **Paramètres** dans le menu supérieur droit. Sous **Détail du brouillon**, renommez le nouveau pipeline **Predict Diabetes**, puis examinez-le. Certaines des transformations et des étapes d’entraînement font partie de ce pipeline. Le modèle entraîné est utilisé pour attribuer un score aux nouvelles données. Le pipeline contient également une sortie de service web pour retourner les résultats. 
+1. Accédez à **Paramètres** dans le menu supérieur droit. Sous **Détail du brouillon**, renommez le nouveau pipeline **Predict Diabetes**, puis examinez-le. Certaines des transformations et des étapes d’entraînement font partie de ce pipeline. Le modèle entraîné sera utilisé pour attribuer un score aux nouvelles données. Le pipeline contient également une sortie de service web pour retourner les résultats. 
 
     Vous allez apporter les modifications suivantes au pipeline d’inférence :
 
@@ -283,7 +282,7 @@ La performance de ce modèle n’est pas excellente, notamment parce que nous n�
     - Supprimez le module **Evaluate Model**.
     - Insérez un module **Execute Python Script** avant la sortie du service web pour retourner uniquement l’ID patient, la valeur d’étiquette prédite et la probabilité.
 
-1. Le pipeline n’inclut pas automatiquement de composant **Entrée du service web** pour les modèles créés à partir de jeux de données personnalisés. Recherchez un composant **Entrée du service web** dans la bibliothèque de ressources, puis placez-le en haut du pipeline. Connectez la sortie du composant **Entrée du service web** à l’entrée de droite du composant **Appliquer une transformation**, qui se trouve déjà sur le canevas.
+1. Le pipeline n’inclut pas automatiquement de composant **Entrée du service web** pour les modèles créés à partir de jeux de données personnalisés. Recherchez un composant **Entrée du service web** dans la bibliothèque de ressources, puis placez-le en haut du pipeline. Connectez la sortie du composant **Entrée du service web** au composant **Sélectionner des colonnes dans le jeu de données**, qui se trouve déjà sur le canevas.
 
 1. Le pipeline d’inférence part du principe que les nouvelles données correspondent au schéma des données d’entraînement d’origine ; le jeu de données **diabetes-data** du pipeline d’entraînement est donc inclus. Cependant, ces données d’entrée incluent l’étiquette **Diabetic** prédite par le modèle, qui n’est pas incluse dans les nouvelles données de patient pour lesquelles aucune prédiction de diabète n’a encore été effectuée. Supprimez ce module et remplacez-le par un module **Entrer les données manuellement**, contenant les données CSV suivantes. Ces données incluent des valeurs de caractéristiques sans étiquettes pour trois nouvelles observations de patients :
 
@@ -294,7 +293,7 @@ La performance de ce modèle n’est pas excellente, notamment parce que nous n�
     1228510,4,115,50,29,243,34.69215364,0.741159926,59
     ```
 
-1. Connectez le nouveau module **Enter Data Manually** à la même entrée **Dataset** du module **Apply Transformation** que le module **Web Service Input**.
+1. Connectez le nouveau module **Entrer des données manuellement** à la même entrée **Jeu de données** du module **Sélectionner des colonnes dans le jeu de données** que le module **Entrée du service web**.
 
 1. Modifiez le module **Sélectionner les colonnes dans le jeu de données**. Supprimez **Diabetic** des *Colonnes sélectionnées*. 
 
@@ -332,7 +331,7 @@ Après avoir créé et testé un pipeline d’inférence pour l’inférence en 
 
 > **Remarque** Dans cet exercice, vous allez déployer le service web sur une instance d’Azure Container Instances (ACI). Ce type de calcul, créé dynamiquement, est utile pour le développement et le test. Pour la production, vous devez créer un *cluster d’inférence* qui fournit un cluster Azure Kubernetes Service (AKS) offrant une meilleure scalabilité et une meilleure sécurité.
 
-## <a name="deploy-a-service"></a>Déployer un service
+## Déployer un service
 
 1. Affichez le pipeline d’inférence **Predict Diabetes** que vous avez créé dans l’unité précédente.
 
@@ -351,7 +350,7 @@ Après avoir créé et testé un pipeline d’inférence pour l’inférence en 
 
 1. Attendez que le service web soit déployé, ce qui peut prendre plusieurs minutes. L’état du déploiement est indiqué en haut à gauche de l’interface du concepteur.
 
-## <a name="test-the-service"></a>Testez le service
+## Testez le service
 
 1. Dans la page **Points de terminaison**, ouvrez le point de terminaison en temps réel **predict-diabetes**.
 
@@ -387,15 +386,15 @@ Après avoir créé et testé un pipeline d’inférence pour l’inférence en 
 
     Vous venez de tester un service prêt à être connecté à une application cliente à l’aide des informations d’identification de l’onglet **Consommer**. Nous allons terminer le labo ici. Nous vous invitons à poursuivre votre expérimentation avec le service que vous venez de déployer.
 
-## <a name="clean-up"></a>Nettoyage
+## Nettoyage
 
-Le service web que vous avez créé est hébergé dans une *instance de conteneur Azure*. Si vous n’envisagez pas d’effectuer d’autres expériences avec celui-ci, vous devez supprimer le point de terminaison afin d’éviter une utilisation d’Azure non nécessaire.
+Le service web que vous avez créé est hébergé dans une *instance de conteneur Azure*. Si vous n’envisagez pas d’effectuer d’autres expériences avec celui-ci, vous devez supprimer le point de terminaison afin d’éviter une utilisation d’Azure non nécessaire. Vous devez aussi supprimer le cluster de calcul.
 
 1. Dans [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), sous l’onglet **Points de terminaison**, sélectionnez le point de terminaison **predict-diabetes**. Sélectionnez ensuite **Supprimer**, puis confirmez la suppression du point de terminaison.
 
 1. Dans la page **Calcul**, sous l’onglet **Clusters de calcul**, sélectionnez votre cluster de calcul, puis sélectionnez **Supprimer**.
 
->**Remarque** L’arrêt du calcul permet de garantir la non-facturation de votre abonnement pour les ressources de calcul. Une petite quantité de stockage de données vous est cependant facturée tant que l’espace de travail Azure Machine Learning existe dans votre abonnement. Si vous avez terminé l’exploration d’Azure Machine Learning, vous pouvez supprimer l’espace de travail Azure Machine Learning et les ressources associées. Toutefois, si vous envisagez de suivre d’autres labos de cette série, vous devrez le recréer.
+>**Remarque** La suppression du calcul fait que votre abonnement ne sera pas facturé pour les ressources de calcul. Une petite quantité de stockage de données vous est cependant facturée tant que l’espace de travail Azure Machine Learning existe dans votre abonnement. Si vous avez terminé l’exploration d’Azure Machine Learning, vous pouvez supprimer l’espace de travail Azure Machine Learning et les ressources associées. Toutefois, si vous envisagez de suivre d’autres labos de cette série, vous devrez le recréer.
 >
 > Pour supprimer votre espace de travail, procédez comme suit :
 >
