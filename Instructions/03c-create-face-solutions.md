@@ -11,25 +11,24 @@ Les solutions de Vision par ordinateur requièrent souvent une solution d’inte
 
 Pour tester les fonctionnalités du service Visage, nous allons utiliser une simple application de ligne de commande s’exécutant dans le service Cloud Shell. Les mêmes principes et fonctionnalités s’appliquent aux solutions réelles, telles que des sites web ou applications téléphoniques.
 
-## Créer une ressource *Cognitive Services*
+## Créer une ressource *API Visage*
 
-Vous pouvez utiliser le service Visage en créant une ressource **Visage** ou **Cognitive Services** .
+Vous pouvez utiliser le service Visage en créant une ressource **Visage**. (L’API Visage n’est plus disponible dans Cognitive Services)
 
-Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votre abonnement Azure.
+Si vous ne l’avez pas déjà fait, créez une ressource **API Visage** dans votre abonnement Azure.
 
 1. Sous un autre onglet de navigateur, ouvrez le portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com?azure-portal=true) en vous connectant avec votre compte Microsoft.
 
-1. Cliquez sur le bouton **&#65291;Créer une ressource**, recherchez *Cognitive Services*, puis créez une ressource **Cognitive Services** avec les paramètres suivants :
+1. Cliquez sur le bouton **&#65291;Créer une ressource**, recherchez *Visage*, puis créez une ressource **Visage** avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*.
     - **Groupe de ressources** : *sélectionnez ou créez un groupe de ressources portant un nom unique*.
     - **Région** : *choisissez une région disponible*.
     - **Nom** : *entrez un nom unique.*
-    - **Niveau tarifaire** : Standard S0
-    - **En cochant cette case, j’ai reconnu que j’ai lu et compris tous les termes ci-dessous** : sélectionné.
+    - **Niveau tarifaire** : F0 gratuit
 
 1. Examinez et créez la ressource, puis attendez la fin du déploiement. Accédez ensuite à la ressource déployée.
 
-1. Affichez la page **Clés et point de terminaison** de votre ressource Cognitive Services. Vous aurez besoin du point de terminaison et des clés pour vous connecter à partir d’applications clientes.
+1. Visualisez la page **Clés et point de terminaison** pour votre ressource Visage. Vous aurez besoin du point de terminaison et des clés pour vous connecter à partir d’applications clientes.
 
 ## Exécuter Cloud Shell
 
@@ -79,7 +78,7 @@ Pour tester les fonctionnalités du service Visage, nous allons utiliser une sim
 
     ![Éditeur contenant du code pour détecter les visages dans une image](media/create-face-solutions/find-faces-code.png)
 
-1. Ne vous souciez pas trop des détails du code. Ce qui importe, c’est qu’il a besoin de l’URL du point de terminaison, ainsi que de l’une ou l’autre des clés de votre ressource Cognitive Services. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
+1. Ne vous souciez pas trop des détails du code : ce qui importe, c’est qu’il a besoin de l’URL du point de terminaison et de l’une des deux clés de votre ressource Visage. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
 
     > **Conseil** Vous devrez peut-être vous servir de la barre de séparation pour ajuster la zone d’écran quand vous utilisez les volets **Clés et point de terminaison** et **Éditeur**.
 
@@ -135,4 +134,4 @@ Pour tester les fonctionnalités du service Visage, nous allons utiliser une sim
 
 ## En savoir plus
 
-Cette application simple ne montre que quelques fonctionnalités du service Visage. Pour en savoir plus sur ce que vous pouvez faire avec ce service, consultez la [page de l’API Visage](https://azure.microsoft.com/services/cognitive-services/face/).
+Cette application simple ne montre que quelques fonctionnalités du service Visage. Pour en savoir plus sur ce que vous pouvez faire avec ce service, consultez la [page de l’API Visage](https://azure.microsoft.com/en-us/products/cognitive-services/vision-services).
