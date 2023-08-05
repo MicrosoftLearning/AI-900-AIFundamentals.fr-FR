@@ -206,9 +206,9 @@ Utilisez l’Explorateur de recherche pour écrire et tester les requêtes. L’
 
     > **Remarque** Si le message **Pour effectuer une recherche dans le portail, autorisez l’origine du portail dans les paramètres de votre index CORS** s’affiche, sélectionnez **Autoriser le portail**, puis **Rechercher**.
 
-1. À présent, filtrons par localisation. Entrez `search=$filter=locations eq 'Chicago'` dans le champ **Chaîne de requête**, puis sélectionnez **Rechercher**. La requête recherche dans tous les documents de l’index et filtre les avis sur la localisation Chicago.
+1. À présent, filtrons par localisation. Entrez `search=locations:'Chicago'` dans le champ **Chaîne de requête**, puis sélectionnez **Rechercher**. La requête recherche dans tous les documents de l’index et filtre les avis sur la localisation Chicago.
 
-1. À présent, filtrons par sentiment. Entrez `search=$filter=sentiment eq 'negative'` dans le champ **Chaîne de requête**, puis sélectionnez **Rechercher**. La requête recherche dans tous les documents de l’index et filtre les avis sur un sentiment négatif.
+1. À présent, filtrons par sentiment. Entrez `search=sentiment:'negative'` dans le champ **Chaîne de requête**, puis sélectionnez **Rechercher**. La requête recherche dans tous les documents de l’index et filtre les avis sur un sentiment négatif.
 
    > **Remarque** Vous pouvez constater que les résultats sont triés par `@search.score`. Ce score affecté par le moteur de recherche exprime le degré de correspondance des résultats par rapport à la requête exécutée.
 
