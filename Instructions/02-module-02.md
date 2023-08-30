@@ -62,7 +62,7 @@ La création du cluster de calcul prend du temps. Vous pouvez passer à l’éta
 
 1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Affichez la page **Données** (sous **Ressources**). La page Données contient des tables ou des fichiers de données spécifiques que vous prévoyez d’utiliser dans Azure Machine Learning. Vous pouvez aussi créer des jeux de données à partir de cette page.
 
-1. Dans la page **Données**, sous l’onglet **Ressources de données**, sélectionnez **Créer**. Configurez ensuite une ressource de données avec les paramètres suivants :
+1. Dans la page **Données**, sous l’onglet **Ressources de données**, sélectionnez **+ Créer**. Configurez ensuite une ressource de données avec les paramètres suivants :
     * **Type de données** :
         * **Nom**: bike-rentals
         * **Description** : données de location de vélos
@@ -128,9 +128,7 @@ Suivez les étapes ci-dessous pour exécuter un travail qui utilise le machine l
         - **Type de validation** : Automatique
         - **Ressource de données de test (préversion)**  : aucune ressource de données de test n’est nécessaire
 
-1. Une fois que vous avez fini d’envoyer les détails du travail de machine learning automatisé, celui-ci démarre automatiquement. Attendez que l’état passe de *Préparation* à *En cours d’exécution*.
-
-1. Quand l’état passe à *En cours d’exécution*, affichez l’onglet **Modèles**, puis observez chaque combinaison possible d’algorithme d’entraînement et d’étapes de prétraitement tentée ainsi que l’évaluation des performances du modèle résultant. La page est automatiquement actualisée à intervalles réguliers, mais vous pouvez aussi sélectionner **Actualiser**. Environ 10 minutes risquent d’être nécessaires avant que les modèles ne commencent à apparaître, car les nœuds de cluster doivent être initialisés avant que l’entraînement puisse commencer.
+1. Une fois que vous avez fini d’envoyer les détails du travail de machine learning automatisé, celui-ci démarre automatiquement.
 
 1. Attendez que le travail se termine. Cela risque de prendre un certain temps, c’est peut-être le moment de faire une pause café !
 
@@ -163,26 +161,24 @@ Suivez les étapes ci-dessous pour exécuter un travail qui utilise le machine l
 
     ![Capture d’écran du meilleur récapitulatif de modèle avec un encadré autour du nom de l’algorithme sous l’onglet Détails.](media/use-automated-machine-learning/deploy-detail-tab.png)
 
-1. Sous l’onglet **Modèles**, sélectionnez le bouton **Déployer**, puis utilisez l’option **Déployer sur un service web** pour déployer le modèle avec les paramètres suivants :
+1. Sous l’onglet **Modèles**, sélectionnez le bouton **Déployer**, puis utilisez l’option **Service web** pour déployer le modèle avec les paramètres suivants :
     - **Nom** : prédiction-locations
     - **Description** : Prédire les locations de vélos
     - **Type de capacité de calcul** : Instance de conteneur Azure
     - **Activer l’authentification** : Sélectionné
 
-1. Attendez que le déploiement commence. Cette opération peut prendre quelques secondes. Ensuite, dans la section **Résumé du modèle**, observez l’**État du déploiement** pour le service **prédiction-locations**, qui doit être **En cours d’exécution**. Attendez que cet état passe à **Réussite**, ce qui peut prendre un certain temps. Vous devrez peut-être sélectionner régulièrement **Actualiser**.
+1. Attendez que le déploiement commence. Cette opération peut prendre quelques secondes.
 
-1. Dans Azure Machine Learning studio, dans le menu de gauche, sélectionnez **Points de terminaison**.
-    ![Capture d’écran de l’emplacement des points de terminaison dans le menu de gauche.](media/use-automated-machine-learning/find-endpoints.png)
+1. Dans le menu de gauche d’Azure Machine Learning studio, sélectionnez **Points de terminaison** et ouvrez le point de terminaison **predict-rentals** en temps réel.
+1. Attendez que l’**état du déploiement** passe à **Sain** (ce qui peut prendre quelques minutes).
 
 ## Tester le service déployé
 
 Vous pouvez maintenant tester votre service déployé.
 
-1. Dans la page **Points de terminaison**, ouvrez le point de terminaison en temps réel **predict-rentals**.
+1. Dans la page du point de terminaison en temps réel **predict-rentals**, l’onglet **Test** s’affiche.
 
-1. Lorsque le point de terminaison **predict-rentals** s’ouvre, affichez l’onglet **Tester**.
-
-1. Dans le volet **Entrer des données pour tester le point de terminaison en temps réel**, remplacez le modèle JSON par les données d’entrée suivantes :
+1. Dans le volet **Entrer des données pour tester le point de terminaison**, remplacez le modèle JSON par les données de l’entrée suivante :
 
     ```JSON
     {
