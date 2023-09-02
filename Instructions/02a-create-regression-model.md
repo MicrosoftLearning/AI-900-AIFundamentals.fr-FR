@@ -54,31 +54,21 @@ Dans cet exercice, vous allez effectuer l’apprentissage d’un modèle de rég
 
 La création du cluster de calcul prend du temps. Vous pouvez passer à l’étape suivante en attendant.
 
-## Créer un pipeline dans le concepteur 
-
-1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Affichez la page **Concepteur** (sous **Créer**), puis sélectionnez **+** pour créer un pipeline.
-
-1. En haut à droite de l’écran, sélectionnez **Paramètres**. Si le volet **Paramètres** n’est pas visible, sélectionnez l’icône en forme de roue à côté du nom du pipeline situé en haut.
-
-1. Dans **Paramètres**, vous devez spécifier une cible de calcul sur laquelle exécuter le pipeline. Sous **Sélectionner le type de capacité de calcul**, sélectionnez **Cluster de calcul**. Sous **Sélectionner un cluster de calcul Azure ML**, sélectionnez le cluster de calcul que vous avez créé.
-
-1. Dans **Paramètres**, sous **Détails du brouillon**, remplacez le nom du brouillon (**Pipeline-Created-on-* date***) par **Auto Price Training**.
-
-1. Sélectionnez l’icône *Fermer* en haut à droite du volet **Paramètres** pour le fermer. 
-
-![Capture d’écran du volet des paramètres Machine Learning Studio.](media/create-regression-model/create-pipeline-help.png)
-
-## Ajouter et explorer un jeu de données
+## Créer un pipeline dans Designer et ajouter un jeu de données
 
 Azure Machine Learning comprend un exemple de jeu de données que vous pouvez utiliser pour votre modèle de régression.
+
+1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Affichez la page **Concepteur** (sous **Création**), puis sélectionnez **+** pour créer un pipeline.
+
+1. Remplacez le nom du brouillon (**Pipeline-Created-on-* date***) par **Apprentissage automatique de la facturation**.
 
 1. À côté du nom du pipeline situé à gauche, sélectionnez l’icône en forme de flèche pour développer le panneau, s’il ne l’est pas déjà. Le panneau doit s’ouvrir par défaut sur le volet **Bibliothèque de ressources**, indiqué par l’icône de livres en haut du panneau. Il contient une barre de recherche permettant de localiser les ressources dans le volet ainsi que deux boutons, **Données** et **Composant**.
 
     ![Capture d’écran de l’emplacement de la bibliothèque de ressources du concepteur, de la barre de recherche et de l’icône de composant.](media/create-regression-model/designer-asset-library-components.png)
 
-1. Cliquez sur **Composant**. Recherchez et placez le jeu de données **Automobile price data (Raw)** sur le canevas.
+1. Sélectionner un **composant**. Recherchez et placez le jeu de données **Automobile price data (Raw)** sur le canevas.
 
-1. Cliquez avec le bouton droit (Ctrl+clic sur un Mac) sur le jeu de données **Automobile price data (Raw)** dans le canevas et cliquez sur **Preview data** (Aperçu des données).
+1. Cliquez avec le bouton droit (Ctrl+clic sur un Mac) sur le jeu de données **Données de prix automobile (Raw)** dans le canevas et cliquez sur **Aperçu des données**.
 
 1. Examinez le schéma *Dataset output* (Sortie de jeu de données) des données. Vous pouvez voir les distributions des différentes colonnes sous forme d’histogrammes.
 
@@ -86,7 +76,7 @@ Azure Machine Learning comprend un exemple de jeu de données que vous pouvez ut
 
 1. Faites défiler vers la gauche et sélectionnez l’en-tête de colonne **normalized-losses**. Examinez ensuite les statistiques de cette colonne. Notez qu’il y a un certain nombre de valeurs manquantes dans cette colonne. Les valeurs manquantes limitent l’utilité de la colonne pour prédire l’étiquette **price**, donc vous voudrez probablement l’exclure de l’entraînement.
 
-1. Fermez la fenêtre **Automobile price data (Raw) result visualization**. Vous voyez alors le jeu de données sur le canevas comme ceci :
+1. Fermez la fenêtre **DataOutput** pour afficher le jeu de données sur le canevas, comme ceci :
 
     ![Capture d’écran du jeu de données Automobile price data sur le canevas du concepteur.](media/create-regression-model/dataset.png)
 
@@ -94,7 +84,7 @@ Azure Machine Learning comprend un exemple de jeu de données que vous pouvez ut
 
 En général, vous appliquez des transformations de données pour préparer les données en vue de la modélisation. Dans le cas des données sur le prix des véhicules, vous ajoutez des transformations pour traiter les problèmes que vous avez identifiés quand vous avez exploré les données.
 
-1. Dans le volet **Bibliothèque de ressources** sur la gauche, cliquez sur **Composants**, qui contient un large éventail de modules pour la transformation des données et l’entraînement du modèle. Vous pouvez aussi utiliser la barre de recherche pour localiser rapidement les modules.
+1. Dans le volet **Bibliothèque de ressources** sur la gauche, sélectionnez **Composants** qui contiennent un large éventail de modules pour la transformation des données et l’entraînement du modèle. Vous pouvez aussi utiliser la barre de recherche pour localiser rapidement les modules.
 
 1. Recherchez un module **Select Columns in Dataset** et positionnez-le dans le canevas sous le module **Automobile price data (Raw)**. Ensuite, connectez la sortie en bas du module **Automobile price data (Raw)** à l’entrée en haut du module **Select Columns in Dataset**, comme suit :
 
@@ -104,9 +94,9 @@ En général, vous appliquez des transformations de données pour préparer les 
 
     ![Capture d’écran de toutes les colonnes autres que normalized_losses.](media/create-regression-model/select-columns.png)
 
-1. Cliquez sur le bouton **Enregistrer**.
+1. Sélectionnez **Enregistrer**, puis fermez la fenêtre propriétés.
 
-Dans le reste de cet exercice, vous allez effectuer les étapes pour créer un pipeline qui ressemble à ceci :
+Dans le reste de cet exercice, vous allez effectuer des étapes pour créer un pipeline ressemblant à ceci :
 
 ![Capture d’écran du jeu de données Automobile price data avec le module Normalize Data.](media/create-regression-model/data-transforms.png)
 
@@ -114,7 +104,7 @@ Suivez les étapes restantes en utilisant l’image pour référence quand vous 
 
 1. Dans la **Bibliothèque de ressources**, recherchez un module **Nettoyer les données manquantes**, puis placez-le sous le module **Sélectionner des colonnes dans le jeu de données** sur le canevas. Ensuite, connectez la sortie du module **Select Columns in Dataset** à l’entrée du module **Clean Missing Data**.
 
-1. Double-cliquez sur le module **Clean Missing Data**, puis dans le volet à droite, cliquez sur **Edit column**. Dans la fenêtre **Colonnes à nettoyer**, sélectionnez **Avec règles**, dans la liste **Inclure**, sélectionnez **Noms de colonnes**, puis dans la zone des noms de colonnes, entrez **bore**, **stroke** et **horsepower** de la façon suivante :
+1. Double-cliquez sur le module **Clean Missing Data**, puis dans le volet à droite, sélectionnez **Modifier la colonne**. Dans la fenêtre **Colonnes à nettoyer**, sélectionnez **Avec règles**, dans la liste **Inclure**, sélectionnez **Noms de colonnes**, puis dans la zone des noms de colonnes, entrez **bore**, **stroke** et **horsepower** de la façon suivante :
 
     ![Capture d’écran montrant comment les colonnes bore, stroke et horsepower sont sélectionnées.](media/create-regression-model/clean-missing-values.png)
 
@@ -155,17 +145,17 @@ Pour appliquer vos transformations de données, vous devez exécuter le pipeline
 
     ![Capture d’écran d’un jeu de données avec des modules de transformation de données.](media/create-regression-model/data-transforms.png)
 
-1. Sélectionnez **Envoyer**, puis créez une expérience nommée **mslearn-auto-training** sur votre cluster de calcul.
+1. Sélectionnez **Configurer & soumettre** en haut de la page pour ouvrir la boîte de dialogue **Configurer la tâche de pipeline**.
 
-1. Attendez la fin de l’exécution, ce qui risque de prendre 5 minutes ou plus.
+1. Dans la page **De base**, sélectionnez **Créer** et définissez le nom de l’expérience sur **mslearn-auto-training**, puis sélectionnez **Suivant**.
 
-    ![Capture d’écran de la bibliothèque de ressources du concepteur avec le travail terminé et le bouton Détails du travail en dessous.](media/create-regression-model/completed-job.png)
+1. Dans la page **Entrées & sorties**, sélectionnez **Suivant** sans apporter de modifications.
 
-    Notez que le panneau gauche se trouve maintenant sur le volet **Travaux envoyés**. Une fois le travail terminé, l’état du travail devient **Terminé**. 
+1. Une erreur s’affiche dans la page **Paramètres d’exécution**, car vous n’avez pas de calcul par défaut pour exécuter le pipeline. Dans la liste déroulante **Sélectionner un type de calcul**, sélectionnez *Cluster de calcul* et, dans la liste déroulante **Sélectionner un cluster de calcul Azure ML**, sélectionnez votre cluster de calcul récemment créé.
 
-1. Une fois l’exécution effectuée, cliquez sur **Détails du travail**. Un nouvel onglet s’ouvre, et vous voyez une coche pour les composants dont l’exécution est achevée, comme ceci :
+1. Sélectionnez **Suivant** pour examiner le travail de pipeline, puis **Envoyer** pour exécuter le pipeline d’entraînement.
 
-    ![Capture d’écran d’un jeu de données avec des modules dans l’état de travail terminé.](media/create-regression-model/normalize-complete.png)
+1. Attendez quelques minutes que l’exécution se termine. Vous pouvez vérifier l’état du travail en sélectionnant **Travaux** sous **Ressources**. À partir de là, sélectionnez le travail **Apprentissage automatique de la facturation**.
 
 Le jeu de données est maintenant préparé pour l’entraînement du modèle. Fermez l’onglet Détails du travail pour retourner au pipeline.
 
@@ -180,11 +170,11 @@ Après avoir utilisé des transformations de données pour préparer les donnée
     >**Conseil** Utilisez la barre de recherche pour localiser rapidement les modules. 
 
 1. Double-cliquez sur le module **Découper les données**, puis configurez ses paramètres de la façon suivante :
-    * **Splitting mode** : Split Rows
-    * **Fraction of rows in the first output dataset** : 0.7
-    * **Fractionnement aléatoire** : True
-    * **Random seed** : 123
-    * **Stratified split** : False
+    - **Splitting mode** : Split Rows
+    - **Fraction of rows in the first output dataset** : 0.7
+    - **Fractionnement aléatoire** : True
+    - **Random seed** : 123
+    - **Stratified split** : False
 
 1. Dans la **Bibliothèque de ressources**, recherchez et placez un module **Entraîner le modèle** sur le canevas, sous le module **Découper les données**. Connectez ensuite la sortie de *Jeu de données1 de résultats* (à gauche) du module **Découper les données** à l’entrée de *Jeu de données* (à droite) du module **Entraîner le modèle**.
 
@@ -208,15 +198,15 @@ Après avoir utilisé des transformations de données pour préparer les donnée
 
 Vous êtes maintenant prêt à exécuter le pipeline d’entraînement et à entraîner le modèle.
 
-1. Sélectionnez **Submit**, puis exécutez le pipeline à l’aide de l’expérience existante nommée **mslearn-auto-training**.
+1. Sélectionnez **Configurer & soumettre**, puis exécutez le pipeline à l’aide de l’expérience existante nommée **mslearn-auto-training**.
 
-1. L’exécution de l’expérience prendra au moins 5 minutes. Une fois l’exécution de l’expérience terminée, cliquez sur **Détails du travail**. Vous êtes redirigé vers un nouvel onglet.
+1. L’exécution de l’expérience prendra au moins 5 minutes. Revenez à la page **Travaux** et sélectionnez la dernière exécution du travail **Apprentissage automatique de la facturation**.
 
-1. Dans la nouvelle fenêtre, cliquez avec le bouton droit sur le module **Score Model**, sélectionnez **Aperçu des données**, puis sélectionnez **Scored dataset** pour afficher les résultats.
+1. Une fois l’exécution de l’expérience terminée, cliquez avec le bouton droit sur le module **Score model**, sélectionnez **Aperçu des données**, puis **Jeu de données évalué** pour afficher les résultats.
 
 1. Faites défiler l’affichage vers la droite. Vous noterez qu’à côté de la colonne **price** (qui contient les véritables valeurs connues de l’étiquette), il existe une nouvelle colonne nommée **Scored Labels**, qui contient les valeurs prédites de l’étiquette.
 
-1. Fermez l’onglet **Score Model result visualization**.
+1. Fermer l’onglet **scored_dataset**.
 
 Le modèle prédit les valeurs de l’étiquette **price**, mais dans quelle mesure ses prédictions sont-elles fiables ? Pour le déterminer, vous devez évaluer le modèle.
 
@@ -232,11 +222,11 @@ Une façon d’évaluer un modèle de régression consiste à comparer les étiq
 
     ![Capture d’écran de l’ajout du module Evaluate Model au module Score Model.](media/create-regression-model/evaluate.png)
 
-1. Sélectionnez **Submit**, puis exécutez le pipeline à l’aide de l’expérience existante nommée **mslearn-auto-training**.
+1. Sélectionnez **Configurer & soumettre**, puis exécutez le pipeline à l’aide de l’expérience existante nommée **mslearn-auto-training**.
 
-1. Attendez la fin de l’exécution de l’expérience.
+1. L’exécution de l’expérience prend quelques minutes. Revenez à la page **Travaux** et sélectionnez la dernière exécution du travail **Apprentissage automatique de la facturation**.
 
-    ![Capture d’écran d’une exécution d’expérience complète.](media/create-regression-model/completed-job.png)
+1. Une fois l’exécution de l’expérience terminée, cliquez avec le bouton droit sur le module **Évaluer le modèle**, sélectionnez **Aperçu des données**, puis **Résultats d’évaluation**.
 
 1. À la fin de l’exécution de l’expérience, sélectionnez **Détails du travail**, ce qui entraîne l’ouverture d’un autre onglet. Recherchez le module **Évaluer le modèle**, puis cliquez avec le bouton droit. Sélectionnez **Aperçu des données**, puis **Résultats de l’évaluation**.
 
@@ -254,27 +244,22 @@ Une fois que vous avez identifié un modèle avec des métriques d’évaluation
 
 ## Créer et exécuter un pipeline d’inférence
 
-1. Dans Azure Machine Learning studio, développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Cliquez sur **Travaux** (sous **Ressources**) pour voir tous les travaux que vous avez exécutés. Sélectionnez l’expérience **mslearn-auto-training**, puis sélectionnez le pipeline **mslearn-auto-training**. 
-
-    ![Capture d’écran des travaux dans le menu de gauche. Sélectionnez les travaux, puis le nom de votre expérience.](media/create-regression-model/jobs-tab.png)
-
-1. Recherchez le menu au-dessus du canevas, puis cliquez sur **Créer un pipeline d’inférence**. Vous devrez peut-être passer en mode plein écran et cliquer sur l’icône d’ellipse **...** dans le coin supérieur droit de l’écran pour trouver **Créer un pipeline d’inférence** dans le menu.  
+1. Accédez au menu au-dessus du canevas, puis sélectionnez **Créer un pipeline d’inférence**. Vous devrez peut-être passer en mode plein écran et cliquer sur l’icône d’ellipse **...** dans le coin supérieur droit de l’écran pour trouver **Créer un pipeline d’inférence** dans le menu.  
 
     ![Capture d’écran de l’emplacement de création du pipeline d’inférence.](media/create-regression-model/create-inference-pipeline.png)
 
-1. Dans la liste déroulante **Create inference pipeline**, cliquez sur **Real-time inference pipeline**. Après quelques secondes, une nouvelle version de votre pipeline nommé **Auto Price Training-real time inference** est ouverte.
-
-    *Si le pipeline ne comprend pas les modules **Entrée de service web** et **Sortie de service web**, revenez à la page **Concepteur**, puis rouvrez le pipeline **Auto Price Training-real time inference**.*
+1. Dans la liste déroulante **Créer un pipeline d’inférence**, cliquez sur **Pipeline d’inférence en temps réel**. Après quelques secondes, une nouvelle version de votre pipeline nommé **Auto Price Training-real time inference** est ouverte.
 
 1. Renommez le nouveau pipeline en **Predict Auto Price**, puis passez en revue le nouveau pipeline. Il contient une entrée de service web pour les nouvelles données à soumettre et une sortie de service web pour retourner les résultats. Certaines des transformations et des étapes d’entraînement font partie de ce pipeline. Le modèle entraîné est utilisé pour attribuer un score aux nouvelles données.
 
-    Vous allez faire les changements suivants dans le pipeline d’inférence pendant les étapes 5 à 9 :
+    Vous allez effectuer les modifications suivantes dans le pipeline d’inférence lors des étapes suivantes :
 
     ![Capture d’écran d’un pipeline d’inférence avec les modifications indiquées.](media/create-regression-model/inference-changes.png)
 
    Utilisez l’image comme référence lorsque vous modifierez le pipeline au cours des étapes suivantes.
 
-1. Le pipeline d’inférence part du principe que les nouvelles données correspondent au schéma des données d’entraînement d’origine ; le jeu de données **Automobile price data (Raw)** du pipeline d’entraînement est donc inclus. Toutefois, ces données d’entrée comprennent l’étiquette **price** prédite par le modèle, qu’il n’est pas logique d’ajouter aux nouvelles données automobiles pour lesquelles une prédiction de prix n’a pas encore été effectuée. Supprimez ce module et remplacez-le par un module **Enter Data Manually** dans la section **Data Input and Output**, contenant les données CSV suivantes, qui incluent des valeurs de caractéristiques sans étiquettes pour trois voitures (copiez et collez le bloc de texte entier) :
+1. Le pipeline d’inférence part du principe que les nouvelles données correspondent au schéma des données d’entraînement d’origine ; le jeu de données **Automobile price data (Raw)** du pipeline d’entraînement est donc inclus. Toutefois, ces données d’entrée comprennent l’étiquette **price** prédite par le modèle, qu’il n’est pas logique d’ajouter aux nouvelles données automobiles pour lesquelles une prédiction de prix n’a pas encore été effectuée. Supprimez ce module et remplacez-le par un module **Entrer des données manuellement** depuis la section **Entrée et sortie des données**.
+1. Modifiez le module **Entrer des données manuellement** et entrez les données CSV suivantes, qui comprennent des valeurs de caractéristiques sans étiquette pour trois voitures (copiez et collez le bloc de texte entier) :
 
     ```CSV
     symboling,normalized-losses,make,fuel-type,aspiration,num-of-doors,body-style,drive-wheels,engine-location,wheel-base,length,width,height,curb-weight,engine-type,num-of-cylinders,engine-size,fuel-system,bore,stroke,compression-ratio,horsepower,peak-rpm,city-mpg,highway-mpg
@@ -283,7 +268,7 @@ Une fois que vous avez identifié un modèle avec des métriques d’évaluation
     1,NaN,alfa-romero,gas,std,two,hatchback,rwd,front,94.5,171.2,65.5,52.4,2823,ohcv,six,152,mpfi,2.68,3.47,9,154,5000,19,26
     ```
 
-1. Connectez le nouveau module **Enter Data Manually** à la même entrée **dataset** du module **Select Columns in Dataset** que le module **Web Service Input**.
+1. Connectez le nouveau module **Entrer des données manuellement** à la même entrée **Jeu de données** du module **Sélectionner des colonnes dans le jeu de données** que le module **Entrée du service web**.
 
 1. Le schéma des données entrantes étant changé pour exclure le champ **price**, vous devez supprimer toute utilisation explicite de ce champ dans les modules restants. Sélectionnez le module **Select Columns in Dataset**, puis, dans le volet Paramètres, modifiez les colonnes pour supprimer le champ **price**.
 
@@ -293,18 +278,20 @@ Une fois que vous avez identifié un modèle avec des métriques d’évaluation
     - Supprimez la connexion entre le module **Score Model** et le module **Web Service Output**.
     - Ajoutez un module **Exécuter un script Python** à partir de la section **Langage Python**, en remplaçant tout le script Python par défaut par le code suivant (qui sélectionne uniquement la colonne **Étiquettes scorées** et la renomme en **predicted_price**) :
 
-```Python
-import pandas as pd
+    ```Python
+    import pandas as pd
 
-def azureml_main(dataframe1 = None, dataframe2 = None):
+    def azureml_main(dataframe1 = None, dataframe2 = None):
 
-    scored_results = dataframe1[['Scored Labels']]
-    scored_results.rename(columns={'Scored Labels':'predicted_price'},
+        scored_results = dataframe1[['Scored Labels']]
+        scored_results.rename(columns={'Scored Labels':'predicted_price'},
                         inplace=True)
-    return scored_results
-```
+     return scored_results
+    ```
 
-1. Connectez la sortie du module **Score Model** à l’entrée **Dataset1** (la plus à gauche) du module **Execute Python Script**, puis connectez la sortie du module **Execute Python Script** au module **Web Service Output**.
+1. Connectez la sortie depuis le module **Score Model** pour l’entrée **Dataset1** (la plus à gauche) de **Exécuter le script Python**.
+
+1. Connectez la sortie du **jeu de données Résultat** (gauche) du module **Exécuter le script Python** au module **Sortie du service web**.
 
 1. Vérifiez que votre pipeline est similaire à l’image suivante :
 
@@ -312,9 +299,11 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 1. Soumettez le pipeline en tant que nouvelle expérience nommée **mslearn-auto-inference** sur votre cluster de calcul. L’expérience peut prendre un certain temps.
 
-1. Une fois l’exécution du pipeline effectuée, sélectionnez **Détails du travail**. Sous le nouvel onglet, cliquez avec le bouton droit sur le module **Exécuter le script Python**. Sélectionnez **Aperçu des données** puis **Jeu de données des résultats** afin d’afficher les prix prédits pour les trois voitures dans les données d’entrée.
+1. Revenez à la page **Travaux** et sélectionnez la dernière exécution du travail **Apprentissage automatique de la facturation** (celle liée à l’expérience *mslearn-auto-inference*).
 
-1. Fermez l’onglet de visualisation.
+1. Une fois le pipeline terminé, cliquez avec le bouton droit sur le module **Exécuter le script Python** . Sélectionnez **Aperçu des données** puis **Jeu de données des résultats** afin d’afficher les prix prédits pour les trois voitures dans les données d’entrée.
+
+1. Fermer l’onglet **Result_Dataset**.
 
 Votre pipeline d’inférence prédit les prix des voitures en fonction de leurs caractéristiques. Vous êtes maintenant prêt à publier le pipeline afin que les applications clientes puissent l’utiliser.
 
@@ -326,22 +315,16 @@ Après avoir créé et testé un pipeline d’inférence pour l’inférence en 
 
 ## Déployer un service
 
-1. Affichez le pipeline d’inférence **Predict Auto Price** que vous avez créé dans l’unité précédente.
-
-1. Sélectionnez **Détails du travail** dans le volet gauche, ce qui entraîne l’ouverture d’un nouvel onglet.
-
-    ![Capture d’écran des détails du travail à côté du travail fini. ](media/create-regression-model/completed-job-inference.png)
-
-1. Dans le nouvel onglet, sélectionnez **Déployer**.
+1. Dans la page d’exécution du travail **Prédiction automatique du prix**, sélectionnez **Déployer** dans la barre de menus supérieure.
 
     ![Capture d’écran du bouton Déployer pour votre pipeline d’inférence Predict Auto Price.](media/create-regression-model/deploy-screenshot.png)
 
-1. Dans l’écran de configuration, sélectionnez **Déployer un nouveau point de terminaison en temps réel** à l’aide des paramètres suivants :
-    -  **Nom** : predict-auto-price
-    -  **Description** : Régression automatique des prix
+1. Dans l’écran de configuration, sélectionnez **Déployer un nouveau point de terminaison en temps réel** et utiliser les paramètres suivants :
+    - **Nom** : predict-auto-price
+    - **Description** : Régression automatique des prix
     - **Type de capacité de calcul** : Instance de conteneur Azure
 
-1. Patientez quelques minutes pendant le déploiement du service web. L’état du déploiement est indiqué en haut à gauche de l’interface du concepteur.
+1. Sélectionnez **Déployer** et patientez quelques minutes pendant le déploiement du service web.
 
 ## Testez le service
 
@@ -349,7 +332,7 @@ Après avoir créé et testé un pipeline d’inférence pour l’inférence en 
 
     ![Capture d’écran de l’emplacement de l’option Points de terminaison dans le volet gauche.](media/create-regression-model/endpoints-lab.png)
 
-1. Lorsque le point de terminaison **predict-auto-price** s’ouvre, sélectionnez l’onglet **Test**. Nous l’utiliserons pour tester notre modèle avec de nouvelles données. Supprimez les données actuelles sous **Données d’entrée pour tester le point de terminaison en temps réel**. Copiez et collez les données ci-dessous dans la section Données :  
+1. Lorsque le point de terminaison **predict-auto-price** s’ouvre, sélectionnez l’onglet **Test**. Nous l’utiliserons pour tester notre modèle avec de nouvelles données. Supprimez les données actuelles sous **Données d’entrée pour tester le point de terminaison**. Copiez et collez les données ci-dessous dans la section Données :  
 
     ```json
     {
@@ -389,7 +372,7 @@ Après avoir créé et testé un pipeline d’inférence pour l’inférence en 
     }
     ```
 
-1. Sélectionnez **Test**. Sur la droite de l’écran, vous devriez voir la sortie **« predicted_price ».** La sortie est le prix prédit pour un véhicule avec les caractéristiques spécifiées dans les données. 
+1. Sélectionnez **Test**. Sur la droite de l’écran, vous devriez voir la sortie **« predicted_price ».** La sortie est le prix prédit pour un véhicule avec les caractéristiques spécifiées dans les données.
 
     ![Capture d’écran du volet Test.](media/create-regression-model/test-interface.png)
 

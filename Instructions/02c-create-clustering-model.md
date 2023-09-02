@@ -52,49 +52,39 @@ lab:
 
 La création du cluster de calcul prend du temps. Vous pouvez passer à l’étape suivante en attendant.
 
-## Créer un pipeline dans un concepteur
+## Créer un pipeline et ajouter un jeu de données
 
 Pour commencer à utiliser un concepteur Azure Machine Learning, vous devez d’abord créer un pipeline.
 
-1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Consultez la page **Concepteur** (sous **Créer**) et sélectionnez le signe plus pour créer un pipeline.
+1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Affichez la page **Concepteur** (sous **Création**), puis sélectionnez **+** pour créer un pipeline.
 
-1. En haut à droite de l’écran, sélectionnez **Paramètres**. Si le volet **Paramètres** n’est pas visible, sélectionnez l’icône en forme de roue à côté du nom du pipeline situé en haut.
+1. Modifiez le nom du brouillon (**Pipeline-Created-on-* date***) par **Entraîner un clustering Penguin**.
 
-1. Dans **Paramètres**, vous devez spécifier une cible de calcul sur laquelle exécuter le pipeline. Sous **Sélectionner le type de capacité de calcul**, sélectionnez **Cluster de calcul**. Sous **Sélectionner un cluster de calcul Azure ML**, sélectionnez le cluster de calcul que vous avez créé.
+    Dans Azure Machine Learning, les données utilisées pour l’entraînement de modèle et d’autres opérations sont généralement encapsulées dans un objet appelé *jeu de données*. Dans ce module, vous utilisez un jeu de données qui contient des observations pourtant sur trois espèces de manchots.
 
-1. Dans **Paramètres**, sous **Détails du brouillon**, remplacez le nom du brouillon (**Pipeline-Created-on-* date***) par **Train Penguin Clustering**.
+1. Affichez la page **Données** (sous **Ressources**). La page Données contient des tables ou des fichiers de données spécifiques que vous prévoyez d’utiliser dans Azure Machine Learning.
 
-1. Sélectionnez l’*icône de fermeture* en haut à droite du volet **Paramètres** pour fermer le volet, puis sélectionnez **Enregistrer**.
-
-    ![Capture d’écran du volet des paramètres Machine Learning Studio.](media/create-clustering-model/create-pipeline-help.png)
-
-## Créer un jeu de données
-
-Dans Azure Machine Learning, les données utilisées pour l’entraînement de modèle et d’autres opérations sont généralement encapsulées dans un objet appelé *jeu de données*. Dans ce module, vous utilisez un jeu de données qui contient des observations pourtant sur trois espèces de manchots.
-
-1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Affichez la page **Données** (sous **Ressources**). La page Données contient des tables ou des fichiers de données spécifiques que vous prévoyez d’utiliser dans Azure Machine Learning. Vous pouvez aussi créer des jeux de données à partir de cette page.
-
-1. Dans la page **Données**, sous l’onglet **Ressources de données**, sélectionnez **Créer**. Configurez ensuite une ressource de données avec les paramètres suivants :
-    * **Type de données** :
-        * **Nom** : penguin-data
-        * **Description** : Données sur les manchots
-        * **Type de jeu de données** : Tabulaire
-    * **Source de données** : fichiers web
-    * **URL web** :
-        * **URL web** : ****
-        * **Ignorer la validation des données** : *ne pas sélectionner*
-    * **Paramètres**:
-        * **Format de fichier** : Délimité
-        * **Délimiteur** : Virgule
-        * **Encodage** : UTF-8
-        * **En-têtes de colonnes** : seul le premier fichier comporte des en-têtes
-        * **Ignorer les lignes** : Aucune
-        * **Le jeu de données contient des données à plusieurs lignes** : *ne les sélectionnez pas*
-    * **Schéma** :
-        * Inclure toutes les colonnes autres que **Chemin**
-        * Examiner les types détectés automatiquement
-    * **Révision**
-        * Sélectionnez **Créer**
+1. Dans la page **Données**, sous l’onglet **Ressources de données**, sélectionnez **+ Créer**. Configurez ensuite une ressource de données avec les paramètres suivants :
+    - **Type de données** :
+        - **Nom** : penguin-data
+        - **Description** : Données sur les manchots
+        - **Type de jeu de données** : Tabulaire
+    - **Source de données** : fichiers web
+    - **URL web** :
+        - **URL web** : ****
+        - **Ignorer la validation des données** : *ne pas sélectionner*
+    - **Paramètres**:
+        - **Format de fichier** : Délimité
+        - **Délimiteur** : Virgule
+        - **Encodage** : UTF-8
+        - **En-têtes de colonnes** : seul le premier fichier comporte des en-têtes
+        - **Ignorer les lignes** : Aucune
+        - **Le jeu de données contient des données à plusieurs lignes** : *ne les sélectionnez pas*
+    - **Schéma** :
+        - Inclure toutes les colonnes autres que **Chemin**
+        - Examiner les types détectés automatiquement
+    - **Révision**
+        - Sélectionnez **Créer**
 
 1. Une fois que vous avez créé le jeu de données, ouvrez-le, puis affichez la page **Explorer** pour voir un échantillon des données. Ces données sont des mesures tirées de multiples observations des manchots : longueur et épaisseur du culmen (bec), longueur des ailes et masse corporelle. Trois espèces de manchots sont représentées dans le jeu de données : *Adélie*, *Papou* et *À jugulaire*.
 
@@ -102,19 +92,17 @@ Dans Azure Machine Learning, les données utilisées pour l’entraînement de m
 
 ### Charger les données sur le canevas
 
-1. Revenez à votre pipeline en sélectionnant **Concepteur** dans le menu de gauche. Dans la page **Concepteur**, sélectionnez **Train Penguin Clustering**.
+1. Revenez à votre pipeline en sélectionnant **Concepteur** dans le menu de gauche. Dans la page **Designer**, sélectionnez le brouillon de pipeline **Entraîner un clustering Penguin**.
 
 1. À côté du nom du pipeline situé à gauche, sélectionnez l’icône en forme de flèche pour développer le panneau, s’il ne l’est pas déjà. Le panneau doit s’ouvrir par défaut sur le volet **Bibliothèque de ressources**, indiqué par l’icône de livres en haut du panneau. Notez qu’il existe une barre de recherche pour localiser les ressources. Notez deux boutons : **Données** et **Composant**.
 
     ![Capture d’écran de la bibliothèque de ressources du concepteur, de la barre de recherche et de l’icône Données.](media/create-clustering-model/designer-asset-library-data.png)
 
-1. Cliquez sur **Données**. Recherchez et placez le jeu de données **penguin-data** sur le canevas.
+1. Sélectionnez **Données**, recherchez et placez le jeu de données **penguin-data** sur le canevas.
 
 1. Cliquez avec le bouton droit (Ctrl+clic sur un Mac) sur le jeu de données **penguin-data** dans le canevas et cliquez sur **Preview data** (Aperçu des données).
 
-1. Examinez le schéma de *profil* des données. Vous pouvez voir les distributions des différentes colonnes sous forme d’histogrammes. Sélectionnez ensuite la colonne **CulmenLength**. Le jeu de données doit ressembler à ceci :
-
-    ![Visualisation du jeu de données penguin-data, qui présente ses colonnes et quelques exemples de données.](media/create-clustering-model/penguin-visualization.png)
+1. Sélectionnez l’onglet *Profil*. Vous pouvez afficher les distributions des différentes colonnes sous forme d’histogrammes.
 
 1. Le jeu de données présente les caractéristiques suivantes :
 
@@ -127,11 +115,11 @@ Dans Azure Machine Learning, les données utilisées pour l’entraînement de m
     - Il y a deux valeurs manquantes dans la colonne **CulmenLength** (les colonnes **CulmenDepth**, **FlipperLength** et **BodyMass** ont elles aussi deux valeurs manquantes).
     - Les valeurs de mesure sont sur des échelles différentes (de quelques dizaines de millimètres à des milliers de grammes).
 
-1. Fermez la visualisation du jeu de données pour voir le jeu de données sur le canevas du pipeline.
+1. Fermez la page **DataOutput** pour voir le jeu de données sur le canevas du pipeline.
 
 ## Appliquer des transformations
 
-1. Dans le volet **Bibliothèque de ressources** sur la gauche, cliquez sur **Composants**, qui contient un large éventail de modules pour la transformation des données et l’entraînement du modèle. Vous pouvez aussi utiliser la barre de recherche pour localiser rapidement les modules.
+1. Dans le volet **Bibliothèque de ressources** sur la gauche, sélectionnez **Composants** (qui contiennent un large éventail de modules pour la transformation des données et l’entraînement du modèle). Vous pouvez aussi utiliser la barre de recherche pour localiser rapidement les modules.
 
     ![Capture d’écran de la bibliothèque de ressources du concepteur, de la barre de recherche et de l’icône Composants.](media/create-clustering-model/designer-asset-library-components.png)
 
@@ -143,17 +131,17 @@ Dans Azure Machine Learning, les données utilisées pour l’entraînement de m
 
     ![Capture d’écran montrant comment inclure les noms de colonnes CulmenLength, CulmenDepth, FlipperLength et BodyMass.](media/create-clustering-model/select-columns.png)
 
-1. Fermez les paramètres du module **Sélectionner des colonnes du jeu de données** pour revenir dans le canevas du concepteur.
+1. Sélectionnez **Enregistrer**, puis fermez le menu **Sélectionner des colonnes du jeu de données** pour revenir au canevas du concepteur.
 
 1. Dans la **Bibliothèque de composants**, recherchez un module **Nettoyer les données manquantes** et placez-le sur le canevas, sous le module **Sélectionner des colonnes du jeu de données**, puis connectez-les de la façon suivante :
 
     ![Capture d’écran montrant comment connecter le module Select Columns in Dataset au module Clean Missing Data.](media/create-clustering-model/clean-missing-data.png)
 
-1. Doublez-cliquez sur le module **Nettoyer les données manquantes**, puis dans le volet des paramètres à droite, cliquez sur **Modifier la colonne**. Puis, dans la fenêtre **Colonnes à nettoyer**, sélectionnez **Avec règles**, et incluez **Toutes les colonnes**, comme ceci :
+1. Doublez-cliquez sur le module **Nettoyer les données manquantes**, puis, dans le volet des paramètres à droite, cliquez sur **Modifier la colonne**. Puis, dans la fenêtre **Colonnes à nettoyer**, sélectionnez **Avec règles**, et incluez **Toutes les colonnes**, comme ceci :
 
     ![Capture d’écran montrant comment utiliser l’option With Rules pour sélectionner toutes les colonnes.](media/create-clustering-model/normalize-columns.png)
 
-1. Avec le module **Clean Missing Data** toujours sélectionné, dans le volet Paramètres, définissez les paramètres de configuration suivants :
+1. Sélectionnez **Enregistrer**, puis, dans le volet Paramètres, définissez les paramètres de configuration suivants :
     - **Minimum missing value ratio** : 0.0
     - **Maximum missing value ratio** : 1.0
     - **Cleaning mode** : Remove entire row
@@ -166,31 +154,36 @@ Dans Azure Machine Learning, les données utilisées pour l’entraînement de m
 
     ![Capture d’écran montrant comment sélectionner toutes les colonnes.](media/create-clustering-model/normalize-columns.png)
 
-1. Fermez les paramètres du module **Normaliser les données** pour revenir dans le canevas du concepteur.
+1. Sélectionnez **Enregistrer**, puis fermez les paramètres du module **Normaliser les données** pour revenir au canevas du concepteur.
 
 ## Exécuter le pipeline
 
 Pour appliquer vos transformations de données, vous devez exécuter le pipeline en tant qu’expérience.
 
-1. Sélectionnez **Envoyer**, puis exécutez le pipeline en tant que **nouvelle expérience** nommée **mslearn-penguin-training** sur votre cluster de calcul.
+1. Sélectionnez **Configurer & soumettre** en haut de la page pour ouvrir la boîte de dialogue **Configurer la tâche de pipeline**.
 
-1. Attendez la fin de l’exécution. L’opération peut prendre 5 minutes ou plus.
+1. Dans la page **Informations de base**, sélectionnez **Créer** et définissez le nom de l’expérience sur **mslearn-penguin-training**, puis sélectionnez **Suivant**.
 
-    ![Capture d’écran de la bibliothèque de ressources du concepteur avec le travail terminé et le bouton Détails du travail en dessous.](media/create-clustering-model/completed-job.png)
+1. Dans la page **Entrées & sorties**, sélectionnez **Suivant** sans apporter de modifications.
 
-    Notez que le panneau de gauche se trouve désormais dans le volet **Travaux envoyés**. Une fois le travail terminé, l’état du travail devient **Terminé**.
+1. Une erreur s’affiche dans la page **Paramètres d’exécution**, car vous n’avez pas de calcul par défaut pour exécuter le pipeline. Dans la liste déroulante **Sélectionner un type de calcul**, sélectionnez *Cluster de calcul* et, dans la liste déroulante **Sélectionner un cluster de calcul Azure ML**, sélectionnez votre cluster de calcul récemment créé.
+
+1. Sélectionnez **Suivant** pour examiner le travail de pipeline, puis **Envoyer** pour exécuter le pipeline d’entraînement.
+
+1. Attendez la fin de l’exécution. L’opération peut prendre 5 minutes ou plus. Vous pouvez vérifier l’état du travail en sélectionnant **Travaux** sous **Ressources**. À partir de là, sélectionnez le travail **Entraîner un clustering Penguin**.
+
 
 ## Afficher les données transformées
 
-1. Une fois l’exécution terminée, le jeu de données est maintenant préparé pour l’apprentissage du modèle. Cliquez sur **Détail du travail**. Vous êtes redirigé vers un autre onglet qui affiche les modules de la façon suivante :
+1. Une fois l’exécution terminée, les modules vont ressembler à ceci :
 
     ![Capture d’écran des modules en état terminé avec une barre verte à gauche de chaque module.](media/create-clustering-model/normalize-complete.png)
 
-1. Dans le nouvel onglet, cliquez avec le bouton droit sur le module **Normaliser les données**, sélectionnez **Aperçu des données**, puis sélectionnez **Jeu de données transformé** pour voir les résultats.
+1. Cliquez avec le bouton droit sur le module **Normaliser les données**, sélectionnez **Aperçu des données**, puis **Jeu de données transformé** pour afficher les résultats.
 
 1. Observez les données. Vous voyez que la colonne **Species** a été supprimée, qu’il ne manque aucune valeur et que les valeurs des quatre caractéristiques ont été normalisées à une échelle commune.
 
-1. Fermez la visualisation des résultats des données normalisées. Retournez à l’onglet de pipeline précédent.
+1. Fermez la page **Transformed_dataset** pour revenir à l’exécution du pipeline.
 
 Maintenant que vous avez sélectionné et préparé les caractéristiques du jeu de données que vous souhaitez utiliser, vous pouvez vous en servir pour entraîner un modèle de clustering.
 
@@ -204,18 +197,18 @@ Suivez les étapes suivantes pour étendre le pipeline **Train Penguin Clusterin
 
 Effectuez les étapes suivantes en utilisant l’image ci-dessus pour référence quand vous ajoutez et configurez les modules requis.
 
-1. Ouvrez le pipeline **Train Penguin Clustering**, s’il n’est pas déjà ouvert.
+1. Revenez à la page **Designer** et ouvrez le brouillon de pipeline **Entraîner un clustering Penguin**.
 
 1. Dans le volet **Bibliothèque de ressources** sur la gauche, recherchez et placez un module **Découper les données** sur le canevas, sous le module **Normaliser les données**. Connectez ensuite la sortie à gauche du module **Normalize Data** à l’entrée du module **Split Data**.
 
-    >**Conseil** Utilisez la barre de recherche pour localiser rapidement les modules. 
+    >**Conseil** Utilisez la barre de recherche pour localiser rapidement les modules.
 
 1. Sélectionnez le module **Split Data** et configurez ses paramètres comme suit :
-    * **Splitting mode** : Split Rows
-    * **Fraction of rows in the first output dataset** : 0.7
-    * **Fractionnement aléatoire** : True
-    * **Random seed** : 123
-    * **Stratified split** : False
+    - **Splitting mode** : Split Rows
+    - **Fraction of rows in the first output dataset** : 0.7
+    - **Fractionnement aléatoire** : True
+    - **Random seed** : 123
+    - **Stratified split** : False
 
 1. Dans la **Bibliothèque de composants**, recherchez et placez un module **Entraîner le modèle de clustering** sur le canevas, sous le module **Découper les données**. Connectez ensuite la sortie de *Jeu de données1 de résultats* (à gauche) du module **Découper les données** à l’entrée de *Jeu de données* (à droite) du module **Entraîner le modèle de clustering**.
 
@@ -223,7 +216,7 @@ Effectuez les étapes suivantes en utilisant l’image ci-dessus pour référenc
 
     ![Capture d’écran montrant comment inclure toutes les colonnes dans le jeu de colonnes.](media/create-clustering-model/cluster-features.png)
 
-1. Le modèle que nous sommes en train d’entraîner utilisera les caractéristiques pour regrouper les données en clusters. Nous devons donc entraîner le modèle au moyen d’un algorithme de *clustering*. Dans la **Bibliothèque de composants**, recherchez et placez un module **Clustering k-moyennes** sur le canevas, à gauche du jeu de données **penguin-data** et au-dessus du module **Entraîner le modèle de clustering**. Ensuite, connectez sa sortie à l’entrée **Untrained model** (à gauche) du module **Train Clustering Model**.
+1. Le modèle que nous sommes en train d’entraîner utilisera les caractéristiques pour regrouper les données en clusters. Nous devons donc entraîner le modèle au moyen d’un algorithme de *clustering*. Dans la **Bibliothèque de composants**, recherchez et placez un module **Clustering k-moyennes** sur le canevas, à gauche du module **Fractionner des données** et au-dessus du module **Entraîner le modèle de clustering**. Ensuite, connectez sa sortie à l’entrée **Untrained model** (à gauche) du module **Train Clustering Model**.
 
 1. L’algorithme *k-moyennes* regroupe les éléments selon le nombre de clusters que vous spécifiez, représenté par la valeur ***K***. Sélectionnez le module **Clustering k-moyennes**, puis dans le volet de droite, définissez le paramètre **Nombre de centroïdes** sur **3**.
 
@@ -232,7 +225,7 @@ Effectuez les étapes suivantes en utilisant l’image ci-dessus pour référenc
     > 2. Il trace les vecteurs de caractéristiques sous forme de points dans le même espace et il affecte chaque point à son centroïde le plus proche.
     > 3. Il déplace les centroïdes au milieu des points qui lui sont affectés (en fonction de la distance *moyenne*).
     > 4. Il réaffecte les points à leur centroïde le plus proche après le déplacement.
-    > 5. Il répète les étapes 3 et 4 jusqu’à ce que les allocations de cluster se stabilisent ou que le nombre spécifié d’itérations ait été effectué.
+    > 5. Répétition des étapes c. et D. Jusqu’à la stabilisation des allocations du cluster ou l’achèvement du nombre spécifié d’itérations.
 
    Après avoir utilisé 70 % des données dans le cadre de l’entraînement du modèle de clustering, vous pouvez utiliser les 30 % restants afin de le tester en utilisant le modèle pour affecter les données aux clusters.
 
@@ -246,15 +239,15 @@ Vous êtes maintenant prêt à exécuter le pipeline d’entraînement et à ent
 
     ![Capture d’écran d’un pipeline d’apprentissage complet commençant par des données Penguin et se terminant par le composant Assign Data to Clusters.](media/create-clustering-model/k-means.png)
 
-1. Sélectionnez **Submit**, puis exécutez le pipeline l’expérience existante nommée **mslearn-penguin-training** sur votre cluster de calcul.
+1. Sélectionnez **Configurer & soumettre**, puis exécutez le pipeline l’expérience existante nommée **mslearn-penguin-training** sur votre cluster de calcul.
 
-1. Attendez la fin de l’exécution de l’expérience. L’opération peut prendre 5 minutes ou plus.
+1. Attendez la fin de l’exécution. L’opération peut prendre 5 minutes ou plus. Vérifiez l’état du travail en sélectionnant **Travaux** sous **Ressources**. À partir de là, sélectionnez la dernière tâche **Entraîner un clustering Penguin**.
 
-1. À la fin de l’exécution de l’expérience, sélectionnez **Détails du travail**. Sous le nouvel onglet, cliquez avec le bouton droit sur le module **Affecter des données aux clusters**, sélectionnez **Aperçu des données**, puis sélectionnez **Jeu de données de résultats** pour voir les résultats.
+1. Lorsque l’exécution de l’expérience s’achève, cliquez avec le bouton droit sur le module **Attribuer des données à des clusters**, sélectionnez **Aperçu des données**, puis sélectionnez **Jeu de données de résultats** pour afficher les résultats.
 
 1. Faites défiler vers le bas afin de voir la colonne **Affectations**, qui contient le cluster (0, 1 ou 2) auquel chaque ligne est affectée. Vous voyez aussi de nouvelles colonnes qui indiquent la distance entre le point représentant cette ligne et les centres de chacun des clusters ; le point est affecté au cluster qui se trouve le plus près de lui.
 
-1. Fermez la visualisation **Assign Data to Clusters**. Retournez à l’onglet de pipeline.
+1. Fermez la visualisation **Results_dataset** pour revenir à l’exécution du pipeline.
 
 Le modèle prédit les clusters pour les observations sur les manchots, mais ses prédictions sont-elles fiables ? Pour le déterminer, vous devez évaluer le modèle.
 
@@ -262,7 +255,7 @@ L’évaluation d’un modèle de clustering est rendue difficile par le fait qu
 
 ## Ajouter un module Evaluate Model
 
-1. Si ce n’est déjà fait, ouvrez le pipeline **Train Penguin Clustering** que vous avez créé dans l’unité précédente.
+1. Dans la page **Designer**, ouvrez le brouillon de pipeline **Entraîner un clustering Penguin**.
 
 1. Dans la **Bibliothèque de ressources**, recherchez et placez un module **Évaluer le modèle** sur le canevas, sous le module **Affecter des données aux clusters**. Connectez la sortie du module **Affecter des données aux clusters** à l’entrée (gauche) **Jeu de données scoré** du module **Évaluer le modèle**.
 
@@ -270,17 +263,17 @@ L’évaluation d’un modèle de clustering est rendue difficile par le fait qu
 
     ![Capture d’écran montrant comment ajouter le module Evaluate Model au module Assign Data to Clusters.](media/create-clustering-model/evaluate-cluster.png)
 
-1. Sélectionnez **Submit**, puis exécutez le pipeline à l’aide de l’expérience **mslearn-penguin-training** existante.
+1. Sélectionnez **Configurer & soumettre**, puis exécutez le pipeline l’expérience existante nommée **mslearn-penguin-training** sur votre cluster de calcul.
 
-1. Attendez la fin de l’exécution de l’expérience.
+1. Attendez la fin de l’exécution de l’expérience. Pour vérifier son état, accédez à la page **Travaux** et sélectionnez la dernière tâche **Entraîner un clustering Pingouin**.
 
-1. À la fin de l’exécution de l’expérience, sélectionnez **Détails du travail**. Cliquez avec le bouton droit sur le module **Évaluer le modèle** et sélectionnez **Aperçu des données**, puis **Résultats de l’évaluation**. Examinez les métriques de chaque ligne :
+1. Cliquez avec le bouton droit sur le module **Évaluer le modèle**, sélectionnez **Aperçu des données**, puis **Résultats de l’évaluation**. Examinez les métriques de chaque ligne :
     - **Average Distance to Other Center**
     - **Average Distance to Cluster Center**
     - **Number of Points**
     - **Maximal Distance to Cluster Center**
 
-1. Fermez l’onglet **Evaluate Model result visualization** (Visualisation des résultats de l’évaluation du modèle).
+1. Fermez l’onglet **Résultats de l’évaluation**.
 
 Maintenant que vous disposez d’un modèle de clustering opérationnel, vous pouvez l’utiliser pour affecter de nouvelles données aux clusters dans un *pipeline d’inférence*.
 
@@ -288,15 +281,13 @@ Après avoir créé et exécuté un pipeline pour entraîner le modèle, vous po
 
 ## Créer un pipeline d'inférence
 
-1. Dans Azure Machine Learning studio, développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Cliquez sur **Travaux** (sous **Ressources**) pour voir tous les travaux que vous avez exécutés. Sélectionnez l’expérience **mslearn-penguin-training**, puis sélectionnez le pipeline **Train Penguin Clustering**. 
+1. Accédez au menu au-dessus du canevas, puis sélectionnez **Créer un pipeline d’inférence**. Il peut être nécessaire de passer en mode plein écran et de cliquer sur l’icône **...** en haut à droite de l’écran pour trouver **Créer un pipeline d’inférence** dans le menu.  
 
-1. Recherchez le menu au-dessus du canevas, puis cliquez sur **Créer un pipeline d’inférence**. Il peut être nécessaire de passer en mode plein écran et de cliquer sur l’icône **...** en haut à droite de l’écran pour trouver **Créer un pipeline d’inférence** dans le menu.  
+    ![Capture d’écran de l’emplacement de création du pipeline d’inférence.](media/create-clustering-model/create-inference-pipeline.png)
 
-    ![Capture d’écran de l’emplacement de création du pipeline d’inférence.](media/create-clustering-model/create-inference-pipeline.png) 
+1. Dans la liste déroulante **Créer un pipeline d’inférence**, cliquez sur **Pipeline d’inférence en temps réel**. Après quelques secondes, une nouvelle version de votre pipeline nommé **Train Penguin Clustering-real time inference** s’ouvre.
 
-1. Dans la liste déroulante **Create inference pipeline**, cliquez sur **Real-time inference pipeline**. Après quelques secondes, une nouvelle version de votre pipeline nommé **Train Penguin Clustering-real time inference** s’ouvre.
-
-1. Accédez à **Paramètres** dans le menu supérieur droit. Sous **Détails du brouillon**, renommez le nouveau pipeline **Predict Penguin Clusters**, puis examinez le nouveau pipeline. Les transformations et le modèle de clustering de votre pipeline d’entraînement font partie de ce pipeline. Le modèle entraîné sera utilisé pour attribuer un score aux nouvelles données. Le pipeline contient également une sortie de service web pour retourner les résultats. 
+1. Renommez le nouveau pipeline en **Predict Penguin Clusters**, puis examinez le nouveau pipeline. Les transformations et le modèle de clustering de votre pipeline d’entraînement font partie de ce pipeline. Le modèle entraîné sera utilisé pour attribuer un score aux nouvelles données. Le pipeline contient également une sortie de service web pour retourner les résultats.
 
     Vous allez apporter les modifications suivantes au pipeline d’inférence :
 
@@ -309,9 +300,11 @@ Après avoir créé et exécuté un pipeline pour entraîner le modèle, vous po
 
     Suivez les étapes restantes ci-dessous, en utilisant l’image et les informations ci-dessus à titre de référence quand vous modifiez le pipeline.
 
-1. Le pipeline n’inclut pas automatiquement de composant **Entrée du service web** pour les modèles créés à partir de jeux de données personnalisés. Recherchez un composant **Entrée du service web** dans la bibliothèque de ressources, puis placez-le en haut du pipeline.  Connectez la sortie du composant **Entrée du service web** à l’entrée du composant **Appliquer une transformation**, qui se trouve déjà sur le canevas.  
+1. Le pipeline n’inclut pas automatiquement de composant **Entrée du service web** pour les modèles créés à partir de jeux de données personnalisés. Recherchez un composant **Entrée du service web** dans la bibliothèque de ressources, puis placez-le en haut du pipeline.  Connectez la sortie du composant **Entrée du service web** à l’entrée *Dataset* (droite) du premier composant **Appliquer une transformation** qui se trouve déjà sur le canevas.  
 
-1. Le pipeline d’inférence part du principe que les nouvelles données correspondent au schéma des données d’entraînement d’origine ; le jeu de données **penguin-data** du pipeline d’entraînement est donc inclus. Toutefois, ces données d’entrée comportent une colonne pour l’espèce de manchot, que le modèle n’utilise pas. Supprimez le jeu de données **penguin-data** ainsi que les modules **Select Columns in Dataset**, et remplacez-les par un module **Enter Data Manually** de la **Bibliothèque de composants**. Modifiez ensuite les paramètres du module **Enter Data Manually** pour utiliser l’entrée CSV suivante, qui contient les valeurs des caractéristiques de trois nouvelles observations de manchots (avec les en-têtes) :
+1. Le pipeline d’inférence part du principe que les nouvelles données correspondent au schéma des données d’entraînement d’origine ; le jeu de données **penguin-data** du pipeline d’entraînement est donc inclus. Toutefois, ces données d’entrée comportent une colonne pour l’espèce de manchot, que le modèle n’utilise pas. Supprimez le jeu de données **penguin-data** ainsi que les modules **Select Columns in Dataset**, et remplacez-les par un module **Enter Data Manually** de la **Bibliothèque de composants**.
+
+1. Modifiez ensuite les paramètres du module **Enter Data Manually** pour utiliser l’entrée CSV suivante, qui contient les valeurs des caractéristiques de trois nouvelles observations de manchots (avec les en-têtes) :
 
     ```CSV
     CulmenLength,CulmenDepth,FlipperLength,BodyMass
@@ -320,7 +313,7 @@ Après avoir créé et exécuté un pipeline pour entraîner le modèle, vous po
     46.6,17.8,193,3800
     ```
 
-1. Connectez les sorties des modules **Web Service Input** et **Enter Data Manually** à l’entrée Dataset (à droite) du premier module **Apply Transformation**.
+1. Connectez les sorties du module **Entrer des données manuellement** à l’entrée *Dataset* (à droite) du premier module **Appliquer la transformation**.
 
 1. Supprimez le module **Evaluate Model**.
 
@@ -330,27 +323,23 @@ Après avoir créé et exécuté un pipeline pour entraîner le modèle, vous po
 
 1. Soumettez le pipeline en tant que nouvelle expérience nommée **mslearn-penguin-inference** sur votre cluster de calcul. L’expérience peut prendre un certain temps.
 
-1. À la fin de l’exécution du pipeline, sélectionnez **Détails du travail**. Sous le nouvel onglet, cliquez avec le bouton droit sur le module **Affecter des données aux clusters**, sélectionnez **Aperçu des données**, puis sélectionnez **Jeu de données de résultats** afin de voir les métriques et les affectations de clusters prédites pour les trois observations de manchots dans les données d’entrée.
+1. Accédez à **Travaux** et sélectionnez la dernière tâche **Prédire les clusters Penguin** avec le nom de l’expérience **mslearn-penguin-inference**.
+
+1. Lorsque votre pipeline est terminé, cliquez avec le bouton droit sur le module **Affecter des données aux clusters**, sélectionnez **Aperçu des données**, puis **Jeu de données de résultats** afin de voir les métriques et les affectations de clusters prédites pour les trois observations de manchots dans les données d’entrée.
 
 Votre pipeline d’inférence affecte les observations de manchots aux clusters en fonction de leurs caractéristiques. Vous êtes maintenant prêt à publier le pipeline afin que les applications clientes puissent l’utiliser.
 
->**Remarque** Dans cet exercice, vous allez déployer le service web sur une instance d’Azure Container Instances (ACI). Ce type de calcul, créé dynamiquement, est utile pour le développement et le test. Pour la production, vous devez créer un *cluster d’inférence* qui fournit un cluster Azure Kubernetes Service (AKS) offrant une meilleure scalabilité et une meilleure sécurité.
-
 ## Déployer un service
 
-1. Affichez le pipeline d’inférence **Predict Penguin Clusters** que vous avez créé dans l’unité précédente.
+Dans cet exercice, vous déployez le service web sur une instance de conteneur Azure (ACI). Ce type de calcul, créé dynamiquement, est utile pour le développement et le test. Pour la production, vous devez créer un *cluster d’inférence* qui fournit un cluster Azure Kubernetes Service (AKS) offrant une meilleure scalabilité et une meilleure sécurité.
 
-1. Sélectionnez **Détails du travail** dans le volet gauche. Cela entraîne l’ouverture d’un autre onglet.
-
-    ![Capture d’écran des détails du travail à côté du travail fini. ](media/create-clustering-model/completed-job-inference.png)
-
-1. Dans le nouvel onglet, sélectionnez **Déployer**.
+1. Dans la page d’exécution de l’inférence **Prédire les clusters Penguin**, sélectionnez **Déployer** dans la barre de menus supérieure.
 
     ![Capture d’écran du bouton Déployer pour votre pipeline d’inférence Predict Auto Price.](media/create-clustering-model/deploy-screenshot.png)
 
-1. Déployez un nouveau point de terminaison en temps réel à l’aide des paramètres suivants :
-    -  **Nom** : predict-penguin-clusters
-    -  **Description** : Manchots du cluster.
+1. Sélectionnez **Déployer un nouveau point de terminaison en temps réel** et utilisez les paramètres suivants :
+    - **Nom** : predict-penguin-clusters
+    - **Description** : Manchots du cluster.
     - **Type de capacité de calcul** : Instance de conteneur Azure
 
 1. Attendez que le service web soit déployé, ce qui peut prendre plusieurs minutes. 
@@ -363,7 +352,7 @@ Votre pipeline d’inférence affecte les observations de manchots aux clusters 
 
     ![Capture d’écran de l’emplacement de l’option Points de terminaison dans le volet gauche.](media/create-clustering-model/endpoints-screenshot.png)
 
-1. Nous allons l’utiliser pour tester notre modèle avec de nouvelles données. Supprimez les données actuelles sous **Données d’entrée pour tester le point de terminaison en temps réel**. Copiez et collez les données ci-dessous dans la section Données : 
+1. Nous allons l’utiliser pour tester notre modèle avec de nouvelles données. Supprimez les données actuelles sous **Données d’entrée pour tester le point de terminaison en temps réel**. Copiez et collez les données ci-dessous dans la section Données :
 
     ```JSON
     {

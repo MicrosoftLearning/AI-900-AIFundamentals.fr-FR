@@ -52,61 +52,50 @@ lab:
 
 La création du cluster de calcul prend du temps. Vous pouvez passer à l’étape suivante en attendant.
 
-## Créer un pipeline dans le concepteur
-
-Pour commencer à utiliser le concepteur Azure Machine Learning, vous devez d’abord créer un pipeline et ajouter le jeu de données que vous souhaitez utiliser.
-
-1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Affichez la page **Concepteur** (sous **Créer**), puis sélectionnez **+** pour créer un pipeline.
-
-1. En haut à droite de l’écran, sélectionnez **Paramètres**. Si le volet **Paramètres** n’est pas visible, sélectionnez l’icône en forme de roue à côté du nom du pipeline situé en haut.
-
-1. Dans **Paramètres**, vous devez spécifier une cible de calcul sur laquelle exécuter le pipeline. Sous **Sélectionner le type de capacité de calcul**, sélectionnez **Cluster de calcul**. Sous **Sélectionner un cluster de calcul Azure ML**, sélectionnez le cluster de calcul que vous avez créé.
-
-1. Dans **Paramètres**, sous **Détails du brouillon**, remplacez le nom du brouillon (**Pipeline-Created-on-* date***) par **Diabetes Training**.
-
-1. Sélectionnez l’icône de fermeture en haut à droite du volet **Paramètres** pour fermer le volet, puis sélectionnez **Enregistrer**.
-
-    ![Capture d’écran du volet des paramètres Machine Learning Studio.](media/create-classification-model/create-pipeline-help.png)
 
 ## Créer un jeu de données
 
-1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Affichez la page **Données** (sous **Ressources**). La page Données contient des tables ou des fichiers de données spécifiques que vous prévoyez d’utiliser dans Azure Machine Learning. Vous pouvez aussi créer des jeux de données à partir de cette page.
+1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Sélectionnez la page **Données** (sous **Ressources**). La page Données contient des tables ou des fichiers de données spécifiques que vous prévoyez d’utiliser dans Azure Machine Learning. Vous pouvez aussi créer des jeux de données à partir de cette page.
 
-1. Dans la page **Données**, sous l’onglet **Ressources de données**, sélectionnez **Créer**. Configurez ensuite une ressource de données avec les paramètres suivants :
-    * **Type de données** :
-        * **Nom** : diabetes-data
-        * **Description** : Données sur le diabète
-        * **Type de jeu de données** : Tabulaire
-    * **Source de données** : fichiers web
-    * **URL web** :
-        * **URL web** : ****
-        * **Ignorer la validation des données** : *ne pas sélectionner*
-    * **Paramètres**:
-        * **Format de fichier** : Délimité
-        * **Délimiteur** : Virgule
-        * **Encodage** : UTF-8
-        * **En-têtes de colonnes** : seul le premier fichier comporte des en-têtes
-        * **Ignorer les lignes** : Aucune
-        * **Le jeu de données contient des données à plusieurs lignes** : *ne les sélectionnez pas*
-    * **Schéma** :
-        * Inclure toutes les colonnes autres que **Chemin**
-        * Examiner les types détectés automatiquement
-    * **Révision**
-        * Sélectionnez **Créer**
+1. Dans la page **Données**, sous l’onglet **Ressources de données**, sélectionnez **+ Créer**. Configurez ensuite une ressource de données avec les paramètres suivants :
+    - **Type de données** :
+        - **Nom** : diabetes-data
+        - **Description** : Données sur le diabète
+        - **Type de jeu de données** : Tabulaire
+    - **Source de données** : à partir de fichiers web
+    - **URL web** :
+        - **URL web** : ****
+        - **Ignorer la validation des données** : *ne pas sélectionner*
+    - **Paramètres**:
+        - **Format de fichier** : Délimité
+        - **Délimiteur** : Virgule
+        - **Encodage** : UTF-8
+        - **En-têtes de colonnes** : seul le premier fichier comporte des en-têtes
+        - **Ignorer les lignes** : Aucune
+        - **Le jeu de données contient des données à plusieurs lignes** : *ne les sélectionnez pas*
+    - **Schéma** :
+        - Inclure toutes les colonnes autres que **Chemin**
+        - Examiner les types détectés automatiquement
+    - **Révision**
+        - Sélectionnez **Créer**
 
 1. Après avoir créé le jeu de données, ouvrez-le, puis affichez la page **Explorer** pour voir un échantillon des données. Ces données représentent les détails des patients qui ont été testés pour le diabète.
 
-### Charger les données sur le canevas
+## Créer un pipeline dans Designer et charger des données dans le canevas
 
-1. Revenez à votre pipeline en sélectionnant **Concepteur** dans le menu de gauche. Dans la page **Concepteur**, sélectionnez le pipeline **Diabetes Training**.
+Pour commencer à utiliser le concepteur Azure Machine Learning, vous devez d’abord créer un pipeline et ajouter le jeu de données que vous souhaitez utiliser.
+
+1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), dans le volet de gauche, sélectionnez l’élément **Designer** (sous **Création**), puis sélectionnez **+** pour créer un pipeline.
+
+1. Remplacez le nom du brouillon de **Pipeline-Created-on-*date*** par **formation sur le diabète**.
 
 1. Ensuite dans le projet, à côté du nom du pipeline situé à gauche, sélectionnez l’icône de flèches pour développer le panneau, s’il ne l’est pas déjà. Le panneau doit s’ouvrir par défaut sur le volet **Bibliothèque de ressources**, indiqué par l’icône de livres en haut du panneau. Notez qu’il existe une barre de recherche pour localiser les ressources. Notez deux boutons : **Données** et **Composant**.
 
     ![Capture d’écran de la bibliothèque de ressources du concepteur, de la barre de recherche et de l’icône Données.](media/create-classification-model/designer-asset-library-data.png)
 
-1. Cliquez sur **Données**. Recherchez et placez le jeu de données **diabetes-data** sur le canevas.
+1. Sélectionnez **Données**. Recherchez et placez le jeu de données **diabetes-data** sur le canevas.
 
-1. Cliquez avec le bouton droit (Ctrl+clic sur un Mac) sur le jeu de données **diabetes-data** dans le canevas et cliquez sur **Preview data** (Aperçu des données).
+1. Cliquez avec le bouton droit (Ctrl+clic sur un Mac) sur le jeu de données **données sur le diabète** dans le canevas et sélectionnez **Aperçu des données**.
 
 1. Examinez le schéma des données dans l’onglet *Profil*. Vous pouvez voir les distributions des différentes colonnes sous forme d’histogrammes.
 
@@ -114,7 +103,7 @@ Pour commencer à utiliser le concepteur Azure Machine Learning, vous devez d’
 
 1. Refaites défiler la page vers le haut et regardez les autres colonnes, qui représentent les *caractéristiques* qui seront utilisées pour prédire l’étiquette. Notez que la plupart de ces colonnes sont numériques, mais que chaque caractéristique a sa propre échelle. Par exemple, les valeurs dans **Age** sont comprises entre 21 et 77, tandis que les valeurs **DiabetesPedigree** sont comprises entre 0.078 et 2.3016. Quand vous entraînez un modèle Machine Learning, il arrive parfois que les plus grandes valeurs dominent la fonction prédictive résultante, réduisant ainsi l’influence des caractéristiques sur une plus petite échelle. Généralement, les scientifiques des données atténuent ce biais éventuel en *normalisant* les colonnes numériques pour les avoir à des échelles similaires.
 
-1. Fermez l’onglet **diabetes-data result visualization** (Visualisation des résultats de diabetes-data) pour voir le jeu de données sur le canevas, comme ceci :
+1. Fermez l’onglet **DataOutput** pour afficher le jeu de données sur le canevas, comme ceci :
 
     ![Capture d’écran du jeu de données diabetes-data dans le canevas du concepteur.](media/create-classification-model/diabetes-data.png)
 
@@ -122,19 +111,19 @@ Pour commencer à utiliser le concepteur Azure Machine Learning, vous devez d’
 
 Pour pouvoir entraîner un modèle, vous devez généralement appliquer au préalable certaines transformations de prétraitement aux données.
 
-1. Dans le volet **Bibliothèque de ressources** sur la gauche, cliquez sur **Composants**, qui contient un large éventail de modules pour la transformation des données et l’entraînement du modèle. Vous pouvez aussi utiliser la barre de recherche pour localiser rapidement les modules.
+1. Dans le volet **Bibliothèque de ressources** sur la gauche, sélectionnez **Composants** qui contient un large éventail de modules pour la transformation des données et l’entraînement du modèle. Vous pouvez aussi utiliser la barre de recherche pour localiser rapidement les modules.
 
     ![Capture d’écran de la bibliothèque de ressources du concepteur, de la barre de recherche et de l’icône Composants.](media/create-classification-model/designer-asset-library-components.png)
 
-1. Recherchez le module **Sélectionner les colonnes dans le jeu de données** et placez-le sur le canevas, sous le jeu de données **diabetes-data**. Connectez ensuite la sortie en bas du jeu de données **diabetes-data** à l’entrée en haut du module **Sélectionner les colonnes dans le jeu de données**.
+1. Découvrez le module **Sélectionner les colonnes dans le jeu de données** et placez-le sur le canevas, sous le jeu de données **données sur le diabète**. Connectez ensuite la sortie en bas du jeu de données **diabetes-data** à l’entrée en haut du module **Sélectionner les colonnes dans le jeu de données**.
 
-1. Double-cliquez sur le module **Select Columns in Dataset** pour accéder à un volet de paramètres situé sur la droite. Sélectionnez **Modifier la colonne**. Ensuite, dans la fenêtre **Sélectionner des colonnes**, sélectionnez **Par nom** et **Ajouter tout** pour ajouter toutes les colonnes. Supprimez ensuite **PatientID**, puis cliquez sur **Enregistrer**. 
+1. Double-cliquez sur le module **Select Columns in Dataset** pour accéder à un volet de paramètres situé sur la droite. Sélectionnez **Modifier la colonne**. Ensuite, dans la fenêtre **Sélectionner des colonnes**, sélectionnez **Par nom** et **Ajouter tout** pour ajouter toutes les colonnes. Supprimez ensuite **PatientID**, puis cliquez sur **Enregistrer**.
 
 1. Recherchez le module **Normaliser les données** et placez-le sur le canevas, sous le module **Sélectionner les colonnes dans le jeu de données**. Connectez ensuite la sortie en bas du module **Sélectionner les colonnes dans le jeu de données** à l’entrée en haut du module **Normaliser les données**, comme suit :
 
     ![Capture d’écran d’un pipeline avec le jeu de données connecté au module Sélectionner les colonnes et Normaliser les données.](media/create-classification-model/dataset-normalize.png)
 
-1. Double-cliquez sur le module **Normalize Data** pour observer ses paramètres ; vous pouvez voir que vous devez spécifier la méthode de transformation et les colonnes à transformer. 
+1. Double-cliquez sur le module **Normalize Data** pour observer ses paramètres ; vous pouvez voir que vous devez spécifier la méthode de transformation et les colonnes à transformer.
 
 1. Affectez à la *Méthode de transformation* la valeur **MinMax**, et à *Utiliser 0 pour les colonnes constantes quand elles sont cochées* la valeur **True**. Modifiez les colonnes à transformer avec **Modifier les colonnes**. Sélectionnez des colonnes **avec des règles**, puis copiez et collez la liste suivante sous Inclure les noms de colonnes :  
 
@@ -143,7 +132,7 @@ Pregnancies, PlasmaGlucose, DiastolicBloodPressure, TricepsThickness, SerumInsul
 ```
 ![Capture d’écran des colonnes sélectionnées pour la normalisation.](media/create-classification-model/normalize-data.png)
 
-Cliquez sur **Enregistrer** et fermez la zone de sélection. 
+Cliquez sur **Enregistrer** et fermez la zone de sélection.
 
 La transformation des données normalise les colonnes numériques pour les mettre à la même échelle. Ainsi, les colonnes comportant des valeurs élevées ne devraient pas dominer l’entraînement du modèle. Vous devez généralement appliquer une série complète de transformations de prétraitement comme celle-ci afin de préparer vos données pour l’entraînement. Cependant, nous allons simplifier les choses pour cet exercice.
 
@@ -151,19 +140,23 @@ La transformation des données normalise les colonnes numériques pour les mettr
 
 Pour appliquer vos transformations de données, vous devez exécuter le pipeline en tant qu’expérience.
 
-1. Sélectionnez **Submit**, puis exécutez le pipeline en tant que nouvelle expérience nommée **mslearn-diabetes-training** sur votre cluster de calcul.
+1. Sélectionnez **Configurer & soumettre** en haut de la page pour ouvrir la boîte de dialogue **Configurer la tâche de pipeline**.
 
-1. Attendez quelques minutes que l’exécution se termine.
+1. Dans la page **De base**, sélectionnez **Créer** et définissez le nom de l’expérience sur **mslearn-diabetes-training**, puis sélectionnez **Suivant**.
 
-    ![Capture d’écran de la bibliothèque de ressources du concepteur avec le travail terminé et le bouton Détails du travail en dessous.](media/create-classification-model/completed-job.png)
+1. Dans la page **Entrées et sorties**, sélectionnez **Suivant** sans apporter de modifications.
 
-    Notez que le panneau gauche se trouve maintenant sur le volet **Travaux envoyés**. Une fois le travail terminé, l’état du travail devient **Terminé**.
+1. Une erreur s’affiche dans la page **Paramètres d’exécution**, car vous n’avez pas de calcul par défaut pour exécuter le pipeline. Dans la liste déroulante **Sélectionner un type de calcul**, sélectionnez *Cluster de calcul* et, dans la liste déroulante **Sélectionner un cluster de calcul Azure ML**, sélectionnez votre cluster de calcul récemment créé.
+
+1. Sélectionnez **Évaluer et soumettre** pour examiner le travail de pipeline, puis **Envoyer** pour exécuter le pipeline de formation.
+
+1. Attendez quelques minutes que l’exécution se termine. Vous pouvez vérifier l’état du travail en sélectionnant **Travaux** sous **Ressources**. À partir de là, sélectionnez l’expérience **mslearn-diabetes-training**, puis la tâche de **formation sur le diabète**.
 
 ## Afficher les données transformées
 
-1. Une fois l’exécution terminée, le jeu de données est maintenant préparé pour l’apprentissage du modèle. Cliquez sur **Détail du travail**. Vous êtes redirigé vers un nouvel onglet.
+Une fois l’exécution terminée, le jeu de données est maintenant préparé pour l’apprentissage du modèle.
 
-1. Cliquez avec le bouton droit (Ctrl+clic sur Mac) sur le module **Normaliser les données** dans le canevas, puis cliquez sur **Aperçu des données**. Sélectionnez **Jeu de données transformé**.
+1. Cliquez avec le bouton droit (Ctrl+clic sur Mac) sur le module **Normaliser les données** sur le canevas, puis sélectionnez **Aperçu des données**. Sélectionnez **Jeu de données transformé**.
 
 1. Observez les données. Vous voyez que les colonnes numériques sélectionnées ont été normalisées pour avoir la même échelle.
 
@@ -181,18 +174,18 @@ Dans cet exercice, vous allez suivre les différentes étapes pour étendre le p
 
 Effectuez les étapes suivantes en utilisant l’image ci-dessus pour référence quand vous ajoutez et configurez les modules requis.
 
-1. Si ce n’est déjà fait, ouvrez le pipeline **Diabetes Training** que vous avez créé dans l’unité précédente.
+1. Revenez à la page **Designer**, puis sélectionnez le pipeline **formation sur le diabète**.
 
 1. Dans le volet **Bibliothèque de ressources** sur la gauche, dans **Composants**, recherchez et placez un module **Découper les données** sur le canevas, sous le module **Normaliser les données**. Connectez ensuite la sortie *Transformed Dataset* (à gauche) du module **Normalize Data** à l’entrée du module **Split Data**.
 
     >**Conseil** Utilisez la barre de recherche pour localiser rapidement les modules.
 
 1. Sélectionnez le module **Split Data** et configurez ses paramètres comme suit :
-    * **Splitting mode** : Split Rows
-    * **Fraction of rows in the first output dataset** : 0.7
-    * **Fractionnement aléatoire** : True
-    * **Random seed** : 123
-    * **Stratified split** : False
+    - **Splitting mode** : Split Rows
+    - **Fraction of rows in the first output dataset** : 0.7
+    - **Fractionnement aléatoire** : True
+    - **Random seed** : 123
+    - **Stratified split** : False
 
 1. Dans la **Bibliothèque de ressources**, recherchez et placez un module **Entraîner le modèle** sur le canevas, sous le module **Découper les données**. Connectez ensuite la sortie de *Jeu de données1 de résultats* (à gauche) du module **Découper les données** à l’entrée de *Jeu de données* (à droite) du module **Entraîner le modèle**.
 
@@ -200,27 +193,27 @@ Effectuez les étapes suivantes en utilisant l’image ci-dessus pour référenc
 
     L’étiquette **Diabetic** qui sera prédite par le modèle est une classe (0 ou 1). Nous devons donc entraîner le modèle à l’aide d’un algorithme de *classification*. Plus précisément, il existe deux classes possibles. Nous avons donc besoin d’un algorithme de *classification binaire*.
 
-1. Dans la **Bibliothèque de ressources**, recherchez et placez un module **Régression logistique à deux classes** sur le canevas, à gauche du module **Découper les données** et au-dessus du module **Entraîner le modèle**. Ensuite, connectez sa sortie à l’entrée **Untrained model** (à gauche) du module **Train Model**.
+1. Dans la **Bibliothèque de ressources**, recherchez et placez un module **Régression logistique à deux classes** sur le canevas, à gauche du module **Découper les données** et au-dessus du module **Entraîner le modèle**. Ensuite, connectez sa sortie à l’entrée *Untrained model* (à gauche) du module **Train Model**.
 
    Pour tester le modèle entraîné, nous devons l’utiliser pour déterminer le *score* du jeu de données de validation que nous avons retenu au moment du découpage des données d’origine ; en d’autres termes, prédire les étiquettes des caractéristiques contenues dans le jeu de données de validation.
 
-1. Dans la **Bibliothèque de ressources**, recherchez et placez un module **Affecter un score au modèle** sur le canevas, sous le module **Entraîner le modèle**. Ensuite, connectez la sortie du module **Train Model** à l’entrée **Trained model** (à gauche) du module **Score Model** et connectez la sortie **Results dataset2** (à droite) du module **Split Data** à l’entrée **Dataset** (à droite) du module **Score Model**.
+1. Dans la **Bibliothèque de ressources**, recherchez et placez un module **Affecter un score au modèle** sur le canevas, sous le module **Entraîner le modèle**. Ensuite, connectez la sortie du module **Train Model** à l’entrée *Trained model* (à gauche) du module **Score Model** et connectez la sortie *Results dataset2* (à droite) du module **Split Data** à l’entrée *Dataset* (à droite) du module **Score Model**.
 
 ## Exécuter le pipeline d’entraînement
 
 Vous êtes maintenant prêt à exécuter le pipeline d’entraînement et à entraîner le modèle.
 
-1. Sélectionnez **Submit**, puis exécutez le pipeline à l’aide de l’expérience existante nommée **mslearn-diabetes-training**.
+1. Sélectionnez **Configurer & soumettre**, puis exécutez le pipeline à l’aide de l’expérience existante nommée **mslearn-diabetes-training**.
 
 1. Attendez la fin de l’exécution de l’expérience. L’opération peut prendre 5 minutes ou plus.
 
-1. À la fin de l’exécution de l’expérience, sélectionnez **Détails du travail**. Vous êtes redirigé vers un nouvel onglet.
+1. Vérifiez l’état du travail en sélectionnant **Travaux** sous **Ressources**. À partir de là, sélectionnez l’expérience **mslearn-diabetes-training**, puis la dernière tâche de **formation sur le diabète**.
 
-1. Sous le nouvel onglet, cliquez avec le bouton droit (Ctrl+clic sur Mac) sur le module **Affecter un score au modèle** dans le canevas, puis cliquez sur **Aperçu des données**. Sélectionnez **Jeu de données évalué** pour afficher les résultats.
+1. Sous le nouvel onglet, cliquez avec le bouton droit (Ctrl+cliquez sur un Mac) sur le module **Modèle de Scorer** sur le canevas, sélectionnez **Aperçu des données**, puis sélectionnez **Jeu de données noté** pour afficher les résultats.
 
 1. Faites défiler l’écran vers la droite. Vous pouvez voir, à côté de la colonne **Diabetic** (qui contient les valeurs réelles connues de l’étiquette), une nouvelle colonne nommée **Scored Labels**, qui contient les valeurs prédites de l’étiquette et une colonne **Scored Probabilities** contenant une valeur de probabilité comprise entre 0 et 1. Elle indique la probabilité de prédiction *positive* : les probabilités supérieures à 0.5 se traduisent par une étiquette prédite de ***1*** (diabétique), tandis que les probabilités comprises entre 0 et 0.5 se traduisent par une étiquette prédite de ***0*** (non diabétique).
 
-1. Fermez l’onglet **Score Model result visualization**.
+1. Fermer l’onglet **Scored_dataset**.
 
 Le modèle prédit les valeurs de l’étiquette **Diabetic**, mais dans quelle mesure ses prédictions sont-elles fiables ? Pour le déterminer, vous devez évaluer le modèle.
 
@@ -228,21 +221,21 @@ Les données de validation que vous avez retenues et utilisées pour déterminer
 
 ## Ajouter un module Evaluate Model
 
-1. Ouvrez le pipeline **Diabetes Training** que vous avez créé.
+1. Revenez à **Designer** et ouvrez le pipeline **formation sur le diabète** que vous avez créé.
 
-1. Dans la **Bibliothèque de ressources**, recherchez et placez un module **Évaluer le modèle** sur le canevas, sous le module **Affecter un score au modèle**, puis connectez la sortie du module **Affecter un score au modèle** à l’entrée de **Jeu de données avec score** (à gauche) du module **Évaluer le modèle**.
+1. Dans la **Bibliothèque de ressources**, recherchez et placez un module **Évaluer le modèle** sur le canevas, sous le module **Affecter un score au modèle**, puis connectez la sortie du module **Affecter un score au modèle** à l’entrée de *Jeu de données avec score* (à gauche) du module **Évaluer le modèle**.
 
 1. Vérifiez que votre pipeline ressemble à ceci :
 
     ![Capture d’écran du module Évaluer le modèle ajouté au module Scorer le modèle.](media/create-classification-model/evaluate-pipeline.png)
 
-1. Sélectionnez **Submit**, puis exécutez le pipeline à l’aide de l’expérience existante nommée **mslearn-diabetes-training**.
+1. Sélectionnez **Configurer & soumettre**, puis exécutez le pipeline à l’aide de l’expérience existante nommée **mslearn-diabetes-training**.
 
 1. Attendez la fin de l’exécution de l’expérience.
 
-1. À la fin de l’exécution de l’expérience, sélectionnez **Détails du travail**. Vous êtes redirigé vers un nouvel onglet.
+1. Vérifiez l’état du travail en sélectionnant **Travaux** sous **Ressources**. À partir de là, sélectionnez l’expérience **mslearn-diabetes-training**, puis la dernière tâche de **formation sur le diabète**.
 
-1. Sous le nouvel onglet, cliquez avec le bouton droit (Ctrl+clic sur Mac) sur le module **Évaluer le modèle** dans le canevas, puis cliquez sur **Aperçu des données**. Sélectionnez **Résultats de l’évaluation** pour afficher les métriques de performances. Ces métriques peuvent permettre aux scientifiques des données d’évaluer la performance de prédiction du modèle en fonction des données de validation.
+1. Dans le nouvel onglet, cliquez avec le bouton droit (Ctrl+cliquez sur un Mac) sur le module **Évaluer le modèle** sur le canevas, sélectionnez **Aperçu des données**, puis sélectionnez **Résultats de l’évaluation** pour afficher les métriques de performances. Ces métriques peuvent permettre aux scientifiques des données d’évaluer la performance de prédiction du modèle en fonction des données de validation.
 
 1. Faites défiler vers le bas afin de voir la *matrice de confusion* pour le modèle. Observez le nombre de valeurs prédites et réelles pour chaque classe possible. 
 
@@ -256,26 +249,24 @@ Les données de validation que vous avez retenues et utilisées pour déterminer
 
 1. Regardez au-dessus du curseur Seuil dans la métrique **Courbe ROC** et **AUC** listée avec les autres métriques ci-dessous. Pour avoir une idée de la façon dont cette zone représente la performance du modèle, imaginez une ligne droite diagonale entre le coin inférieur gauche et le coin supérieur droit du graphique ROC. Ceci représente la performance attendue pour une estimation totalement aléatoire pour chaque patient, ce qui reviendrait à tirer à pile ou face : vous pourriez vous attendre à un résultat correct dans la moitié des cas (et à un résultat incorrect dans la moitié des cas) environ. La zone sous la ligne diagonale représente donc un AUC de 0.5. Si l’AUC de votre modèle est supérieure pour un modèle de classification binaire, alors il est plus performant qu’une estimation aléatoire.
 
-1. Fermez l’onglet **Evaluate Model result visualization** (Visualisation des résultats de l’évaluation du modèle).
+1. Fermez l’onglet **Résultats de l’évaluation**.
 
 La performance de ce modèle n’est pas excellente, notamment parce que nous n’avons effectué qu’une caractérisation et un prétraitement minimes. Vous pouvez essayer un autre algorithme de classification, par exemple l’algorithme **Two-Class Decision Forest**, et comparer les résultats. Vous pouvez connecter les sorties du module **Split Data** à plusieurs modules **Train Model** et **Score Model** et vous pouvez connecter un deuxième module **Score Model** au module **Evaluate Model** pour voir une comparaison côte à côte. L’objectif de l’exercice est simplement de vous faire découvrir la classification et l’interface du concepteur Azure Machine Learning et non d’entraîner un modèle parfait.
 
 ## Créer un pipeline d'inférence
 
-1. Dans Azure Machine Learning studio, développez le volet gauche en sélectionnant l’icône de menu en haut à gauche de l’écran. Cliquez sur **Travaux** (sous **Ressources**) pour voir tous les travaux que vous avez exécutés. Sélectionnez l’expérience **mslearn-diabetes-training**, puis sélectionnez le pipeline **Diabetes Training**.
-
-1. Recherchez le menu au-dessus du canevas, puis cliquez sur **Créer un pipeline d’inférence**. Vous devrez peut-être passer en mode plein écran et cliquer sur l’icône d’ellipse **...** dans le coin supérieur droit de l’écran pour trouver **Créer un pipeline d’inférence** dans le menu.  
+1. Accédez au menu au-dessus du canevas, puis sélectionnez **Créer un pipeline d’inférence**. Vous devrez peut-être passer en mode plein écran et cliquer sur l’icône d’ellipse **...** dans le coin supérieur droit de l’écran pour trouver **Créer un pipeline d’inférence** dans le menu.  
 
     ![Capture d’écran de l’emplacement de création du pipeline d’inférence.](media/create-classification-model/create-inference-pipeline.png)
 
-1. Dans la liste déroulante **Create inference pipeline**, cliquez sur **Real-time inference pipeline**. Après quelques secondes, une nouvelle version de votre pipeline nommée **Diabetes Training-real time inference** s’ouvre.
+1. Dans la liste déroulante **Créer un pipeline d’inférence**, cliquez sur **Pipeline d’iInférence en temps réel**. Après quelques secondes, une nouvelle version de votre pipeline nommée **Diabetes Training-real time inference** s’ouvre.
 
-1. Accédez à **Paramètres** dans le menu supérieur droit. Sous **Détail du brouillon**, renommez le nouveau pipeline **Predict Diabetes**, puis examinez-le. Certaines des transformations et des étapes d’entraînement font partie de ce pipeline. Le modèle entraîné sera utilisé pour attribuer un score aux nouvelles données. Le pipeline contient également une sortie de service web pour retourner les résultats. 
+1. Renommez le nouveau pipeline **Predict Diabetes**, puis examinez-le. Certaines des transformations et des étapes d’entraînement font partie de ce pipeline. Le modèle entraîné est utilisé pour attribuer un score aux nouvelles données. Le pipeline contient également une sortie de service web pour retourner les résultats.
 
     Vous allez apporter les modifications suivantes au pipeline d’inférence :
 
     ![Capture d’écran d’un pipeline d’inférence avec les changements indiquées.](media/create-classification-model/inference-changes.png)
-    
+
     - Ajoutez un composant **Entrée du service web** pour permettre l’envoi des nouvelles données.
     - Remplacez le jeu de données **diabetes-data** par un module **Entrer des données manuellement** qui n’inclut pas la colonne d’étiquette (**Diabetic**).
     - Modifiez les colonnes sélectionnées dans le module **Sélectionner les colonnes dans le jeu de données**.
@@ -295,7 +286,7 @@ La performance de ce modèle n’est pas excellente, notamment parce que nous n�
 
 1. Connectez le nouveau module **Entrer des données manuellement** à la même entrée **Jeu de données** du module **Sélectionner des colonnes dans le jeu de données** que le module **Entrée du service web**.
 
-1. Modifiez le module **Sélectionner les colonnes dans le jeu de données**. Supprimez **Diabetic** des *Colonnes sélectionnées*. 
+1. Modifiez le module **Sélectionner les colonnes dans le jeu de données**. Supprimez **Diabetic** des *Colonnes sélectionnées*.
 
 1. Le pipeline d’inférence comprend le module **Évaluer le modèle**, qui n’est pas utile pour la prédiction à partir de nouvelles données : supprimez donc ce module.
 
@@ -303,19 +294,19 @@ La performance de ce modèle n’est pas excellente, notamment parce que nous n�
     - Supprimez la connexion entre le module **Score Model** et le module **Web Service Output**.
     - Ajoutez un module **Exécuter le script Python** en remplaçant tout le script Python par défaut par le code suivant (qui sélectionne uniquement les colonnes **PatientID**, **Scored Labels** et **Scored Probabilities**, et les renomme de façon appropriée) :
 
-```Python
-import pandas as pd
+    ```Python
+    import pandas as pd
+    
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+    
+        scored_results = dataframe1[['Scored Labels', 'Scored Probabilities']]
+        scored_results.rename(columns={'Scored Labels':'DiabetesPrediction',
+                                    'Scored Probabilities':'Probability'},
+                            inplace=True)
+        return scored_results
+    ```
 
-def azureml_main(dataframe1 = None, dataframe2 = None):
-
-    scored_results = dataframe1[['Scored Labels', 'Scored Probabilities']]
-    scored_results.rename(columns={'Scored Labels':'DiabetesPrediction',
-                                'Scored Probabilities':'Probability'},
-                        inplace=True)
-    return scored_results
-```
-
-1. Connectez la sortie du module **Score Model** à l’entrée **Dataset1** (la plus à gauche) du module **Execute Python Script**, puis connectez la sortie du module **Execute Python Script** au module **Web Service Output**.
+1. Connectez la sortie du module **Score Model** à l’entrée *Dataset1* (la plus à gauche) du module **Exécuter le script Python**, puis connectez la sortie du *Résultat du jeu de données* du module **Exécuter le script Python** au module **Sortie du service web**.
 
 1. Vérifiez que votre pipeline est similaire à l’image suivante :
 
@@ -323,7 +314,9 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 1. Exécutez le pipeline en tant que nouvelle expérience nommée **mslearn-diabetes-inference** sur votre cluster de calcul. L’expérience peut prendre un certain temps.
 
-1. Une fois l’exécution du pipeline effectuée, sélectionnez **Détails du travail**. Sous le nouvel onglet, cliquez avec le bouton droit sur le module **Exécuter le script Python**. Sélectionnez **Aperçu des données**, puis **Jeu de données de résultats** afin de voir les étiquettes et les probabilités prédites pour les trois observations de patients dans les données d’entrée.
+1. Revenez à l’onglet **Travaux**. À partir de là, sélectionnez l’expérience **mslearn-diabetes-inference**, puis le travail **Prédire le diabète**.
+
+1. Une fois le pipeline terminé, sélectionnez le module **Exécuter le script Python**. Sélectionnez **Aperçu des données**, puis **Jeu de données de résultats** afin de voir les étiquettes et les probabilités prédites pour les trois observations de patients dans les données d’entrée.
 
 Votre pipeline d’inférence prédit si les patients présentent un risque de diabète en fonction de leurs caractéristiques. Vous êtes maintenant prêt à publier le pipeline pour que les applications clientes puissent l’utiliser.
 
@@ -333,22 +326,16 @@ Après avoir créé et testé un pipeline d’inférence pour l’inférence en 
 
 ## Déployer un service
 
-1. Affichez le pipeline d’inférence **Predict Diabetes** que vous avez créé dans l’unité précédente.
-
-1. Sélectionnez **Détails du travail** dans le volet gauche. Une autre fenêtre s’ouvre.
-
-    ![Capture d’écran des détails du travail en regard du travail terminé.](media/create-classification-model/completed-job-inference.png)
-
-1. Dans la nouvelle fenêtre, sélectionnez **Déployer**.
+1. En haut de la fenêtre du travail **Prédire des diabètes**, sélectionnez **Déployer**.
 
     ![Capture d’écran du bouton Déployer pour votre pipeline d’inférence Predict Auto Price.](media/create-classification-model/deploy-screenshot.png)
 
-1. En haut à droite, sélectionnez **Déployer** et déployez un **nouveau point de terminaison en temps réel** à l’aide des paramètres suivants : 
-    -  **Nom** : predict-diabetes
-    -  **Description** : classifier le diabète
+1. Dans **Configurer un point de terminaison en temps réel**, sélectionnez **Déployer un nouveau point de terminaison en temps réel** et utilisez les paramètres suivants :
+    - **Nom** : predict-diabetes
+    - **Description** : classifier le diabète
     - **Type de capacité de calcul** : Instance de conteneur Azure
 
-1. Attendez que le service web soit déployé, ce qui peut prendre plusieurs minutes. L’état du déploiement est indiqué en haut à gauche de l’interface du concepteur.
+1. Sélectionnez **Déployer** et patientez pendant le déploiement du service web (ce qui peut prendre quelques minutes).
 
 ## Testez le service
 
