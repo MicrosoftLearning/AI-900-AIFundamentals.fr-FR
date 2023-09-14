@@ -33,29 +33,6 @@ Dans cet exercice, vous allez utiliser un jeu de données de détails historique
 
 > **Remarque** Ce module fait partie de l’un des nombreux modules qui utilisent un espace de travail Azure Machine Learning, tout comme les autres modules du parcours d’apprentissage [Microsoft Azure AI - Notions fondamentales : Explorer les outils visuels pour le machine learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/). Si vous utilisez votre propre abonnement Azure, vous pouvez éventuellement créer l’espace de travail une seule fois et le réutiliser dans d’autres modules. Une petite quantité de stockage de données est facturée dans votre abonnement Azure tant que l’espace de travail Azure Machine Learning existe dans votre abonnement. Nous vous recommandons donc de supprimer cet espace de travail dès qu’il n’est plus nécessaire.
 
-## Créer une capacité de calcul
-
-1. Dans [Azure Machine Learning studio](https://ml.azure.com?azure-portal=true), sélectionnez l’icône **&#8801;** (une icône de menu qui figure un empilement de trois lignes) à gauche pour voir les différentes pages de l’interface (il peut être nécessaire d’agrandir au maximum la taille de votre écran). Vous pouvez utiliser ces pages du volet de gauche pour gérer les ressources dans votre espace de travail. Sélectionnez la page **Calcul** (sous **Gérer**).
-
-1. Dans la page **Calcul**, sélectionnez l’onglet **Clusters de calcul**, puis ajoutez un nouveau cluster de calcul avec les paramètres suivants. Vous l’utiliserez pour entraîner un modèle Machine Learning :
-    - **Localisation** : *Sélectionnez la même localisation que celle de votre espace de travail. Si cette localisation n’est pas listée, choisissez celle qui est la plus proche de vous*.
-    - **Niveau de machine virtuelle** : dédié
-    - **Type de machine virtuelle** : Processeur
-    - **Taille de machine virtuelle** :
-        - Choisir **Sélectionner parmi toutes les options**
-        - Rechercher et sélectionner **Standard_DS11_v2**
-    - Sélectionnez **Suivant**.
-    - **Nom de la capacité de calcul** : *entrez un nom unique*.
-    - **Nombre minimal de nœuds** : 0
-    - **Nombre maximal de nœuds** : 2
-    - **Secondes d’inactivité avant le scale-down** : 120
-    - **Activer l’accès SSH** : ne pas activer
-    - Sélectionnez **Créer**
-
-> **Remarque** Les clusters et les instances de calcul sont basés sur des images de machines virtuelles Azure standard. Pour ce module, l’image *Standard_DS11_v2* est recommandée pour obtenir un équilibre optimal entre coûts et performances. Si votre abonnement s’accompagne d’un quota qui ne couvre pas cette image, choisissez-en une autre. Gardez cependant à l’esprit qu’une image plus grande peut entraîner des coûts plus élevés, tandis qu’une plus petite risque de ne pas suffire pour effectuer les tâches. Vous pouvez également demander à votre administrateur Azure d’étendre votre quota.
-
-La création du cluster de calcul prend du temps. Vous pouvez passer à l’étape suivante en attendant.
-
 ## Créer une ressource de données
 
 1. Affichez les données séparées par des virgules sur [https://aka.ms/bike-rentals](https://aka.ms/bike-rentals?azure-portal=true) dans votre navigateur web.
@@ -88,6 +65,16 @@ La création du cluster de calcul prend du temps. Vous pouvez passer à l’éta
 
 > **Citation** : *Ces données sont dérivées de [Capital Bikeshare](https://www.capitalbikeshare.com/system-data) et sont utilisées conformément au [contrat de licence](https://www.capitalbikeshare.com/data-license-agreement) des données publiées.*
 
+## Activer le calcul serverless
+
+1. Dans Azure Machine Learning Studio, cliquez sur **Gérer les fonctionnalités de préversion** (icône du haut-parleur).
+
+![Capture d’écran du bouton Gérer les fonctionnalités de préversion dans le menu.](../instructions/media/use-automated-machine-learning/severless-compute-1.png)
+
+1. Activez la fonctionnalité « Expérience guidée pour soumettre des travaux d’entraînement avec le calcul serverless ».
+
+![Capture d’écran de la fonctionnalité Activer le calcul serverless.](../instructions/media/use-automated-machine-learning/enable-serverless-compute.png)
+
 ## Exécuter un travail de machine learning automatisé
 
 Suivez les étapes ci-dessous pour exécuter un travail qui utilise le machine learning automatisé afin d’entraîner un modèle de régression pouvant prédire les locations de vélos.
@@ -115,19 +102,12 @@ Suivez les étapes ci-dessous pour exécuter un travail qui utilise le machine l
         - **Modèles autorisés** : *Sélectionnez uniquement **RandomForest** et **LightGBM**. Normalement, vous pouvez en essayer autant que possible, mais chaque modèle ajouté augmente le temps nécessaire à l’exécution du travail.*
 
         ![Capture d’écran de configurations supplémentaires avec un encadré autour des modèles autorisés.](media/use-automated-machine-learning/allowed-models.png)
-        - **Critère de sortie** :
-            - **Durée du travail d’entraînement (heures)**  : 0,5 - *met fin au travail après un délai maximal de 30 minutes.*
-            - **Seuil de score de métrique** : 0,085 - *si un modèle atteint un score de métrique d’erreur quadratique moyenne normalisée égal ou inférieur à 0,085, le travail prend fin.*
-        - **Concurrence** : *ne pas changer*
-    - **Paramètres de caractérisation** :
-        - **Activer la caractérisation** : Sélectionné — *Prétraite automatiquement les caractéristiques avant l’entraînement.*
-
-    Cliquez sur **Suivant** pour accéder au volet de sélection suivant.
-
-    - **Sélectionnez le type de validation et de test**
-        - **Type de validation** : Automatique
-        - **Ressource de données de test (préversion)**  : aucune ressource de données de test n’est nécessaire
-
+Notez que sous *Voir des paramètres de configuration supplémentaires* se trouve une section *Limites*. Développez la section pour configurer les paramètres :
+        - **Délai d’expiration (minutes)**  : 30 — *met fin au travail après un délai maximal de 30 minutes.*
+        - **Seuil de score de métrique** : 0,085 - *si un modèle atteint un score de métrique d’erreur quadratique moyenne normalisée égal ou inférieur à 0,085, le travail prend fin.*
+        - Cliquez sur **Suivant**.
+        - **Calcul** : aucun changement nécessaire ici
+        - Cliquez sur **Suivant**.
 1. Une fois que vous avez fini d’envoyer les détails du travail de machine learning automatisé, celui-ci démarre automatiquement.
 
 1. Attendez que le travail se termine. Cela risque de prendre un certain temps, c’est peut-être le moment de faire une pause café !
@@ -219,7 +199,6 @@ Vous venez de tester un service prêt à être connecté à une application clie
 Le service web que vous avez créé est hébergé dans une *instance de conteneur Azure*. Si vous n’envisagez pas d’effectuer d’autres expériences avec celui-ci, vous devez supprimer le point de terminaison afin d’éviter une utilisation d’Azure non nécessaire. Vous devez aussi supprimer le cluster de calcul.
 
 1. Dans [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), sous l’onglet **Points de terminaison**, sélectionnez le point de terminaison **prédiction-locations**. Sélectionnez ensuite **Supprimer**, puis confirmez la suppression du point de terminaison.
-2. Dans la page **Calcul**, sous l’onglet **Clusters de calcul**, sélectionnez votre instance de calcul, puis sélectionnez **Supprimer**.
 
 > **Remarque** La suppression du calcul fait que votre abonnement ne sera pas facturé pour les ressources de calcul. Une petite quantité de stockage de données vous est cependant facturée tant que l’espace de travail Azure Machine Learning existe dans votre abonnement. Si vous avez terminé l’exploration d’Azure Machine Learning, vous pouvez supprimer l’espace de travail Azure Machine Learning et les ressources associées. Toutefois, si vous envisagez de suivre d’autres labos de cette série, vous devrez le recréer.
 >
