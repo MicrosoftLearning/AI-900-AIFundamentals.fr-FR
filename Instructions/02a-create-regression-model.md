@@ -155,15 +155,15 @@ Pour appliquer vos transformations de données, vous devez exécuter le pipeline
 
 1. Sélectionnez **Suivant** pour examiner le travail de pipeline, puis **Envoyer** pour exécuter le pipeline d’entraînement.
 
-1. Attendez quelques minutes que l’exécution se termine. Vous pouvez vérifier l’état du travail en sélectionnant **Travaux** sous **Ressources**. À partir de là, sélectionnez le travail **Apprentissage automatique de la facturation**.
+1. Attendez quelques minutes que l’exécution se termine. Vous pouvez vérifier l’état du travail en sélectionnant **Travaux** sous **Ressources**. À partir de là, sélectionnez le travail **Apprentissage automatique de la facturation**. À partir de là, vous pouvez voir quand le travail est terminé. Une fois que le travail est terminé, le jeu de données est préparé pour l’entraînement du modèle.
 
-Le jeu de données est maintenant préparé pour l’entraînement du modèle. Fermez l’onglet Détails du travail pour retourner au pipeline.
+1. Accédez au menu de gauche. Sous **Création**, sélectionnez **Concepteur**. Sélectionnez ensuite votre pipeline *Auto Price Training* dans la liste des **Pipelines**.
 
 ## Créer un pipeline d’apprentissage
 
 Après avoir utilisé des transformations de données pour préparer les données, vous pouvez vous en servir pour entraîner un modèle Machine Learning. Procédez comme suit pour étendre le pipeline **Auto Price Training**.
 
-1. Retournez au pipeline **Auto Price Training** que vous avez créé dans l’unité précédente s’il n’est pas déjà ouvert.
+1. Vérifiez que le menu de gauche a **Concepteur** sélectionné et que vous êtes retourné au pipeline **Auto Price Training**.
 
 1. Dans le volet **Bibliothèque de ressources** sur la gauche, recherchez et placez un module **Découper les données** sur le canevas, sous le module **Normaliser les données**. Connectez ensuite la sortie *Transformed Dataset* (à gauche) du module **Normalize Data** à l’entrée du module **Split Data**.
 
@@ -226,8 +226,6 @@ Une façon d’évaluer un modèle de régression consiste à comparer les étiq
 
 1. L’exécution de l’expérience prend quelques minutes. Revenez à la page **Travaux** et sélectionnez la dernière exécution du travail **Apprentissage automatique de la facturation**.
 
-1. Une fois l’exécution de l’expérience terminée, cliquez avec le bouton droit sur le module **Évaluer le modèle**, sélectionnez **Aperçu des données**, puis **Résultats d’évaluation**.
-
 1. À la fin de l’exécution de l’expérience, sélectionnez **Détails du travail**, ce qui entraîne l’ouverture d’un autre onglet. Recherchez le module **Évaluer le modèle**, puis cliquez avec le bouton droit. Sélectionnez **Aperçu des données**, puis **Résultats de l’évaluation**.
 
     ![Capture d’écran de l’emplacement du module Evaluate Model.](media/create-regression-model/evaluate-model-help-1.png)
@@ -288,6 +286,7 @@ Une fois que vous avez identifié un modèle avec des métriques d’évaluation
                         inplace=True)
      return scored_results
     ```
+>**Remarque** : Le copier-coller peut introduire des espaces dans le script Python qui ne doivent pas être présents. Vérifiez une nouvelle fois qu’il n’y a pas d’espace avant *import*, *def* ou *return*. Assurez-vous qu’il existe une mise en retrait de tabulation avant *scored_results* et *scored_results.rename()* .
 
 1. Connectez la sortie depuis le module **Score Model** pour l’entrée **Dataset1** (la plus à gauche) de **Exécuter le script Python**.
 
