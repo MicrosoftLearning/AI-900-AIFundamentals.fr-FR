@@ -13,7 +13,7 @@ Pour tester les fonctionnalités du service Visage, nous allons utiliser une sim
 
 ## Créer une ressource *API Visage*
 
-Vous pouvez utiliser le service Visage en créant une ressource **Visage**. (L’API Visage n’est plus disponible dans Cognitive Services)
+Vous pouvez utiliser le service Visage en créant une ressource **Visage**.
 
 Si vous ne l’avez pas déjà fait, créez une ressource **API Visage** dans votre abonnement Azure.
 
