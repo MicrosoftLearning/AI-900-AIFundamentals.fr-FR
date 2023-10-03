@@ -9,21 +9,21 @@ lab:
 
 Le traitement en langage naturel (NLP) est une branche de l’intelligence artificielle (IA) qui traite du langage écrit et parlé. Vous pouvez l’utiliser pour créer des solutions qui extraient la signification sémantique du texte ou du discours, ou qui formulent des réponses pertinentes en langage naturel.
 
-La solution Microsoft Azure *Cognitive Services* inclut les fonctionnalités d’analyse de texte du service *Language *, offrant des capacités de NLP prêtes à l’emploi, dont l’identification d’expressions clés dans un texte et la classification de texte en fonction du sentiment.
+La solution Microsoft *Azure AI services* inclut les fonctionnalités d’analyse de texte du service *Language* , offrant des capacités de NLP prêtes à l’emploi, dont l’identification d’expressions clés dans un texte et la classification de texte en fonction du sentiment.
 
 Supposons, par exemple, que l’organisation fictive *Margie’s Travel* encourage ses clients à formuler des avis sur des hôtels. Vous pourriez utiliser le service Language pour résumer les avis en extrayant des expressions clés, discriminer les avis positifs et négatifs ou analyser le texte des avis pour y détecter des mentions d’entités connues telles que des emplacements ou des personnes.
 
 Pour tester les fonctionnalités du service Language, nous allons utiliser une simple application de ligne de commande s’exécutant dans le service Cloud Shell. Les mêmes principes et fonctionnalités s’appliquent aux solutions réelles, telles que des sites web ou applications téléphoniques.
 
-## Créer une ressource *Cognitive Services*
+## Créer une ressource *Azure AI services*
 
-Vous pouvez utiliser le service Language en créant une ressource **Language** ou **Cognitive Services**.
+Vous pouvez utiliser le service Language en créant une ressource **Language** ou **Azure AI services**.
 
-Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votre abonnement Azure.
+Si ce n’est déjà fait, créez une ressource **Azure AI services** dans votre abonnement Azure.
 
 1. Sous un autre onglet de navigateur, ouvrez le portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com?azure-portal=true) en vous connectant avec votre compte Microsoft.
 
-1. Sélectionnez le bouton **&#65291;Créer une ressource**, recherchez *Cognitive Services*, puis créez une ressource **Cognitive Services** avec les paramètres suivants :
+1. Cliquez sur le bouton **&#65291;Créer une ressource** et recherchez *Azure AI Services*. Sélectionnez **créer** un plan **Azure AI services**. Vous accédez à une page pour créer une ressource Azure AI services. Configurez-la avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*.
     - **Groupe de ressources** : *sélectionnez ou créez un groupe de ressources portant un nom unique*.
     - **Région** : *choisissez une région disponible*.
@@ -33,9 +33,9 @@ Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votr
 
 1. Examinez et créez la ressource.
 
-### Obtenir la clé et le point de terminaison de votre ressource Cognitive Services
+### Obtenir la clé et le point de terminaison de votre ressource Azure AI services
 
-1. Attendez la fin du déploiement. Accédez ensuite à votre ressource Cognitive Services puis, dans la page **Vue d’ensemble**, sélectionnez le lien pour gérer les clés du service. Vous aurez besoin du point de terminaison et des clés pour vous connecter à votre ressource Cognitive Services à partir d’applications clientes.
+1. Attendez la fin du déploiement. Accédez ensuite à votre ressource Azure AI services puis, dans la page **Vue d’ensemble**, sélectionnez le lien pour gérer les clés du service. Vous aurez besoin du point de terminaison et des clés pour vous connecter à votre ressource Azure AI services à partir d’applications clientes.
 
 1. Affichez la page **Clés et point de terminaison** de votre ressource. Vous aurez besoin de la **clé** et du **point de terminaison** pour vous connecter à partir d’applications clientes.
 
@@ -87,11 +87,11 @@ Pour tester les fonctionnalités d’analyse de texte du service Language, nous 
 
     ![Éditeur contenant du code pour utiliser le service Language](media/analyze-text-language-service/analyze-text-code.png)
 
-1. Ne vous souciez pas trop des détails du code. Dans le Portail Azure, accédez à votre ressource Cognitive Services. Sélectionnez ensuite la page **Clés et points de terminaison** dans le volet de gauche. Copiez la clé et le point de terminaison à partir de la page et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
+1. Ne vous souciez pas trop des détails du code. Dans le Portail Azure, accédez à votre ressource Azure AI services. Sélectionnez ensuite la page **Clés et points de terminaison** dans le volet de gauche. Copiez la clé et le point de terminaison à partir de la page et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
 
     > **Conseil** Vous devrez peut-être vous servir de la barre de séparation pour ajuster la zone d’écran quand vous utilisez les volets **Clés et point de terminaison** et **Éditeur**.
 
-    ![Recherchez l’onglet Clé et point de terminaison dans le volet gauche de votre ressource Cognitive Services.](media/analyze-text-language-service/key-endpoint-support.png)
+    ![Recherchez l’onglet Clé et point de terminaison dans le volet gauche de votre ressource Azure AI services.](media/analyze-text-language-service/key-endpoint-support.png)
 
     Une fois les valeurs de clé et de point de terminaison remplacées, les premières lignes de code devraient ressembler à ceci :
 
@@ -102,7 +102,7 @@ Pour tester les fonctionnalités d’analyse de texte du service Language, nous 
 
 1. En haut à droite du volet de l’éditeur, utilisez le bouton **...** pour ouvrir le menu, puis sélectionnez **Enregistrer** pour enregistrer vos modifications. Rouvrez ensuite le menu, puis sélectionnez **Fermer l’éditeur**.
 
-    L’exemple d’application cliente utilisera le service Language de Cognitive Services pour détecter la langue, extraire les expressions clés, déterminer le sentiment et extraire des entités connues pour les avis.
+    L’exemple d’application cliente utilisera le service Language de Azure AI services pour détecter la langue, extraire les expressions clés, déterminer le sentiment et extraire des entités connues pour les avis.
 
 1. Dans le Cloud Shell, entrez la commande suivante pour exécuter le code :
 
