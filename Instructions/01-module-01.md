@@ -1,19 +1,19 @@
 ---
 lab:
-  title: Explorer les services cognitifs
+  title: Explorer Azure AI services
 ---
 
-# Explorer les services cognitifs
+# Explorer Azure AI services
 
 > **Remarque** Pour suivre ce labo, vous avez besoin d’un [abonnement Azure](https://azure.microsoft.com/free?azure-portal=true) dans lequel vous disposez d’un accès administratif.
 
-Azure Cognitive Services encapsule des fonctionnalités IA courantes qui peuvent être catégorisées en quatre groupes principaux : la vision, la reconnaissance vocale/synthèse vocale, le langage et la décision. Dans cet exercice, vous allez examiner l’un des services de décision pour avoir une idée générale du provisionnement et de l’utilisation d’une ressource Cognitive Services dans une application logicielle.
+Azure AI services encapsule des fonctionnalités IA courantes qui peuvent être catégorisées en quatre principaux groupes : les services vision, reconnaissance vocale/synthèse vocale, langage et décision. Dans cet exercice, vous allez examiner l’un des services de décision pour avoir une idée générale du provisionnement et de l’utilisation d’une ressource Azure AI services dans une application logicielle.
 
-La ressource Cognitive Services que vous allez explorer dans cet exercice est le *Détecteur d’anomalies*. Le Détecteur d’anomalies permet d’analyser les valeurs des données au fil du temps, et de détecter toutes les valeurs inhabituelles susceptibles d’indiquer un problème ou de nécessiter une investigation plus approfondie. Par exemple, un capteur dans une installation de stockage avec contrôle de la température peut effectuer un monitoring de la température toutes les minutes et journaliser les valeurs mesurées. Vous pouvez utiliser le service Détecteur d’anomalies pour analyser les valeurs de température journalisées, et marquer celles qui se situent considérablement en dehors de la plage normale des températures attendues.
+La service Azure AI spécifique que vous allez explorer dans cet exercice est le *Détecteur d’anomalies*. Le Détecteur d’anomalies permet d’analyser les valeurs des données au fil du temps, et de détecter toutes les valeurs inhabituelles susceptibles d’indiquer un problème ou de nécessiter une investigation plus approfondie. Par exemple, un capteur dans une installation de stockage avec contrôle de la température peut effectuer un monitoring de la température toutes les minutes et journaliser les valeurs mesurées. Vous pouvez utiliser le service Détecteur d’anomalies pour analyser les valeurs de température journalisées, et marquer celles qui se situent considérablement en dehors de la plage normale des températures attendues.
 
 Pour tester les fonctionnalités du service Détection d'anomalie, nous allons utiliser une application de ligne de commande simple s’exécutant dans Cloud Shell. Les mêmes principes et fonctionnalités s’appliquent aux solutions réelles, telles que des sites web ou applications téléphoniques.
 
-> **Remarque** L’objectif de cet exercice est d’avoir une idée générale de la façon dont les services Cognitive Services sont provisionnés et utilisés. Le Détecteur d’anomalies est utilisé à titre d’exemple, mais vous n’êtes pas censé acquérir une connaissance complète de la détection d’anomalie dans cet exercice !
+> **Remarque** L’objectif de cet exercice est d’avoir une idée générale de la façon dont les services Azure AI services sont provisionnés et utilisés. Le Détecteur d’anomalies est utilisé à titre d’exemple, mais vous n’êtes pas censé acquérir une connaissance complète de la détection d’anomalie dans cet exercice !
 
 ## Créer une ressource *Détecteur d'anomalies*
 
@@ -103,10 +103,6 @@ Maintenant que vous disposez d’un environnement Cloud Shell, vous pouvez exéc
     ```
 
 1. Examinez les résultats, en notant que la dernière colonne dans les résultats est **True** ou **False** pour indiquer si la valeur enregistrée à chaque date/heure est considérée comme une anomalie ou non. Pensez à la façon dont nous pourrions utiliser ces informations dans une situation réelle. Quelle action l’application pourrait-elle déclencher si les valeurs sont celles de la température du réfrigérateur ou de la pression sanguine et que des anomalies sont détectées ?  
-
-## En savoir plus
-
-Cette application simple ne montre que quelques fonctionnalités du service Détecteur d'anomalies. Pour en savoir plus sur ce que ce service est capable de faire, consultez la [page Détecteur d'anomalies](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/).
 
 ## Nettoyage
 
