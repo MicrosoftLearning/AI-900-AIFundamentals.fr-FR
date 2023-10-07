@@ -15,15 +15,15 @@ Il utilise des modèles Machine Learning formés pour extraire du texte d’imag
 
 Pour tester les fonctionnalités du service Form Recognizer, nous allons utiliser une simple application de ligne de commande s’exécutant dans le service Cloud Shell. Les mêmes principes et fonctionnalités s’appliquent aux solutions réelles, telles que des sites web ou applications téléphoniques.
 
-## Créer une ressource *Cognitive Services*
+## Créer une ressource *Azure AI services*
 
-Vous pouvez utiliser le service Form Recognizer en créant une ressource **Form Recognizer** ou **Cognitive Services** .
+Vous pouvez utiliser le service Form Recognizer en créant une ressource **Form Recognizer** ou **Azure AI services**.
 
-Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votre abonnement Azure.
+Si ce n’est déjà fait, créez une ressource **Azure AI services** dans votre abonnement Azure.
 
 1. Sous un autre onglet de navigateur, ouvrez le portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com?azure-portal=true) en vous connectant avec votre compte Microsoft.
 
-1. Cliquez sur le bouton **&#65291;Créer une ressource**, recherchez *Cognitive Services*, puis créez une ressource **Cognitive Services** avec les paramètres suivants :
+1. Cliquez sur le bouton **&#65291;Créer une ressource** et recherchez *Azure AI Services*. Sélectionnez **créer** un plan **Azure AI services**. Vous accédez à une page pour créer une ressource Azure AI services. Configurez-la avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*.
     - **Groupe de ressources** : *sélectionnez ou créez un groupe de ressources portant un nom unique*.
     - **Région** : *choisissez une région disponible*.
@@ -33,7 +33,7 @@ Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votr
 
 1. Examinez et créez la ressource, puis attendez la fin du déploiement. Accédez ensuite à la ressource déployée.
 
-1. Affichez la page **Clés et point de terminaison** de votre ressource Cognitive Services. Vous aurez besoin du point de terminaison et des clés pour vous connecter à partir d’applications clientes.
+1. Affichez la page **Clés et points de terminaison** de votre ressource Azure AI services. Vous aurez besoin du point de terminaison et des clés pour vous connecter à partir d’applications clientes.
 
 ## Exécuter Cloud Shell
 
@@ -83,7 +83,7 @@ Pour tester les fonctionnalités du service Form Recognizer, nous allons utilise
 
     ![Éditeur contenant du code pour analyser les champs d’un reçu.](media/analyze-receipts/recognize-receipt-code.png)
 
-1. Ne vous souciez pas trop des détails du code. Ce qui importe, c’est qu’il a besoin de l’URL du point de terminaison, ainsi que de l’une ou l’autre des clés de votre ressource Cognitive Services. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
+1. Ne vous souciez pas trop des détails du code. Ce qui importe, c’est qu’il a besoin de l’URL du point de terminaison, ainsi que de l’une ou l’autre des clés de votre ressource Azure AI Services. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
 
     > **Conseil** Vous devrez peut-être vous servir de la barre de séparation pour ajuster la zone d’écran quand vous utilisez les volets **Clés et point de terminaison** et **Éditeur**.
 

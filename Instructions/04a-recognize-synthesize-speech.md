@@ -7,21 +7,21 @@ lab:
 
 > **Remarque** Pour suivre ce labo, vous avez besoin d’un [abonnement Azure](https://azure.microsoft.com/free?azure-portal=true) dans lequel vous disposez d’un accès administratif.
 
-Pour créer un logiciel capable d’interpréter la parole audible et de réagir de manière appropriée, vous pouvez utiliser le service cognitif **Speech**, qui offre un moyen simple de transcrire la langue parlée en texte et vice versa.
+Pour créer un logiciel capable d’interpréter la parole audible et de réagir de manière appropriée, vous pouvez utiliser le service cognitif **Azure AI Speech**, qui offre un moyen simple de transcrire la langue parlée en texte et vice versa.
 
 Supposons, par exemple, que vous souhaitiez créer un appareil intelligent qui peut répondre oralement à des questions orales, par exemple « Quelle heure est-il ? ». La réponse doit être l’heure locale.
 
 Pour tester les fonctionnalités du service Speech, nous allons utiliser une simple application de ligne de commande s’exécutant dans le service Cloud Shell. Les mêmes principes et fonctionnalités s’appliquent aux solutions réelles, telles que des sites web ou applications téléphoniques.
 
-## Créer une ressource *Cognitive Services*
+## Créer une ressource *Azure AI services*
 
-Vous pouvez utiliser le service Speech en créant une ressource **Speech** ou **Cognitive Services** .
+Vous pouvez utiliser le service Speech en créant une ressource **Speech** ou **Azure AI services**.
 
-Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votre abonnement Azure.
+Si ce n’est déjà fait, créez une ressource **Azure AI services** dans votre abonnement Azure.
 
 1. Sous un autre onglet de navigateur, ouvrez le portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com?azure-portal=true) en vous connectant avec votre compte Microsoft.
 
-1. Cliquez sur le bouton **&#65291;Créer une ressource**, recherchez *Cognitive Services*, puis créez une ressource **Cognitive Services** avec les paramètres suivants :
+1. Cliquez sur le bouton **&#65291;Créer une ressource** et recherchez *Azure AI Services*. Sélectionnez **créer** un plan **Azure AI services**. Vous accédez à une page pour créer une ressource Azure AI services. Configurez-la avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*.
     - **Groupe de ressources** : *sélectionnez ou créez un groupe de ressources portant un nom unique*.
     - **Région** : *choisissez une région disponible*.
@@ -31,9 +31,9 @@ Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votr
 
 1. Examinez et créez la ressource.
 
-### Obtenir la clé et l’emplacement de votre ressource Cognitive Services
+### Obtenez la Clé et l’Emplacement de votre ressource Azure AI services
 
-1. Attendez la fin du déploiement. Accédez ensuite à votre ressource Cognitive Services, puis, dans la page **Vue d’ensemble**, cliquez sur le lien pour gérer les clés du service. Vous aurez besoin du point de terminaison et des clés pour vous connecter à votre ressource Cognitive Services à partir d’applications clientes.
+1. Attendez la fin du déploiement. Accédez ensuite à votre ressource Azure AI services, puis, dans la page **Vue d’ensemble**, cliquez sur le lien pour gérer les clés du service. Vous aurez besoin du point de terminaison et des clés pour vous connecter à votre ressource Azure AI services à partir d’applications clientes.
 
 1. Affichez la page **Clés et point de terminaison** de votre ressource. Vous aurez besoin de **l’emplacement ou la région** et de la **clé** pour vous connecter à partir d’applications clientes.
 
@@ -85,7 +85,7 @@ Pour tester les fonctionnalités du service Speech, nous allons utiliser une sim
 
     ![Éditeur contenant du code pour utiliser le service Speech](media/recognize-synthesize-speech/speaking-clock-code.png)
 
-1. Ne vous souciez pas trop des détails du code. Ce qui importe, c’est qu’il a besoin de la région ou de l’emplacement, ainsi que de l’une ou l’autre des clés de votre ressource Cognitive Services. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_LOCATION**.
+1. Ne vous souciez pas trop des détails du code. Ce qui importe, c’est qu’il a besoin de la région ou de l’emplacement, ainsi que de l’une ou l’autre des clés de votre ressource Azure AI services. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_LOCATION**.
 
     > **Conseil** Vous devrez peut-être vous servir de la barre de séparation pour ajuster la zone d’écran quand vous utilisez les volets **Clés et point de terminaison** et **Éditeur**.
 

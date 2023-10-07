@@ -11,21 +11,21 @@ L’un des défis courants en matière de vision par ordinateur consiste à dét
 
 Pour tester les fonctionnalités de l’API Read, nous allons utiliser une simple application en ligne de commande qui s’exécute dans Cloud Shell. Les mêmes principes et fonctionnalités s’appliquent aux solutions réelles, telles que des sites web ou applications téléphoniques.
 
-## Utiliser le service Vision par ordinateur pour lire du texte dans une image
+## Utiliser le service Azure AI Vision pour lire du texte dans une image
 
-Le service cognitif **Vision par ordinateur** prend en charge les tâches d’OCR, à savoir :
+Le service **Azure AI Vision** prend en charge les tâches d’OCR, à savoir :
 
 - Une API **Read** optimisée pour les documents plus volumineux. Cette API est utilisée de manière asynchrone et peut être utilisée pour du texte tant imprimé que manuscrit.
 
-## Créer une ressource *Cognitive Services*
+## Créer une ressource *Azure AI services*
 
-Vous pouvez utiliser le service Vision par ordinateur en créant une ressource **Vision par ordinateur** ou **Cognitive Services** .
+Vous pouvez utiliser le service Azure AI Vision en créant une ressource **Vision par ordinateur** ou **Azure AI services**.
 
-Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votre abonnement Azure.
+Si ce n’est déjà fait, créez une ressource **Azure AI services** dans votre abonnement Azure.
 
 1. Sous un autre onglet de navigateur, ouvrez le portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com?azure-portal=true) en vous connectant avec votre compte Microsoft.
 
-1. Cliquez sur le bouton **&#65291;Créer une ressource**, recherchez *Cognitive Services*, puis créez une ressource **Cognitive Services** avec les paramètres suivants :
+1. Cliquez sur le bouton **&#65291;Créer une ressource** et recherchez *Azure AI services*. Sélectionnez **créer** un plan **Azure AI services**. Vous accédez à une page pour créer une ressource Azure AI services. Configurez-la avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*.
     - **Groupe de ressources** : *sélectionnez ou créez un groupe de ressources portant un nom unique*.
     - **Région** : *choisissez une région disponible*.
@@ -35,7 +35,7 @@ Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votr
 
 1. Examinez et créez la ressource, puis attendez la fin du déploiement. Accédez ensuite à la ressource déployée.
 
-1. Affichez la page **Clés et point de terminaison** de votre ressource Cognitive Services. Vous aurez besoin du point de terminaison et des clés pour vous connecter à partir d’applications clientes.
+1. Affichez la page **Clés et points de terminaison** de votre ressource Azure AI services. Vous aurez besoin du point de terminaison et des clés pour vous connecter à partir d’applications clientes.
 
 ## Exécuter Cloud Shell
 
@@ -85,7 +85,7 @@ Pour tester les fonctionnalités du service Custom Vision, nous allons utiliser 
 
     ![Éditeur contenant du code pour analyser du texte figurant dans des images.](media/read-text-computer-vision/ocr-code.png)
 
-1. Ne vous souciez pas trop des détails du code. Ce qui importe, c’est qu’il a besoin de l’URL du point de terminaison, ainsi que de l’une ou l’autre des clés de votre ressource Cognitive Services. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
+1. Ne vous souciez pas trop des détails du code. Ce qui importe, c’est qu’il a besoin de l’URL du point de terminaison, ainsi que de l’une ou l’autre des clés de votre ressource Azure AI services. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
 
     > **Conseil** Vous devrez peut-être vous servir de la barre de séparation pour ajuster la zone d’écran quand vous utilisez les volets **Clés et point de terminaison** et **Éditeur**.
 
@@ -96,7 +96,7 @@ Pour tester les fonctionnalités du service Custom Vision, nous allons utiliser 
     $endpoint="https..."
     ```
 
-1. En haut à droite du volet de l’éditeur, utilisez le bouton **...** pour ouvrir le menu, puis sélectionnez **Enregistrer** pour enregistrer vos modifications. Rouvrez ensuite le menu, puis sélectionnez **Fermer l’éditeur**. Maintenant que vous avez configuré la clé et le point de terminaison, vous pouvez utiliser votre ressource Cognitive Services pour extraire le texte d’une image.
+1. En haut à droite du volet de l’éditeur, utilisez le bouton **...** pour ouvrir le menu, puis sélectionnez **Enregistrer** pour enregistrer vos modifications. Rouvrez ensuite le menu, puis sélectionnez **Fermer l’éditeur**. Maintenant que vous avez configuré la clé et le point de terminaison, vous pouvez utiliser votre ressource Azure AI services pour extraire le texte d’une image.
 
     Utilisons l’API **Read**. Dans ce cas, vous disposez d’une image publicitaire pour la société fictive de vente au détail Northwind Traders, qui comprend du texte.
 

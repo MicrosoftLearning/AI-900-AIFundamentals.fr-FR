@@ -23,9 +23,9 @@ Dans ce labo, vous allez :
 La solution que vous allez créer pour Fourth Coffee nécessite les ressources suivantes dans votre abonnement Azure :
 
 - Une ressource **Recherche cognitive Azure**, qui va gérer l’indexation et l’interrogation.
-- Une ressource **Cognitive Services**, qui fournit les services d’IA pour les compétences que votre solution de recherche peut utiliser pour enrichir les données de la source de données avec des Insights générés par IA.
+- Une ressource **Azure AI services**, qui fournit les services d’IA pour les compétences que votre solution de recherche peut utiliser pour enrichir les données de la source de données avec des insights générés par l’IA.
 
-    > **Remarque** Vos ressources Recherche cognitive Azure et Cognitive Services doivent se trouver au même endroit !
+    > **Note** Vos ressources Recherche cognitive Azure et Azure AI services doivent se trouver au même endroit !
 
 - Un **compte de stockage** avec des conteneurs de blobs, qui stockent des documents bruts et autres collections de tables, d’objets ou de fichiers.
 
@@ -45,11 +45,11 @@ La solution que vous allez créer pour Fourth Coffee nécessite les ressources s
 
 1. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**. Sur la page de présentation de Recherche cognitive Azure, vous pouvez ajouter des index, importer des données et rechercher les index créés.
 
-### Créer une ressource Cognitive Services
+### Créer une ressource Azure AI services
 
-Vous devez provisionner une ressource **Cognitive Services** qui se trouve dans le même emplacement que votre ressource Recherche cognitive Azure. Votre solution de recherche va utiliser cette ressource pour enrichir les données dans le magasin de données avec des insights générés par IA.
+Vous devez approvisionner une ressource **Azure AI services** qui se trouve au même endroit que votre ressource Recherche cognitive Azure. Votre solution de recherche va utiliser cette ressource pour enrichir les données dans le magasin de données avec des insights générés par IA.
 
-1. Revenez à la page d’accueil du portail Azure, puis sélectionnez le bouton **+ Créer une ressource**, recherchez *Cognitive Services*, puis créez une ressource **Cognitive Services** avec les paramètres suivants : 
+1. Revenez à la page d’accueil du portail Azure. Cliquez sur le bouton **&#65291;Créer une ressource** et recherchez *Azure AI Services*. Sélectionnez **créer** un plan **Azure AI services**. Vous accédez à une page pour créer une ressource Azure AI services. Configurez-la avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*.
     - **Groupe de ressources** : *identique au groupe de ressources de votre ressource Recherche cognitive Azure*.
     - **Région** : *même localisation que votre ressource Recherche cognitive Azure*.
@@ -67,7 +67,7 @@ Vous devez provisionner une ressource **Cognitive Services** qui se trouve dans 
 
 1. Recherchez *compte de stockage*, puis créez une ressource de **Compte de stockage** avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*.
-    - **Groupe de ressources** : *identique au groupe de ressources de vos ressources Recherche cognitive Azure et Cognitive Services*.
+    - **Groupe de ressources** : *identique au groupe de ressources de vos ressources Recherche cognitive Azure et Azure AI services*.
     - **Nom du compte de stockage** : *nom unique*.
     - **Localisation** : *choisissez une localisation disponible*.
     - **Performances** : standard
@@ -75,9 +75,12 @@ Vous devez provisionner une ressource **Cognitive Services** qui se trouve dans 
 
 1. Cliquez sur **Vérifier**, puis sur **Créer**. Attendez la fin du déploiement, puis accédez à la ressource déployée.
 
+1. Dans le compte de stockage Azure créé, dans le volet du menu de gauche, sélectionnez **Configuration** (sous **Paramètres**).
+1. Modifiez le paramètre *Autoriser l’accès anonyme aux objets blob* en **Activé**, puis sélectionnez **Enregistrer**.
+
 ## Charger des documents sur Stockage Azure
 
-1. Dans le compte Stockage Azure que vous avez créé, dans le volet du menu de gauche, sélectionnez **Conteneurs**.
+1. Dans le volet du menu de gauche, sélectionnez **Conteneurs**.
 
     ![Capture d’écran montrant la page de vue d’ensemble d’un objet blob de stockage.](media/create-cognitive-search-solution/storage-blob-1.png)
 
@@ -123,7 +126,7 @@ Une fois que vous avez les documents dans le stockage, vous pouvez utiliser Rech
 
 1. Sélectionnez **Suivant : Ajouter des compétences cognitives (facultatif)**.
 
-1. Dans la section **Attacher Cognitive Services**, sélectionnez votre ressource Cognitive Services.  
+1. Dans la section **Attacher Cognitive Services**, sélectionnez votre ressource Azure AI services.  
 
 1. Dans la section **Ajouter des enrichissements** :
     - Remplacez le **Nom de l’ensemble de compétences** par **coffee-skillset**.
@@ -154,14 +157,12 @@ Une fois que vous avez les documents dans le stockage, vous pouvez utiliser Rech
     > **Remarque** Si un message d’avertissement demandant une **chaîne de connexion de compte de stockage** s’affiche.
     >
     > ![Capture d’écran montrant l’avertissement de l’écran de connexion au compte de stockage avec l’option « Choisir une connexion existante » sélectionnée.](media/create-cognitive-search-solution/6a-azure-cognitive-search-enrichments-warning.png)
-
+    >
     > 1. Sélectionnez **Choisir une connexion existante**. Choisissez le compte de stockage que vous avez préalablement créé.
-
-    > 1. Cliquez sur **+ Conteneur** pour créer un conteneur appelé **knowledge-store** avec le niveau de confidentialité privé, puis sélectionnez **Créer**.
-
+    > 1. Cliquez sur **+ Conteneur** pour créer un conteneur appelé **knowledge-store** avec un niveau de confidentialité **Privé**, puis sélectionnez **Créer**.
     > 1. Sélectionnez ensuite le conteneur **knowledge-store** et cliquez sur **Sélectionner** en bas de l’écran.
 
-1. Sélectionnez **Projets d’objets blob Azure : Document**. Un paramètre pour le *Nom du conteneur* avec le conteneur *knowledge-store* rempli automatiquement apparaît. Ne changez pas le nom du conteneur.
+1. Sélectionnez **Projetions d’objets blob Azure : Document**. Un paramètre pour le *Nom du conteneur* avec le conteneur *knowledge-store* rempli automatiquement apparaît. Ne changez pas le nom du conteneur.
 
 1. Sélectionnez **Suivant : Personnaliser l’index cible**. Remplacez le **Nom de l’index** par **coffee-index**.
 

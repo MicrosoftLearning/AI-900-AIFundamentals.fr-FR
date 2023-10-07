@@ -3,25 +3,25 @@ lab:
   title: Explorer Vision par ordinateur
 ---
 
-# <a name="explore-computer-vision"></a>Explorer Vision par ordinateur
+# Explorer Vision par ordinateur
 
 > **Remarque** Pour suivre ce labo, vous avez besoin d’un [abonnement Azure](https://azure.microsoft.com/free?azure-portal=true) dans lequel vous disposez d’un accès administratif.
 
-Le service cognitif *Vision par ordinateur* utilise des modèles Machine Learning préformés pour analyser des images et extraire des informations à leur sujet.
+Le service *Vision par ordinateur* utilise des modèles Machine Learning préformés pour analyser des images et extraire des informations à leur sujet.
 
 Par exemple, supposons que la société de commerce de détail fictive *Northwind Traders* ait décidé d’établir un « Magasin intelligent » que des services d’intelligence artificielle surveillent afin d’identifier les clients nécessitant une assistance, et de guider les employés qui leur viennent en aide. Le service Vision par ordinateur permet d’analyser les images prises par les caméras du magasin pour fournir des descriptions explicites de ce qu’elles montrent.
 
 Dans le cadre de ce labo, vous allez utiliser une application en ligne de commande simple afin de voir à l’œuvre le service Vision par ordinateur. Les mêmes principes et fonctionnalités s’appliquent aux solutions réelles, telles que des sites web ou applications téléphoniques.
 
-## <a name="create-a-cognitive-services-resource"></a>Créer une ressource *Cognitive Services*
+## Créer une ressource *Azure AI services*
 
-Vous pouvez utiliser le service Vision par ordinateur en créant une ressource **Vision par ordinateur** ou **Cognitive Services** .
+Vous pouvez utiliser le service Vision par ordinateur en créant une ressource **Vision par ordinateur** ou **Azure AI services**.
 
-Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votre abonnement Azure.
+Si ce n’est déjà fait, créez une ressource **Azure AI services** dans votre abonnement Azure.
 
 1. Sous un autre onglet de navigateur, ouvrez le portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com?azure-portal=true) en vous connectant avec votre compte Microsoft.
 
-1. Cliquez sur le bouton **&#65291;Créer une ressource**, recherchez *Cognitive Services*, puis créez une ressource **Cognitive Services** avec les paramètres suivants :
+1. Cliquez sur le bouton **&#65291;Créer une ressource** et recherchez *Azure AI Services*. Sélectionnez **créer** un plan **Azure AI services**. Vous accédez à une page pour créer une ressource Azure AI services. Configurez-la avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*.
     - **Groupe de ressources** : *sélectionnez ou créez un groupe de ressources portant un nom unique*.
     - **Région** : *choisissez une région disponible*.
@@ -31,9 +31,9 @@ Si ce n’est déjà fait, créez une ressource **Cognitive Services** dans votr
 
 1. Examinez et créez la ressource, puis attendez la fin du déploiement. Accédez ensuite à la ressource déployée.
 
-1. Affichez la page **Clés et point de terminaison** de votre ressource Cognitive Services. Vous aurez besoin du point de terminaison et des clés pour vous connecter à partir d’applications clientes.
+1. Affichez la page **Clés et points de terminaison** de votre ressource Azure AI services. Vous aurez besoin du point de terminaison et des clés pour vous connecter à partir d’applications clientes.
 
-## <a name="run-cloud-shell"></a>Exécuter Cloud Shell
+## Exécuter Cloud Shell
 
 Pour tester les fonctionnalités du service Vision par ordinateur, nous allons utiliser une simple application en ligne de commande s’exécutant dans le service Cloud Shell sur Azure.
 
@@ -55,7 +55,7 @@ Pour tester les fonctionnalités du service Vision par ordinateur, nous allons u
 
     ![Attendez que PowerShell démarre.](media/analyze-images-computer-vision-service/powershell-prompt.png)
 
-## <a name="configure-and-run-a-client-application"></a>Configurer et exécuter une application cliente
+## Configurer et exécuter une application cliente
 
 Maintenant que vous disposez d’un environnement Cloud Shell, vous pouvez exécuter une application simple qui utilise le service Vision par ordinateur pour analyser une image.
 
@@ -81,7 +81,7 @@ Maintenant que vous disposez d’un environnement Cloud Shell, vous pouvez exéc
 
     ![Éditeur contenant du code pour analyser une image](media/analyze-images-computer-vision-service/analyze-image-code.png)
 
-1. Ne vous souciez pas trop du code. Ce qui importe, c’est qu’il a besoin de l’URL du point de terminaison, ainsi que de l’une ou l’autre des clés de votre ressource Cognitive Services. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
+1. Ne vous souciez pas trop du code. Ce qui importe, c’est qu’il a besoin de l’URL du point de terminaison, ainsi que de l’une ou l’autre des clés de votre ressource Azure AI Services. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
 
     > **Conseil** Vous devrez peut-être vous servir de la barre de séparation pour ajuster la zone d’écran quand vous utilisez les volets **Clés et point de terminaison** et **Éditeur**.
 
@@ -134,6 +134,6 @@ Maintenant que vous disposez d’un environnement Cloud Shell, vous pouvez exéc
 
 1. Examinez les résultats de l’analyse pour la troisième image.
 
-## <a name="learn-more"></a>En savoir plus
+## En savoir plus
 
-Cette application simple ne montre que quelques fonctionnalités du service Vision par ordinateur. Pour en savoir plus sur ce que ce service est capable de faire, consultez la [Vision par ordinateur](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
+Cette application simple ne montre que quelques fonctionnalités du service Vision par ordinateur. Pour en savoir plus sur ce que ce service est capable de faire, consultez la [Vision par ordinateur](https://azure.microsoft.com/products/ai-services?activetab=pivot:visiontab).
