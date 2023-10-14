@@ -3,115 +3,73 @@ lab:
   title: Explorer Azure AI services
 ---
 
-# Explorer Azure AI services
+> **Important**
+> **Le labo Détecteur d'anomalies a été déprécié et remplacé par la mise à jour ci-dessous.**
 
-> **Remarque** Pour suivre ce labo, vous avez besoin d’un [abonnement Azure](https://azure.microsoft.com/free?azure-portal=true) dans lequel vous disposez d’un accès administratif.
+Azure AI services aide les utilisateurs à créer des applications avec des API et modèles prêts à l’emploi, prédéfinis et personnalisables. Dans cet exercice, vous allez examiner l’un des services, Azure AI Sécurité du Contenu, dans le Studio de Sécurité du Contenu. 
 
-Azure AI services encapsule des fonctionnalités IA courantes qui peuvent être catégorisées en quatre principaux groupes : les services vision, reconnaissance vocale/synthèse vocale, langage et décision. Dans cet exercice, vous allez examiner l’un des services de décision pour avoir une idée générale du provisionnement et de l’utilisation d’une ressource Azure AI services dans une application logicielle.
+Le Studio de Sécurité du Contenu vous permet d’explorer la façon dont le contenu texte et image peut être modéré. Vous pouvez exécuter des tests sur des exemples de texte ou d’images et obtenir un score de gravité allant de sécurisé à élevé pour chaque catégorie. Dans cet exercice de labo, vous allez créer une ressource à service unique dans le Studio de Sécurité du Contenu et tester ses fonctionnalités. 
 
-La service Azure AI spécifique que vous allez explorer dans cet exercice est le *Détecteur d’anomalies*. Le Détecteur d’anomalies permet d’analyser les valeurs des données au fil du temps, et de détecter toutes les valeurs inhabituelles susceptibles d’indiquer un problème ou de nécessiter une investigation plus approfondie. Par exemple, un capteur dans une installation de stockage avec contrôle de la température peut effectuer un monitoring de la température toutes les minutes et journaliser les valeurs mesurées. Vous pouvez utiliser le service Détecteur d’anomalies pour analyser les valeurs de température journalisées, et marquer celles qui se situent considérablement en dehors de la plage normale des températures attendues.
+> **Remarque** L’objectif de cet exercice est d’avoir une idée générale de la façon dont les services Azure AI services sont provisionnés et utilisés. Sécurité du Contenu est utilisé à titre d’exemple, vous n’êtes pas censé devenir un expert en sécurité de contenu après cet exercice.
 
-Pour tester les fonctionnalités du service Détection d'anomalie, nous allons utiliser une application de ligne de commande simple s’exécutant dans Cloud Shell. Les mêmes principes et fonctionnalités s’appliquent aux solutions réelles, telles que des sites web ou applications téléphoniques.
+## Naviguer dans le Studio de Sécurité du Contenu 
 
-> **Remarque** L’objectif de cet exercice est d’avoir une idée générale de la façon dont les services Azure AI services sont provisionnés et utilisés. Le Détecteur d’anomalies est utilisé à titre d’exemple, mais vous n’êtes pas censé acquérir une connaissance complète de la détection d’anomalie dans cet exercice !
+![Capture d’écran de la page d’accueil du Studio de Sécurité du Contenu.](./media/content-safety/content-safety-getting-started.png)
 
-## Créer une ressource *Détecteur d'anomalies*
 
-Commençons par créer une ressource **Détecteur d’anomalies** dans votre abonnement Azure :
+1. Ouvrez [Studio de Sécurité du Contenu](https://contentsafety.cognitive.azure.com?azure-portal=true). Si vous n’êtes pas connecté, vous devez le faire. Sélectionnez **Se connecter** en haut à droite de l’écran. Utilisez l’adresse e-mail et le mot de passe associés à votre abonnement Azure pour vous connecter. 
 
-1. Sous un autre onglet de navigateur, ouvrez le portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com?azure-portal=true) en vous connectant avec votre compte Microsoft.
+1. Le Studio de Sécurité du Contenu est configuré comme de nombreux autres studios des services Azure AI services. Dans le menu en haut de l’écran, cliquez sur l’icône à gauche d’*Azure AI*. Vous verrez une liste déroulante d’autres studios conçus pour le développement avec les services Azure AI services. Vous pouvez cliquer à nouveau sur l’icône pour masquer la liste.
 
-1. Cliquez sur le bouton **&#65291;Créer une ressource**, recherchez *Détecteur d'anomalies*, puis créez une ressource **Détecteur d'anomalies** avec les paramètres suivants :
+![Capture d’écran du menu de Studio de Sécurité du Contenu avec une sélection bascule ouverte au basculement vers d’autres studios.](./media/content-safety/studio-toggle-icon.png)  
+
+## Associer une ressource au studio 
+
+Avant d’utiliser le studio, vous devez associer une ressource Azure AI services au studio. Selon le studio, vous constaterez qu’il vous faut une ressource à service unique spécifique ou que vous pouvez utiliser une ressource à plusieurs services générale. Dans le cas du Studio de Sécurité du Contenu, vous pouvez utiliser le service en créant une ressource *Sécurité du Contenu* à service unique ou une ressource à plusieurs services générale *Azure AI services*. Dans les étapes ci-dessous, nous allons créer une ressource Sécurité du Contenu à service unique. 
+
+1. En haut à droite de l’écran, cliquez sur l’icône **Paramètres**. 
+
+![Capture d’écran de l’icône des paramètres en haut à droite de l’écran, en regard de l’icône de la cloche, du point d’interrogation et du sourire.](./media/content-safety/settings-toggle.png)
+
+1. Dans la page **Paramètres**, vous verrez un onglet *Répertoire* et un onglet *Ressource*. Sous l’onglet *Ressource*, sélectionnez **Créer une ressource**. Cela vous amène à la page pour créer une ressource dans le portail Azure.
+
+> **Remarque** L’onglet *Répertoire* permet aux utilisateurs de sélectionner différents répertoires à partir desquels créer des ressources. Vous n’avez pas besoin de modifier ses paramètres, sauf si vous souhaitez utiliser un autre répertoire. 
+
+![Capture d’écran montrant où sélectionner « Créer une ressource » dans la page des paramètres du Studio de Sécurité du Contenu.](./media/content-safety/create-new-resource-from-studio.png)
+
+1. Dans la page *Créer une sécurité du contenu* dans le [portail Azure](https://portal.azure.com?auzre-portal=true), vous devez configurer plusieurs détails pour créer votre ressource. Configurez-la avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*.
-    - **Groupe de ressources** : *sélectionnez un groupe de ressources ou créez-en un nouveau*.
+    - **Groupe de ressources** : *sélectionnez ou créez un groupe de ressources portant un nom unique*.
     - **Région** : *choisissez une région disponible*.
     - **Nom** : *entrez un nom unique.*
     - **Niveau tarifaire** : F0 gratuit
 
-1. Examinez et créez la ressource. Attendez la fin du déploiement, puis accédez à la ressource déployée.
+1. Sélectionnez **Vérifier + créer**, puis passez en revue la configuration. Sélectionnez ensuite **Créer**. L’écran indique quand le déploiement est terminé. 
 
-1. Affichez la page **Clés et point de terminaison** de votre ressource Détecteur d'anomalies. Vous aurez besoin du point de terminaison et des clés pour vous connecter à partir d’applications clientes.
+*Félicitations ! Vous venez de créer ou d’approvisionner une ressource Azure AI services. Celle que vous avez approvisionnée dans ce cas précis est une ressource du service Sécurité du Contenu à service unique.*
 
-## Exécuter Cloud Shell
+1. Une fois le déploiement terminé, ouvrez un nouvel onglet et revenez au [Studio de Sécurité du Contenu](https://contentsafety.cognitive.azure.com?azure-portal=true). 
 
-Pour tester les fonctionnalités du service Détecteur d'anomalies, nous allons utiliser une application de ligne de commande simple s’exécutant dans Cloud Shell sur Azure.
+1. Sélectionnez à nouveau l’icône **Paramètres** en haut à droite de l’écran. Cette fois, vous devriez voir que votre ressource nouvellement créée a été ajoutée à la liste.  
 
-1. Dans le portail Azure, sélectionnez le bouton **[>_]** (*Cloud Shell*) en haut de la page, à droite de la zone de recherche. Cela a pour effet d’ouvrir un volet de Cloud Shell au bas du portail.
+1. Dans la page Paramètres de Studio de Sécurité du Contenu, sélectionnez la ressource du service Azure AI services que vous venez de créer, puis cliquez sur **Utiliser la ressource** en bas de l’écran. Vous serez redirigé vers la page d’accueil du studio. Vous pouvez maintenant commencer à utiliser le studio avec votre ressource nouvellement créée.
 
-    ![Démarrez le service Cloud Shell en cliquant sur l’icône située à droite de la zone de recherche en haut.](media/anomaly-detector/powershell-portal-guide-1.png)
+## Essayer la modération de texte dans Studio de Sécurité du Contenu
 
-1. Lorsque vous ouvrez le service Cloud Shell première fois, il se peut que vous soyez invité à choisir le type d’interpréteur de commandes que vous souhaitez utiliser (*Bash* ou *PowerShell*). Sélectionnez **PowerShell**. Si vous ne voyez pas cette option, ignorez l’étape.  
+1. Dans la page d’accueil Studio de Sécurité du Contenu, sous *Exécuter des tests de modération*, accédez à la zone **Modérer le contenu de texte**, puis cliquez sur **Essayer**.
+1. Sous Exécuter un test simple, cliquez sur **Contenu sécurisé**. Le texte est affiché dans la zone ci-dessous. 
+1. Cliquez sur **Run test**. L’exécution d’un test appelle le modèle de Deep Learning du service Sécurité du Contenu. Le modèle de Deep Learning a déjà été formé pour reconnaître le contenu non sécurisé.
+1. Dans le panneau *Résultats*, inspectez les résultats. Il y a quatre niveaux de gravité allant de sécurisé à élevé, et quatre types de contenu nuisible. Le service AI Sécurité du Contenu considère-t-il cet exemple comme acceptable ou non ? Il est important de souligner que les résultats se situent dans un intervalle de confiance. Un modèle bien entraîné, comme l’un des modèles prêts à l’emploi d’Azure AI, peut retourner des résultats qui ont une forte probabilité de correspondre à ce qu’un humain étiquetterait pour le résultat. Chaque fois que vous exécutez un test, vous appelez à nouveau le modèle. 
+1. Essayez maintenant un autre échantillon. Sélectionnez le texte sous Contenu violent avec une faute d’orthographe. Vérifiez que le contenu s’affiche dans la zone ci-dessous.
+1. Cliquez sur **Exécuter le test** et examinez à nouveau les résultats dans le panneau Résultats. 
 
-1. Si vous êtes invité à créer un stockage pour votre service Cloud Shell, assurez-vous que votre abonnement est spécifié, puis sélectionnez **Créer un stockage**. Patientez ensuite environ une minute jusqu’à ce que le stockage soit créé.
+Vous pouvez exécuter des tests sur tous les exemples fournis, puis examiner les résultats.
 
-    ![Créez le stockage en cliquant sur Confirmer.](media/anomaly-detector/powershell-portal-guide-2.png)
+## Examinez les clés et le point de terminaison
 
-1. Assurez-vous que le type d’interpréteur de commandes indiqué en haut à gauche du volet Cloud Shell est *PowerShell*. S’il s’agit de *Bash*, basculez vers *PowerShell* à l’aide du menu déroulant.
+Ces fonctionnalités que vous avez testées peuvent être programmées dans toutes sortes d’applications. Les clés et le point de terminaison utilisés pour le développement d’applications se trouvent tous dans le studio de sécurité du contenu et le portail Azure. 
 
-    ![Comment trouver le menu déroulant à gauche pour basculer vers PowerShell](media/anomaly-detector/powershell-portal-guide-3.png)
+1. Dans le studio de sécurité du contenu, revenez à la page **Paramètres**, avec l’onglet *Ressources* sélectionné. Recherchez la ressource que vous avez utilisée. Faites défiler l’écran pour voir le point de terminaison et la clé de votre ressource. 
+1. Dans le portail Azure, vous verrez qu’il s’agit du *même* point de terminaison et de *différentes* clés que dans votre ressource. Pour vérifier cela, accédez au [portail Azure](https://portal.azure.com?auzre-portal=true). Recherchez *Sécurité du Contenu* dans la barre de recherche supérieure. Recherchez votre ressource et cliquez dessus. Dans le menu de gauche, en dessous de *Gestion des ressources*, cherchez *Clés et points de terminaison*. Sélectionnez **Clés et points de terminaison** pour afficher le point de terminaison et les clés de votre ressource. 
 
-1. Attendez que PowerShell démarre. Vous devriez voir l’écran suivant s’afficher dans le portail Azure :  
-
-    ![Attendez que PowerShell démarre.](media/anomaly-detector/powershell-prompt.png)
-
-## Configurer et exécuter une application cliente
-
-Maintenant que vous disposez d’un environnement Cloud Shell, vous pouvez exécuter une application simple qui utilise le service Détecteur d’anomalies pour analyser des données.
-
-1. Dans l’interpréteur de commandes, entrez la commande suivante pour télécharger l’exemple d’application et l’enregistrer dans un dossier nommé ai-900.
-
-    ```PowerShell
-    git clone https://github.com/MicrosoftLearning/AI-900-AIFundamentals ai-900
-    ```
-
-    >**Conseil** Si vous avez déjà utilisé cette commande dans un autre labo pour cloner le dépôt *ai-900*, vous pouvez ignorer cette étape.
-
-1. Les fichiers sont téléchargés dans un dossier nommé **ai-900**. À présent, nous souhaitons voir tous les fichiers de votre stockage Cloud Shell et les utiliser. Tapez la commande suivante dans l’interpréteur de commandes :
-
-     ```PowerShell
-    code .
-    ```
-
-    Notez que cela a pour effet d’ouvrir un éditeur tel que celui présenté dans l’illustration ci-dessous : 
-
-    ![L’éditeur de code.](media/anomaly-detector/powershell-portal-guide-4.png)
-
-1. Dans le volet **Fichiers** à gauche, développez **ai-900**, puis sélectionnez **detect-anomalies.ps1**. Ce fichier contient du code qui utilise le service Détection d'anomalie, comme illustré ici :
-
-    ![Éditeur contenant du code pour détecter les anomalies](media/anomaly-detector/detect-anomalies-code.png)
-
-1. Ne vous souciez pas trop des détails du code. Ce qui importe, c’est qu’il a besoin de l’URL du point de terminaison, ainsi que de l’une ou l’autre des clés de votre ressource Détecteur d'anomalies. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource (qui doit toujours se trouver dans la partie supérieure du navigateur), et collez-les dans l’éditeur de code, en remplaçant les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**, respectivement.
-
-    > **Conseil** Vous devrez peut-être vous servir de la barre de séparation pour ajuster la zone d’écran quand vous utilisez les volets **Clés et point de terminaison** et **Éditeur**.
-
-    Une fois les valeurs de clé et de point de terminaison collées, les deux premières lignes de code devraient ressembler à ceci :
-
-    ```PowerShell
-    $key="1a2b3c4d5e6f7g8h9i0j...."    
-    $endpoint="https..."
-    ```
-
-1. En haut à droite du volet de l’éditeur, utilisez le bouton **...** pour ouvrir le menu, puis sélectionnez **Enregistrer** pour enregistrer vos modifications. Rouvrez ensuite le menu, puis sélectionnez **Fermer l’éditeur**.
-
-    Encore une fois, la détection d’anomalie est une technique d’intelligence artificielle utilisée pour déterminer si les valeurs d’une série sont comprises dans les paramètres attendus. L’exemple d’application cliente utilise votre service Détecteur d'anomalies pour analyser un fichier contenant une série de valeurs de date/heure et numériques. L’application doit renvoyer des résultats indiquant, à chaque point de temps, si la valeur numérique se situe dans les paramètres attendus.
-
-1. Dans le volet PowerShell, entrez les commandes suivantes pour exécuter le code :
-
-    ```PowerShell
-    cd ai-900
-    .\detect-anomalies.ps1
-    ```
-
-1. Examinez les résultats, en notant que la dernière colonne dans les résultats est **True** ou **False** pour indiquer si la valeur enregistrée à chaque date/heure est considérée comme une anomalie ou non. Pensez à la façon dont nous pourrions utiliser ces informations dans une situation réelle. Quelle action l’application pourrait-elle déclencher si les valeurs sont celles de la température du réfrigérateur ou de la pression sanguine et que des anomalies sont détectées ?  
-
-## Nettoyage
-
-Il est judicieux, à la fin d’un projet, de déterminer si vous avez encore besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. 
-
-Si vous passez à d’autres modules d’Azure AI - Notions fondamentales, vous pouvez conserver vos ressources pour les utiliser dans d’autres labos.
-
-Si vous avez fini votre apprentissage, vous pouvez supprimer le groupe de ressources ou les ressources individuelles de votre abonnement Azure :
-
-1. Dans le [portail Azure](https://portal.azure.com/), dans la page **Groupes de ressources**, ouvrez le groupe de ressources que vous avez spécifié lors de la création de votre ressource.
-
-2. Cliquez sur **Supprimer le groupe de ressources**, tapez le nom du groupe de ressources pour confirmer que vous souhaitez le supprimer, puis sélectionnez **Supprimer**. Vous pouvez également choisir de supprimer des ressources individuelles en sélectionnant la ou les ressources, en cliquant sur les trois points pour voir plus d’options, puis en cliquant sur **Supprimer**.
+Une fois que vous avez terminé, vous pouvez supprimer la ressource Sécurité du Contenu du portail Azure. La suppression de la ressource est un moyen de réduire les coûts qui s’accumulent lorsque la ressource existe déjà dans l’abonnement. Pour cela, accédez à la page **Vue d’ensemble** de votre ressource Sécurité du Contenu. En haut de l’écran, sélectionnez **Supprimer**. 
