@@ -75,7 +75,7 @@ Vous devez approvisionner une ressource **Azure AI services** qui se trouve au m
 
 1. Cliquez sur **Vérifier**, puis sur **Créer**. Attendez la fin du déploiement, puis accédez à la ressource déployée.
 
-1. Dans le compte de stockage Azure créé, dans le volet du menu de gauche, sélectionnez **Configuration** (sous **Paramètres**).
+1. Dans le compte de stockage Azure que vous avez créé, dans le volet gauche du menu, sélectionnez **Configuration** (sous **Paramètres**).
 1. Modifiez le paramètre *Autoriser l’accès anonyme aux objets blob* en **Activé**, puis sélectionnez **Enregistrer**.
 
 ## Charger des documents sur Stockage Azure
