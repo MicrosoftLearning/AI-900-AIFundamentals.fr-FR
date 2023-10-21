@@ -33,7 +33,7 @@ Pour utiliser Azure Machine Learning, vous devez approvisionner un espace de tra
 
 1. Sélectionnez **Lancer Studio** (ou ouvrez un nouvel onglet de navigateur, accédez à [https://ml.azure.com](https://ml.azure.com?azure-portal=true), puis connectez-vous à Azure Machine Learning Studio à l’aide de votre compte Microsoft). Fermez tous les messages affichés.
 
-1. Dans Azure Machine Learning Studio, vous devez voir l’espace de travail qui vient d’être créé. Si ce n’est pas le cas, sélectionnez **Tous les espaces de travail** dans le menu de gauche, puis l’espace de travail créé.
+1. Dans Azure Machine Learning Studio, vous devez voir l’espace de travail qui vient d’être créé. Si ce n’est pas le cas, sélectionnez **Tous les espaces de travail** dans le menu de gauche, puis l’espace de travail que vous venez de créer.
 
 ## Activer les fonctionnalités en préversion
 
