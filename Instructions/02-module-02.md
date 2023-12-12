@@ -33,7 +33,7 @@ Pour utiliser Azure Machine Learning, vous devez approvisionner un espace de tra
 
 1. Sélectionnez **Lancer Studio** (ou ouvrez un nouvel onglet de navigateur, accédez à [https://ml.azure.com](https://ml.azure.com?azure-portal=true), puis connectez-vous à Azure Machine Learning Studio à l’aide de votre compte Microsoft). Fermez tous les messages affichés.
 
-1. Dans Azure Machine Learning Studio, vous devez voir l’espace de travail qui vient d’être créé. Si ce n’est pas le cas, sélectionnez **Tous les espaces de travail** dans le menu de gauche, puis l’espace de travail que vous venez de créer.
+1. Dans Azure Machine Learning Studio, vous devez voir l’espace de travail qui vient d’être créé. Si ce n’est pas le cas, sélectionnez **Tous les espaces de travail** dans le menu de gauche, puis l’espace de travail créé.
 
 ## Activer les fonctionnalités en préversion
 
@@ -76,7 +76,7 @@ Le Machine Learning automatisé vous permet d’essayer plusieurs algorithmes et
         - **Source des données** :
             - Sélectionner **À partir de fichiers web**
         - **URL web** :
-            - **URL web** : ****
+            - **URL web** : `https://aka.ms/bike-rentals`
             - **Ignorer la validation des données** : *ne pas sélectionner*
         - **Paramètres**:
             - **Format de fichier** : Délimité
@@ -105,16 +105,16 @@ Le Machine Learning automatisé vous permet d’essayer plusieurs algorithmes et
         - **Nombre maximal d’essais**: 3
         - **Nombre maximal d’essais simultanés** : 3
         - **Nombre maximal de nœuds** : 3
-        - **Seuil de score de métrique** : 0,85 (*si un modèle atteint ainsi un score de métrique d’erreur quadratique moyenne normalisée égal ou inférieur à 0,85, le travail s’achève.* )
+        - **Seuil de score de métrique** : 0,85 (*si un modèle atteint ainsi un score de métrique d’erreur quadratique moyenne normalisée égal ou inférieur à 0,85, le travail s’achève.*)
         - **Délai d’expiration** : 15
         - **Délai d’expiration de l’itération** : 5
         - **Activer la résiliation anticipée** : *Sélectionné*
     - **Validation et test** :
-        - **Type de validation** : Fractionnement apprentissage-validation
+        - **Type de validation** : fractionnement de validation d’entraînement
         - **Pourcentage de données de validation** : 10
         - **Jeu de données de test** : Aucun
 
-    **Calcul** :
+    **Capacité de calcul :**
 
     - **Sélectionner le type de calcul** : Serverless
     - **Type de machine virtuelle** : Processeur

@@ -71,7 +71,7 @@ Pour commencer à utiliser un concepteur Azure Machine Learning, vous devez d’
         - **Type de jeu de données** : Tabulaire
     - **Source de données** : fichiers web
     - **URL web** :
-        - **URL web** : ****
+        - **URL web** : https://aka.ms/penguin-data
         - **Ignorer la validation des données** : *ne pas sélectionner*
     - **Paramètres**:
         - **Format de fichier** : Délimité

@@ -23,7 +23,7 @@ Si ce n’est déjà fait, créez une ressource **Azure AI services** dans votre
 
 1. Sous un autre onglet de navigateur, ouvrez le portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com?azure-portal=true) en vous connectant avec votre compte Microsoft.
 
-1. Cliquez sur le bouton **&#65291;Créer une ressource** et recherchez *Azure AI Services*. Sélectionnez **créer** un plan **Azure AI services**. Vous accédez à une page pour créer une ressource Azure AI services. Configurez-la avec les paramètres suivants :
+1. Cliquez sur le bouton **&#65291;Créer une ressource** et recherchez *Azure AI services*. Sélectionnez **créer** un plan **Azure AI services**. Vous accédez à une page pour créer une ressource Azure AI services. Configurez-la avec les paramètres suivants :
     - **Abonnement** : *votre abonnement Azure*.
     - **Groupe de ressources** : *sélectionnez ou créez un groupe de ressources portant un nom unique*.
     - **Région** : *choisissez une région disponible*.
@@ -83,7 +83,7 @@ Pour tester les fonctionnalités du service Form Recognizer, nous allons utilise
 
     ![Éditeur contenant du code pour analyser les champs d’un reçu.](media/analyze-receipts/recognize-receipt-code.png)
 
-1. Ne vous souciez pas trop des détails du code. Ce qui importe, c’est qu’il a besoin de l’URL du point de terminaison, ainsi que de l’une ou l’autre des clés de votre ressource Azure AI services. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
+1. Ne vous souciez pas trop des détails du code. Ce qui importe, c’est qu’il a besoin de l’URL du point de terminaison, ainsi que de l’une ou l’autre des clés de votre ressource Azure AI Services. Copiez celles-ci à partir de la page **Clés et points de terminaison** de votre ressource dans le portail Azure, et collez-les dans l’éditeur de code, en remplaçant respectivement les valeurs d’espace réservé **YOUR_KEY** et **YOUR_ENDPOINT**.
 
     > **Conseil** Vous devrez peut-être vous servir de la barre de séparation pour ajuster la zone d’écran quand vous utilisez les volets **Clés et point de terminaison** et **Éditeur**.
 

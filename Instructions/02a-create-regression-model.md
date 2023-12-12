@@ -246,9 +246,9 @@ Une fois que vous avez identifié un modèle avec des métriques d’évaluation
 
     ![Capture d’écran de l’emplacement de création du pipeline d’inférence.](media/create-regression-model/create-inference-pipeline.png)
 
-1. Dans la liste déroulante **Créer un pipeline d’inférence**, cliquez sur **Pipeline d’inférence en temps réel**. Après quelques secondes, une nouvelle version de votre pipeline nommé **Auto Price Training-real time inference** est ouverte.
+1. Dans la liste déroulante **Créer un pipeline d’inférence**, cliquez sur **Pipeline d’iInférence en temps réel**. Après quelques secondes, une nouvelle version de votre pipeline nommé **Auto Price Training-real time inference** est ouverte.
 
-1. Renommez le nouveau pipeline en **Predict Auto Price**, puis passez en revue le nouveau pipeline. Il contient une entrée de service web pour les nouvelles données à soumettre et une sortie de service web pour retourner les résultats. Certaines des transformations et des étapes d’entraînement font partie de ce pipeline. Le modèle entraîné est utilisé pour attribuer un score aux nouvelles données.
+1. Renommez le nouveau pipeline en **Predict Auto Price**, puis passez en revue le nouveau pipeline. Il contient une entrée de service web pour les nouvelles données à soumettre et une sortie de service web pour retourner les résultats. Certaines des transformations et des étapes d’entraînement font partie de ce pipeline. Le modèle entraîné sera utilisé pour attribuer un score aux nouvelles données.
 
     Vous allez effectuer les modifications suivantes dans le pipeline d’inférence lors des étapes suivantes :
 
@@ -286,7 +286,7 @@ Une fois que vous avez identifié un modèle avec des métriques d’évaluation
                         inplace=True)
      return scored_results
     ```
->**Remarque** : Le copier-coller peut introduire des espaces dans le script Python qui ne doivent pas être présents. Vérifiez une nouvelle fois qu’il n’y a pas d’espace avant *import*, *def* ou *return*. Assurez-vous qu’il existe une mise en retrait de tabulation avant *scored_results* et *scored_results.rename()* .
+>**Remarque** : Le copier-coller peut introduire des espaces dans le script Python qui ne doivent pas être présents. Vérifiez une nouvelle fois qu’il n’y a pas d’espace avant *import*, *def* ou *return*. Assurez-vous qu’il existe une mise en retrait de tabulation avant *scored_results* et *scored_results.rename()*.
 
 1. Connectez la sortie depuis le module **Score Model** pour l’entrée **Dataset1** (la plus à gauche) de **Exécuter le script Python**.
 
