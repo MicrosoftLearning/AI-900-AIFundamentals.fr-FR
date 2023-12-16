@@ -64,7 +64,7 @@ La création du cluster de calcul prend du temps. Vous pouvez passer à l’éta
         - **Type de jeu de données** : Tabulaire
     - **Source de données** : à partir de fichiers web
     - **URL web** :
-        - **URL web** : ****
+        - **URL web** : https://aka.ms/diabetes-data
         - **Ignorer la validation des données** : *ne pas sélectionner*
     - **Paramètres**:
         - **Format de fichier** : Délimité
@@ -261,7 +261,7 @@ La performance de ce modèle n’est pas excellente, notamment parce que nous n�
 
 1. Dans la liste déroulante **Créer un pipeline d’inférence**, cliquez sur **Pipeline d’iInférence en temps réel**. Après quelques secondes, une nouvelle version de votre pipeline nommée **Diabetes Training-real time inference** s’ouvre.
 
-1. Renommez le nouveau pipeline **Predict Diabetes**, puis examinez-le. Certaines des transformations et des étapes d’entraînement font partie de ce pipeline. Le modèle entraîné est utilisé pour attribuer un score aux nouvelles données. Le pipeline contient également une sortie de service web pour retourner les résultats.
+1. Renommez le nouveau pipeline **Predict Diabetes**, puis examinez-le. Certaines des transformations et des étapes d’entraînement font partie de ce pipeline. Le modèle entraîné sera utilisé pour attribuer un score aux nouvelles données. Le pipeline contient également une sortie de service web pour retourner les résultats.
 
     Vous allez apporter les modifications suivantes au pipeline d’inférence :
 

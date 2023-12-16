@@ -52,7 +52,7 @@ Notez que la réponse peut être similaire, mais pas la même. Cela est dû au f
 
 1. Entrez la demande : `Translate that into C#`. Notez que vous n’avez pas besoin de spécifier la nature de « ça » car Bing Copilot sait faire référence à l’historique des conversations. 
 
-## Bonus 
+## Prime 
 
 1. Entrez une demande : `What are 3 examples of generative AI helping people?`. Servez-vous-en pour réfléchir à vos propres idées de copilote !  
 
