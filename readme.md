@@ -1,3 +1,11 @@
+#README
+
+We've turned off the ability to report issues directly on this repo and do not monitor PRs.
+
+Provide feedback here: https://aka.ms/provide-feedback
+
+Or, if you are a trainer with a microsoft.com email address, please create a ticket in AzDO.
+
 # AI-900 : notions de base de Microsoft Azure AI
 
 >**Important** : un nouveau dépôt a été créé pour les exercices pratiques du cours AI-900 afin de refléter la nouvelle mouture du cours. À l’avenir, utilisez [mslearn-ai-fundamentals](https://github.com/MicrosoftLearning/mslearn-ai-fundamentals). Nous mettrons ce dépôt hors service avant la fin de l’année. 
